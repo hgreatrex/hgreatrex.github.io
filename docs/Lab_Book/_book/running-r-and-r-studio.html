@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Running R and R-studio | Geog-364: Introduction to R</title>
+  <meta name="description" content="These are the lab scripts for each of your labs this semester." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Running R and R-studio | Geog-364: Introduction to R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="These are the lab scripts for each of your labs this semester." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Running R and R-studio | Geog-364: Introduction to R" />
+  
+  <meta name="twitter:description" content="These are the lab scripts for each of your labs this semester." />
+  
+
+<meta name="author" content="Helen Greatrex" />
+
+
+<meta name="date" content="2020-08-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="r-basics.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">GEOGRAPHY 364 2020</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#why-is-this-class-in-r"><i class="fa fa-check"></i><b>1.1</b> Why is this class in R?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-are-r-and-r-studio"><i class="fa fa-check"></i><b>1.2</b> What are R and R-studio?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html"><i class="fa fa-check"></i><b>2</b> Running R and R-studio</a><ul>
+<li class="chapter" data-level="2.1" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#what-are-your-options"><i class="fa fa-check"></i><b>2.1</b> What are your options?</a></li>
+<li class="chapter" data-level="2.2" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#click-if-you-already-have-rr-studio"><i class="fa fa-check"></i><b>2.2</b> Click if you already have R/R-studio</a></li>
+<li class="chapter" data-level="2.3" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#installing-rr-studio"><i class="fa fa-check"></i><b>2.3</b> Installing R/R-studio</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#if-you-are-on-a-windows-machine"><i class="fa fa-check"></i><b>2.3.1</b> If you are on a Windows machine</a></li>
+<li class="chapter" data-level="2.3.2" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#if-you-are-on-a-mac"><i class="fa fa-check"></i><b>2.3.2</b> If you are on a Mac</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#accessing-r-studio-online"><i class="fa fa-check"></i><b>2.4</b> Accessing R-studio online</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#using-penn-states-tlt-server"><i class="fa fa-check"></i><b>2.4.1</b> Using Penn State’s TLT server</a></li>
+<li class="chapter" data-level="2.4.2" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#accessing-the-r-studio-cloud"><i class="fa fa-check"></i><b>2.4.2</b> Accessing the R-studio cloud</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#using-penn-state-computers"><i class="fa fa-check"></i><b>2.5</b> Using Penn State computers</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>3</b> R basics</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-basics.html"><a href="r-basics.html#getting-started"><i class="fa fa-check"></i><b>3.1</b> Getting started</a></li>
+<li class="chapter" data-level="3.2" data-path="r-basics.html"><a href="r-basics.html#basic-arithmatic"><i class="fa fa-check"></i><b>3.2</b> Basic arithmatic</a></li>
+<li class="chapter" data-level="3.3" data-path="r-basics.html"><a href="r-basics.html#comments"><i class="fa fa-check"></i><b>3.3</b> Comments</a></li>
+<li class="chapter" data-level="3.4" data-path="r-basics.html"><a href="r-basics.html#comparing-things"><i class="fa fa-check"></i><b>3.4</b> Comparing things</a></li>
+<li class="chapter" data-level="3.5" data-path="r-basics.html"><a href="r-basics.html#variables-and-assignment"><i class="fa fa-check"></i><b>3.5</b> Variables and assignment</a></li>
+<li class="chapter" data-level="3.6" data-path="r-basics.html"><a href="r-basics.html#functions"><i class="fa fa-check"></i><b>3.6</b> Functions</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="r-basics.html"><a href="r-basics.html#command-help"><i class="fa fa-check"></i><b>3.6.1</b> Command help</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="r-basics.html"><a href="r-basics.html#creating-an-rmd-script"><i class="fa fa-check"></i><b>3.7</b> Creating an Rmd-script</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="where-can-i-go-from-here.html"><a href="where-can-i-go-from-here.html"><i class="fa fa-check"></i><b>4</b> Where can I go from here?</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Geog-364: Introduction to R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="running-r-and-r-studio" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Running R and R-studio</h1>
+<div id="what-are-your-options" class="section level2">
+<h2><span class="header-section-number">2.1</span> What are your options?</h2>
+<p>Here you have a few options and we will go through them in detail below. It’s important you find something that works for you. If you are having issues being able to access a computer to do this, please talk to Dr Greatrex and we can problem solve together.</p>
+<ol style="list-style-type: decimal">
+<li><p>You can install R and R-Studio on your own computer. This is <em>free</em> , BUT in the new COVID world, it can be harder for me to help you if there is a problem. Nevertheless, we are happy to help you through any issues you have with R on your own computer and it means that you can use it offline.</p></li>
+<li><p>Using R-studio on the Penn State Teaching and Learning Technology (TLT) online server. This is also free, but last year has all sorts of issues and bugs. We can definitely work through things with this, but user beware.</p></li>
+<li><p>There is an online version of R-Studio called R-studio Cloud - <a href="https://rstudio.cloud/plans/student" class="uri">https://rstudio.cloud/plans/student</a>. Here you can use an online version of R-studio, but it costs $3/6 a month and will not be available after the course ends. But if you are having big issues with R-studio elsewhere then this is an option.</p></li>
+<li><p>On Penn State computers, BUT this is not a “COVID-proof option”</p></li>
+</ol>
+</div>
+<div id="click-if-you-already-have-rr-studio" class="section level2">
+<h2><span class="header-section-number">2.2</span> Click if you already have R/R-studio</h2>
+<p>It’s great you have them installed! Many of the packages that we are using rely on the most up-to-date version of R and R-studio, so please could yuo upgrade? (If you know this will lead to issues on another project, talk to Dr Greatrex before you do anything).</p>
+<p>To update them, you can use these instructions: <a href="https://uvastatlab.github.io/phdplus/installR.html#updateR" class="uri">https://uvastatlab.github.io/phdplus/installR.html#updateR</a></p>
+</div>
+<div id="installing-rr-studio" class="section level2">
+<h2><span class="header-section-number">2.3</span> Installing R/R-studio</h2>
+<p>First, we need to install R itself. There is a good tutorial here: <a href="https://rstudio-education.github.io/hopr/starting.html" class="uri">https://rstudio-education.github.io/hopr/starting.html</a></p>
+<div id="if-you-are-on-a-windows-machine" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> If you are on a Windows machine</h3>
+<p>First we will download and install R:</p>
+<ol style="list-style-type: decimal">
+<li>Go to this link and click on Windows - <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a></li>
+<li>Click “Install R for the first time”</li>
+<li>Then click “Download R 4.0.2 for Windows”, open the file and follow the instructions</li>
+</ol>
+<p>Now, we will download and install R-studio</p>
+<ol style="list-style-type: decimal">
+<li>Go to this link and click on the FREE desktop download - <a href="https://rstudio.com/products/rstudio/download/" class="uri">https://rstudio.com/products/rstudio/download/</a></li>
+<li>Download the file, open it and follow the instructions</li>
+</ol>
+<p>These should both install with no issues. If that is done, then open <strong>R-Studio</strong>, make sure it opens and looks like Figure <a href="index.html#fig:Rstudio">1.2</a>.</p>
+</div>
+<div id="if-you-are-on-a-mac" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> If you are on a Mac</h3>
+<p>First we will download and install R:</p>
+<ol style="list-style-type: decimal">
+<li>Go to this link and click on Windows - <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a></li>
+<li>Click “Install R for the first time”</li>
+<li>Then click “R-4.0.2.pkg”, open the file and follow the instructions</li>
+</ol>
+<p>Now, we will download and install R-studio</p>
+<ol style="list-style-type: decimal">
+<li>Go to this link and click on the FREE desktop download - <a href="https://rstudio.com/products/rstudio/download/" class="uri">https://rstudio.com/products/rstudio/download/</a></li>
+<li>Download the file, open it and follow the instructions</li>
+</ol>
+<p>These should both install with no issues. If that is done, then open <strong>R-Studio</strong>, make sure it opens and looks like Figure <a href="index.html#fig:Rstudio">1.2</a>.</p>
+</div>
+</div>
+<div id="accessing-r-studio-online" class="section level2">
+<h2><span class="header-section-number">2.4</span> Accessing R-studio online</h2>
+<div id="using-penn-states-tlt-server" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Using Penn State’s TLT server</h3>
+<p>If you cannot install R on your computer for some reason, then there is the Penn State TLT server online. This can have bugs so let me know if you are having issues</p>
+<p>We will assume that you are working from home, away from the Penn State campus. So first we will need to install some software called a VPN that allows you to connect to internal Penn State systems. Go to <a href="https://downloads.its.psu.edu/" class="uri">https://downloads.its.psu.edu/</a>, click on connecting to Penn State and download the VPN software for your computer system</p>
+<div class="figure"><span id="fig:VPN"></span>
+<img src="images/Fig_1_3VPN.png" alt="Installing the VPN" width="1097" />
+<p class="caption">
+Figure 2.1: Installing the VPN
+</p>
+</div>
+<p>Now open and log into the VPN (the programme is normally called CISCO). You are now essentially on the Penn State WIFI.</p>
+<p>Now, you can connect to the server by clicking this link: <a href="https://lxclusterapps.tlt.psu.edu:8787" class="uri">https://lxclusterapps.tlt.psu.edu:8787</a> and log in using your Penn State ID.<br />
+THIS WILL ONLY WORK OFF CAMPUS IF You might see something like this.</p>
+<div class="figure"><span id="fig:Landing"></span>
+<img src="images/Fig_1_4LandingPage.png" alt="Installing the VPN" width="442" />
+<p class="caption">
+Figure 2.2: Installing the VPN
+</p>
+</div>
+<p>Other people might directly see the R server (<a href="index.html#fig:Rstudio">1.2</a>). If you do see the landing page, click “New Session”, which will open the server.</p>
+<p>You can store and access files using your U: drive or the PASS folder.</p>
+</div>
+<div id="accessing-the-r-studio-cloud" class="section level3">
+<h3><span class="header-section-number">2.4.2</span> Accessing the R-studio cloud</h3>
+<p>There is an online version of R-Studio called R-studio Cloud. <a href="https://rstudio.cloud" class="uri">https://rstudio.cloud</a></p>
+<p>There is a free version but that only allows you 15 hours of time per month, which will likely not be enough. There is also an upcoming “student” version which costs $3 to $6 a month with more details coming soon.</p>
+</div>
+</div>
+<div id="using-penn-state-computers" class="section level2">
+<h2><span class="header-section-number">2.5</span> Using Penn State computers</h2>
+<p>R and R studio are installed on many Penn State computer, for example in Walker 208. However, the versions are often out of date which means that some of the labs might not work.Also, many computers will not be available given the lockdown and social distancing requirements. If you are considering going down this route, TALK TO DR GREATREX FIRST. We might have technology options to help you if your computer dies or you cannot afford one.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-basics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

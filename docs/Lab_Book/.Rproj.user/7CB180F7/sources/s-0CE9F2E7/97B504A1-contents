@@ -1,0 +1,241 @@
+---
+title: "GEOG-364 Lab 1 Preamble - Getting set up"
+author: "Dr Helen Greatrex"
+date: "8/26/2019"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+Most of the research we will complete in GEOG-364 will be completed using the R-programming language and R-studio. Rather than everyone download the software onto their own computer, we are going to use the Penn State R-studio server, which you can access on the Penn State WIFI network (see canvas for off-campus options). The aim of this document is to get you up and running.
+
+Many of you have never even heard of R before.  These very instructions for your first lab are designed to reflect that.  However, coding for the first time can be overwhelming, so if you're feeling completely lost, please reach out to an instructor.  We have many resources that can help.
+
+#### Learning objectives
+1. To be able to open and run the R-studio server
+2. To be able to place files in a place where you can access them on the server (web-files)
+3. To get exposure to basic R commands
+
+## Instructions
+### 1. What is R? R-studio? R-Markdown?
+R is a programming language and free software environment for statistical computing and graphics. The R language is widely used among statisticians and data analysts for developing statistical software and data analysis.  It is also commonly used by spatial analysts, because it uses many of the techniques available in software like ARC-GIS, but is also open source and can do non geographical analysis.
+
+R-studio is a piece of software to make it easy to programme in R. Rather than everyone downloading these onto their own computer (although you are welcome), we are going to use the Penn State R-studio server, which is essentially an online version of R-studio.
+
+R-Markdown is a type of document that we will be producing, which merges code, text and figures.
+
+
+### 2. Setting up R-Studio and R-Markdown
+
+#### A. Put the lab files in your PASS space
+
+The RStudio Server application uses your PASS space for file storage. You can access this on the lab computers, under My Computer / X directory.
+
+*Alternatively (if you are working from home), you can access your PASS space via Web-Files.  See here for more information: https://psu.instructure.com/courses/2020486/pages/accessing-your-pass-space-via-webfiles*
+
+Go into your PASS directory (:X).  Make a new folder called GEOG-364.
+
+Go onto Canvas, navigate to modules & week 1, then download Lab 1.zip into your GEOG-364 folder.  Expand it. You should now have a folder called Lab 1, which contains [1] an .Rmd file, a .csv file and a folder called Shapefiles with six files inside it for the borders of Ghana.
+
+#### B.Connecting to R-studio
+
+In the labs, R-studio is a standalone programme on your lab computer.  Search for it in programmes and open.
+
+* If you are working from home (on the PSU WIFI), you can use an online version of R-studio using this web-link. https://lxclusterapps.tlt.psu.edu:8787 and log in using your Penn State ID.   You might see something like this.
+
+<center>
+![](Images/Fig3.png)
+</center>
+
+Other people might directly see the R server (figure below).  If you do see the landing page, click "New Session", which will open the server.*
+
+
+#### C. R-basics
+
+You will be greeted by three panels:
+
+ - The interactive R console (entire left)
+ - Environment/History (tabbed in upper right)
+ - Files/Plots/Packages/Help/Viewer (tabbed in lower right)
+
+<center>
+![](Images/Fig4.png)
+</center>
+
+
+Once you open files, such as R scripts, an editor panel will also open in the top left.
+
+<center>
+![](Images/Fig5.png)
+</center>
+
+
+There are a few ways we can work within RStudio.
+
+1. *Test and play within the interactive R console then copy code into a .R file to run later*. This works well when doing small tests and initially starting off, but it quickly becomes laborious.
+
+2. *Start writing in a file such as an R file (pure code), or a R-Notebook or Markdown file (an interactive document), then use the run, or knit command to create your analysis.*  This is how we are mostly going to work.  It's a great way to work because all your commands are saved for later and you will be able to repeat your analysis at a later date.
+
+Much of your time in R will be spent in the R interactive console. This is where you will run all of your code, and can be a useful environment to try out ideas before adding them to an R script file. 
+
+The first thing you will see in the R interactive session is a bunch of information, followed by a “>” and a blinking cursor.   It's similar to putting a formula into excel:  You type in commands, R tries to carry them out, and then returns a result.
+
+Try typing the text written in the grey boxes below into your console as you work through the file.
+
+#### a. Using R as a calculator
+The simplest thing you could do with R is do arithmetic.  Try typing the following into the console
+```{r}
+1 + 100
+```
+
+And R will print out the answer, with a preceding `[1]`. Don’t worry about this for now, think of it as indicating output.
+
+If you type in an incomplete command, R will wait for you to complete it.  For example, if you type
+`1 +`
+and press enter, the `>` will have changed into a `+`, which means its waiting for you to complete the command.  if you want to cancel a command you can simply hit "Esc" and R studio will reset. Pressing esc isn’t only useful for killing incomplete commands: you can also use it to tell R to stop running code (for example if it’s taking much longer than you expect), or to get rid of the code you’re currently writing.
+
+When using R as a calculator, the order of operations is the same as you would have learned back in school, so use brackets to force a differnet order.  For example, try typing in each of the the commands below (in grey)
+
+```{r}
+3 + 5 * 2
+```
+is different to 
+```{r}
+(3 + 5) * 2
+```
+
+Really small or large numbers get a scientific notation:
+
+```{r}
+2/10000
+```
+Which is shorthand for “multiplied by 10^XX”. So 2e-4 is shorthand for 2 * 10^(-4).
+
+#### b. Comments
+If you type a # symbol into the console, R will ignore anything you write afterwards.  This is great for adding notes and comments.  For example
+```{r}
+2/10000  #THIS IS INVISIBLE TEXT TO R. You can write whatever you like
+```
+
+
+#### c. Functions
+R has many built in mathematical functions. To call a function, we simply type its name, followed by open and closing parentheses. Anything we type inside the parentheses is called the function’s arguments:
+
+```{r}
+sin(1) # trigonometry functions.  Apply the sine function to the number 1. 
+```
+
+```{r}
+log(10) # natural logarithm.  Take the natural logarithm of the number 10. 
+```
+
+Functions are also commands.  You can use them to open files, to plot data or to rearrange a table - amongst many more examples.  For example, the following command will plot the number 1 to 10 against the numbers 1 to 10. On your screen the plot will show up in the plots tab.
+```{r}
+plot(1:10,1:10) # plot the numbers 1 to 10 against the numbers 1 to 10
+```
+
+Don’t worry about trying to remember every function in R. You can simply look them up on Google, or if you can remember the start of the function’s name, use the tab completion in RStudio.  In this course, you will be provided with most of the functions you need.
+
+Typing a ? before the name of a command will open the help page for that command. As well as providing a detailed description of the command and how it works, scrolling to the bottom of the help page will usually show a collection of code examples which illustrate command usage. We’ll go through an example later.
+
+#### d. Comparing things
+We can also do comparison in R:
+
+```{r}
+1 == 1  # equality (note two equals signs, read as "is equal to")
+```
+
+```{r}
+1 != 2  # inequality (read as "is not equal to")
+```
+
+```{r}
+3 < 2  # less than
+```
+
+```{r}
+1 <= 1  # less than or equal to
+```
+
+```{r}
+1 > 0  # greater than
+```
+
+```{r}
+1 >= -9 # greater than or equal to
+```
+
+
+#### e. Variables and assignment
+We can store values in variables using the assignment arrow `<-`, which is made up of the left arrow and a dash.  You can also use the equals sign, but it can cause complications later on.  Try typing these commands into the console.
+
+```{r}
+x <- 1/40
+```
+Notice that assignment does not print a value. Instead, we stored it for later in something called a variable. `x` is now associated with the value 0.025, or 1/40.  You can print a variable on screen by typing its name, no quotes
+
+```{r}
+x
+```
+
+Look for the Environment tab in one of the panes of RStudio, and you will see that test and its value have appeared. Our variable test can be used in place of a number in any calculation that expects a number:
+
+```{r}
+log(x)
+```
+
+Notice also that variables can be reassigned:
+```{r}
+x <- 100
+x
+```
+x used to contain the value 0.025 and and now it has the value 100.
+
+Variable names can contain letters, numbers, underscores and periods. They cannot start with a number nor contain spaces at all. Different people use different conventions for long variable names, these include
+ - periods.between.words
+ - underscores_between_words
+ - camelCaseToSeparateWords
+What you use is up to you, but be consistent.
+
+You can use these variables inside formulas or arithmatic. For example.
+```{r}
+y <- x + 1 #notice how RStudio updates its description of x on the top right tab
+y # print the contents of "y" onto the screen
+```
+Now see that there are two variables in your environment tab, x and y.  Where y is the sum of the contents of x plus 1. The right hand side of the assignment (right of the `<-`) can be any valid R command. The right hand side is fully evaluated before the assignment occurs.
+
+You can even use this to change your original variable .  Try typing the code below in a few times into the console and see what happens.
+
+```{r}
+x <- x + 1 #notice how RStudio updates its description of x on the top right tab
+x # print the contents of "x" onto the screen
+```
+
+Variables such as `x` or `y` don't have to be individual numbers.  They could refer to tables of data, or a spatial map, or any other complex things.  We will cover this more in future labs.
+
+So far, we have been typing things into the console.  Once you close R, these will be lost.  So we will now move onto writing code that you can save and submit.  R does allow you to write document that are just commands, called scripts. However, we will be focusing on a version called R-Markdown that will let you make interactive documents which include text, code, plots and other output.  For example, these instructions themselves are the output of a markdown document.  This is covered in Lab 1.
+
+### Finally
+Because R is open-source (e.g. it's free and anyone can add to it), there are hundreds of thousands of commands. Most users rarely need all of these - so to keep R working quickly, the commands are stored in Packages. You can install these easily, then load them when you need them.
+
+We will need a few of these packages.  For now - lets choose two.  Copy the following lines into the R-console and press enter. You will see a lot of red text - this is good!  If you see a message saying the package has successfully installed at the end, you are fine. If you see lots of errors, ask the instructor.
+
+`install.packages("knitr", dependencies=TRUE)`
+
+`install.packages("maptools", dependencies=TRUE)`
+
+`install.packages("rgdal", dependencies=TRUE)`
+
+This command downloads these packages from the internet onto the personal R-library in your computer (in your PASS folder).  When we need to use their commands, we will load them using the `library()` command. 
+
+
+Again, if you're completely lost, talk to the instructors and we can point you in the direction of resources to make you feel more comfortable using R.
+
+
+Attribution—The introduction to R section is derived from work that is Copyright © Software Carpentry, https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/ under their creative commons license. 
+

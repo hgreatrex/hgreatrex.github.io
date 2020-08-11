@@ -1,0 +1,393 @@
+--- 
+title: "Geog-364: Introduction to R"
+author: "Helen Greatrex"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: "These are the lab scripts for each of your labs this semester."
+---
+
+# Introduction
+
+## Why is this class in R?
+
+There are many different types of software one can use to analyse spatial data.  We are going to focus on the R programming language because:
+
+  a. It is free and open source.
+  b. It also allows you to do traditional statistics, machine learning and data analysis.
+  c. It's a good introduction to programming, which is  great for your resume.
+  d. There are some very cool visualisation tools including
+     + [RMarkdown](https://rmarkdown.rstudio.com/), [Blogdown](https://bookdown.org/yihui/blogdown/) and [Bookdown](https://bookdown.org/), where you can integrate R analysis into your papers, blogs and websites. For example, this lab book is written in Bookdown.
+     + [RShiny](https://shiny.rstudio.com/) for very cool interactive dashboards
+     + [Leaflet](https://rstudio.github.io/leaflet/) and [RGoogleMaps](https://rpubs.com/nickbearman/r-google-map-making) where you can use beautiful map making tools
+
+You will hopefully be exposed to all of these things throughout the course of the semester.
+
+
+## What are R and R-studio? 
+
+**R** is a programming language and free software environment for statistical computing and graphics. The R language is widely used among statisticians and data analysts for developing statistical software and data analysis. It is also commonly used by spatial analysts, because it uses many of the techniques available in software like ARC-GIS, but is also open source and can do non geographical analysis.
+
+When I say R is a programming language, I mean that it is a collection of commands that you can type into the computer in order to analyse and visualise your data. Think of it literally like a language (like Spanish or Hindi), so learning it means learning vocabulary and grammar to communicate with your computer. It also means it will get easier with experience and practice..
+
+When you install R on your computer, you are essentially teaching the computer what those the langauge means along with some very basic Notepad-like software where you could enter the commands.
+
+```{r, Rscreenshot, echo=FALSE, fig.cap = "The basic R screen"}
+knitr::include_graphics('images/Fig_1_1Rscreenshot.png')
+```
+ 
+More recently, **R-studio** has been designed as a piece of software to make it easier to programme in R. It's what Microsoft Word is compared to notepad - lots more functionality and things to click.  For example, you can easily see help files, run code, see your output and link to all the website/dashboard builders. In this course, we are going to use R-Studio as the main software, but you don't *need* it if one day you don't have access. 
+
+```{r, Rstudio, echo=FALSE, fig.cap = "The basic R-studio screen. Here is the R-Studio website where you can explore some of its features: https://rstudio.com/products/rstudio/features/"}
+knitr::include_graphics('images/Fig_1_2Rstudio.png')
+```
+
+Other jargon/software you might hear about in this course:
+
+ - **RMarkdown** is a document written in R, where you can combine code, equations and text (and photos/video etc).  This will be how you write up your lab reports.
+ - **RBookdown** is a book written in RMarkdown.  It is how I wrote this lab script
+ - **RBlogdown** is a blog written in RMarkdown
+ - **RShiny** is an interactive application made using R
+ - **Github** is a way to store and host your code online. Many programmers use it.
+
+
+# Running R and R-studio
+
+## What are your options?
+
+Here you have a few options and we will go through them in detail below.  It's important you find something that works for you. If you are having issues being able to access a computer to do this, please talk to Dr Greatrex and we can problem solve together.
+
+ 1. You can install R and R-Studio on your own computer.  This is *free* , BUT in the new COVID world, it can be harder for me to help you if there is a problem.  Nevertheless, we are happy to help you through any issues you have with R on your own computer and it means that you can use it offline.
+ 
+ 2. Using R-studio on the Penn State Teaching and Learning Technology (TLT) online server.  This is also free, but last year has all sorts of issues and bugs.  We can definitely work through things with this, but user beware.
+  
+ 3. There is an online version of R-Studio called R-studio Cloud - https://rstudio.cloud/plans/student.  Here you can use an online version of R-studio, but it costs $3/6 a month and will not be available after the course ends.  But if you are having big issues with R-studio elsewhere then this is an option.
+ 
+ 4. On Penn State computers, BUT this is not a "COVID-proof option"
+
+## Click if you already have R/R-studio
+
+It's great you have them installed!  Many of the packages that we are using rely on the most up-to-date version of R and R-studio, so please could yuo upgrade?  (If you know this will lead to issues on another project, talk to Dr Greatrex before you do anything).
+
+To update them, you can use these instructions: https://uvastatlab.github.io/phdplus/installR.html#updateR
+ 
+## Installing R/R-studio
+ 
+First, we need to install R itself.  There is a good tutorial here: https://rstudio-education.github.io/hopr/starting.html
+
+### If you are on a Windows machine
+
+First we will download and install R:
+
+ 1. Go to this link and click on Windows - https://cran.r-project.org/
+ 2. Click "Install R for the first time"
+ 3. Then click "Download R 4.0.2 for Windows", open the file and follow the instructions
+ 
+Now, we will download and install R-studio
+
+ 1. Go to this link and click on the FREE desktop download - https://rstudio.com/products/rstudio/download/
+ 2. Download the file, open it and follow the instructions
+ 
+These should both install with no issues.  If that is done, then open **R-Studio**, make sure it opens and looks like Figure \@ref(fig:Rstudio). 
+
+### If you are on a Mac
+
+First we will download and install R:
+
+ 1. Go to this link and click on Windows - https://cran.r-project.org/
+ 2. Click "Install R for the first time"
+ 3. Then click "R-4.0.2.pkg", open the file and follow the instructions
+ 
+Now, we will download and install R-studio
+
+ 1. Go to this link and click on the FREE desktop download - https://rstudio.com/products/rstudio/download/
+ 2. Download the file, open it and follow the instructions
+ 
+These should both install with no issues.  If that is done, then open **R-Studio**, make sure it opens and looks like Figure \@ref(fig:Rstudio). 
+
+ 
+## Accessing R-studio online
+
+### Using Penn State's TLT server
+
+If you cannot install R on your computer for some reason, then there is the Penn State TLT server online. This can have bugs so let me know if you are having issues
+
+We will assume that you are working from home, away from the Penn State campus. So first we will need to install some software called a VPN that allows you to connect to internal Penn State systems. Go to https://downloads.its.psu.edu/, click on connecting to Penn State and download the VPN software for your computer system
+     
+```{r, VPN, echo=FALSE, fig.cap = "Installing the VPN"}
+knitr::include_graphics('images/Fig_1_3VPN.png')
+```
+
+Now open and log into the VPN (the programme is normally called CISCO).  You are now essentially on the Penn State WIFI.  
+
+Now, you can connect to the server by clicking this link:  https://lxclusterapps.tlt.psu.edu:8787 and log in using your Penn State ID.   
+THIS WILL ONLY WORK OFF CAMPUS IF  You might see something like this.
+
+```{r, Landing, echo=FALSE, fig.cap = "Installing the VPN"}
+knitr::include_graphics('images/Fig_1_4LandingPage.png')
+```
+
+Other people might directly see the R server (\@ref(fig:Rstudio)).  If you do see the landing page, click "New Session", which will open the server.
+
+You can store and access files using your U: drive or the PASS folder.  
+
+### Accessing the R-studio cloud
+
+There is an online version of R-Studio called R-studio Cloud.   https://rstudio.cloud
+
+There is a free version but that only allows you 15 hours of time per month, which will likely not be enough. There is also an upcoming "student" version which costs $3 to $6 a month with more details coming soon.
+
+
+## Using Penn State computers
+
+R and R studio are installed on many Penn State computer, for example in Walker 208.  However, the versions are often out of date which means that some of the labs might not work.Also, many computers will not be available given the lockdown and social distancing requirements.  If you are considering going down this route, TALK TO DR GREATREX FIRST.  We might have technology options to help you if your computer dies or you cannot afford one. 
+
+
+# R basics
+
+## Getting started
+
+Open **R-studio** You will be greeted by three panels:
+
+ - The interactive R console (entire left)
+ - Environment/History (tabbed in upper right)
+ - Files/Plots/Packages/Help/Viewer (tabbed in lower right)
+
+If you click on the View/Panes/Pane Layout menu item, you can move these around.  I tend to like the console to be top left and scripts to be top right, with the plots and environment on the bottom - but this is totally personal choice. 
+ 
+```{r, basicStudio, echo=FALSE, fig.cap = "The basic R-studio screen when you log on"}
+knitr::include_graphics('images/Fig_1_5BasicRStudio.png')
+```
+
+**If you have used R before, you might see that there are variables and plots etc already loaded**.  It is always good to clear these before you start a new analysis.  To do this, type the following command in the console section
+
+```{r, results='hide'}
+# This command clears your workspace
+rm(list=ls())
+```
+
+## Basic arithmatic
+
+The console is a space where you can type commands and it will directly print out the answer.  
+
+The simplest thing you could do with R is do arithmetic.  Try typing the following into the console and R will calculate the answer.
+```{r}
+1 + 100
+```
+
+If you type in an incomplete command, R will wait for you to complete it.  For example, if you type
+`1 +`
+and press enter, the `>` will have changed into a `+`, which means its waiting for you to complete the command.  
+
+**If you want to cancel a command you can simply hit "Esc" and R studio will reset.**
+
+Pressing escape isn’t only useful for killing incomplete commands: you can also use it to tell R to stop running code (for example if it’s taking much longer than you expect), or to get rid of the code you’re currently writing.
+
+When using R as a calculator, the order of operations is the same as you would have learned back in school, so use brackets to force a differnet order.  For example, try typing in each of the the commands below (in grey)
+
+```{r}
+3 + 5 * 2
+```
+
+will give a different result to 
+
+```{r}
+(3 + 5) * 2
+```
+
+Really small or large numbers get a scientific notation:
+
+```{r}
+2/10000
+```
+Which is shorthand for “multiplied by 10^XX”. So 2e-4 is shorthand for 2\times10^{-4}
+2 * 10^(-4).
+
+## Comments
+If you type a # symbol into the console, R will ignore anything you write afterwards.  This is great for adding notes and comments.  For example
+```{r}
+2/10000  #THIS IS INVISIBLE TEXT TO R. You can write whatever you like
+```
+
+
+## Comparing things
+
+We can also do comparisons in R:
+
+```{r}
+1 == 1  # equality (note two equals signs, read as "is equal to")
+```
+
+```{r}
+1 != 2  # inequality (read as "is not equal to")
+```
+
+```{r}
+3 < 2  # less than
+```
+
+```{r}
+1 <= 1  # less than or equal to
+```
+
+```{r}
+1 > 0  # greater than
+```
+
+```{r}
+1 >= -9 # greater than or equal to
+```
+
+
+## Variables and assignment
+
+It's great to be able to do maths easily on the screen, but really we want to be able to save our results, or load in data tables etc, so we can do more complex commands.   
+
+In R, we can give things a name.  This is called a variable.  So then, instead of typing the whole command, we can simply type its name and it will remember the final answer.
+
+The way we store data into a variables is using the assignment arrow `<-`, which is made up of the left arrow and a dash.  You can also use the equals sign, but it can cause complications later on.  Try typing this command into the console.
+
+```{r}
+x <- 1/40
+```
+
+Notice that pressing enter did not print a value onto your screen as it did earlier. Instead, we stored it for later in something called a variable, with the name 'x'. 
+
+So our variable `x` is now associated with the value 0.025, or 1/40.  You can print a variable on screen by typing its name, no quotes, or by using the print command.  Try printing out your variable.
+
+```{r}
+x
+```
+
+```{r}
+print(x)
+```
+
+Look for the Environment tab in one of the panes of RStudio, and you will see that 'x' and its value have appeared. This 'x' variable can be used in place of a number in any calculation that expects a number:
+
+```{r}
+log(x)
+```
+
+Notice also that variables can be reassigned:
+
+```{r}
+x <- 100
+print(x)
+```
+
+x used to contain the value 0.025 and and now it has the value 100.
+
+*Note, the letter x isn't special in any way, it's just a variable name. You can replace it with any word you like as long as it contains no spaces and does not begin with a number*.  Different people use different conventions for long variable names, these include
+
+ - periods.between.words.1
+ - underscores_between_words
+ - camelCaseToSeparateWords
+
+What you use is up to you, but be consistent.
+
+You can now use mulitple variables together. For example, try these commands:
+
+```{r}
+y <- x + 1 #Take the variable x, add 1 then save it to a new variable called y
+y # print the contents of "y" onto the screen
+```
+
+Now see that there are two variables in your environment tab, x and y.  Where y is the sum of the contents of x plus 1. The right hand side of the assignment (right of the `<-`) can be any valid R command. The right hand side is fully evaluated before any assignment occurs.The variable only saves the result, not the command itself.
+
+You can even use this to change your original variable .  Try typing the code below in a few times into the console and see what happens.
+
+```{r}
+x <- x + 1 #notice how RStudio updates its description of x on the top right tab
+x # print the contents of "x" onto the screen
+```
+
+Variables such as `x` or `y` don't have to be individual numbers.  They could refer to tables of data, or a spatial map, or any other complex things.  We will cover this more in future labs.
+
+
+## Functions
+
+The power of R lies in its many thousands of built in commands. To call a function, we simply type its name, followed by open and closing parentheses. Here are some examples:
+
+ - `plot(x=1:10,y=1:10)` 
+    + will plot the numbers 1 to 10 against 1 to 10
+ - `file.copy(file1="~/Desktop/originalfile.txt",file2="~/Documents/newfile.txt")` 
+    + will copy a file from your desktop to your documents folder
+ 
+**The round brackets/parentheses, ( ), mean that it is a command.  They are essential for the computer to understand that you are looking for a command, not a variable called that name**
+
+As another example, the file.choose command lets you select a file on your computer and it will print out the location of the file into the console.  
+
+Try typing `file.choose( )` into your console, select a file and see what is printed on the console screen.
+
+Sometimes we need to give the command some additional information.  Anything we wish to tell the command should be included inside the inside the parentheses (separated by commas).  The command will literally only know about the stuff inside the parentheses.
+
+```{r}
+sin(1) # trigonometry functions.  Apply the sine function to the number 1. 
+```
+
+```{r}
+log(10) # natural logarithm.  Take the natural logarithm of the number 10. 
+```
+
+This following command will plot the number 1 to 10 against the numbers 12 to 20, along with some axis labels.  When you run this, the plot will show up in the plots tab.  
+
+```{r}
+plot(1:10,11:20, xlab="x values",ylab="GEOG-364 is the best") # plot the numbers 1 to 10 against the numbers 11 to 20
+```
+
+### Command help
+
+Typing a ? before the name of a command or function will open the help page for that command in the "environment" box on your screen. For example, try typing `?file.choose` into your console and pressing Enter. Because you're looking at the help file, not actually running the command, you don't need the parentheses here.
+
+As well as providing a detailed description of the command and how it works, scrolling to the bottom of the help page will usually show worked example of the code.  You can then copy these line by line into the console to understand what is happening. 
+
+
+```{r, eval=FALSE}
+## This provides the help page for file.choose.
+?file.choose   
+```
+
+```{r, help, echo=FALSE, fig.cap = "What you should see after typing ?file.choose"}
+knitr::include_graphics('images/Fig_1_6Help.png')
+```
+
+One hint: 
+
+Don’t worry about trying to remember every function in R. You can simply look them up on Google, or if you can remember the start of the function’s name, use the tab completion in RStudio.  In this course, you will be provided with most of the functions you need.  This cartoon from XKCD is a pretty normal way to think about programming!  One of the most important skills you can learn as a programmer is how to effectively google the information you need...
+
+```{r, xkcd, echo=FALSE, fig.cap = "https://xkcd.com/627/"}
+knitr::include_graphics('images/Fig_1_7XKCD.png')
+```
+
+
+## Creating an Rmd-script
+
+So far, we have been typing commands into the console, but once you close R, these will all be lost.   So we will now move onto writing code commands that you can save and submit.
+
+There are several types of document that you can create and save in R-Studio.
+
+ - A basic script (the filetype is .r).  This is simply just a a notepad where you can write code commands (a script is show in (\@ref(fig:Rscreenshot)))
+ 
+ - An .Rmd file (an R-Markdown document) - (\@ref(fig:rmd)).  This is a document you can use to write a report with normal text/pictures, but ALSO include R output.  So essentially it will let you make interactive documents which include text, code, plots and other output.  These instructions themselves are the output of a markdown document.  This is covered in Lab 1, but there is a video that describes more here: http://rmarkdown.rstudio.com
+ 
+ 
+```{r, rmd, echo=FALSE, fig.cap = "On the left shows the .Rmd code, on the right is the output"}
+knitr::include_graphics('images/Fig_1_8Rmd.png')
+```
+
+# Where can I go from here?
+ 
+ If you want to practice the basics,then there are several places you can take free introductory tutorials - all of which I recommend.  These include:
+ 
+   - Data Camp: First chapter is free - https://www.datacamp.com/courses/free-introduction-to-r
+   - FREE linkedin learning for R (Penn State log-in required): https://www.linkedin.com/learning/learning-r-2/r-for-data-science?u=76811570
+   - FREE (basic account) code academy - https://www.codecademy.com/courses/learn-r/lessons/introduction-to-r/
+
+**If you're completely lost - it's OK! This is pretty normal at this stage.  Talk to the instructors and we can point you in the direction of resources to make you feel more comfortable using R.**
+
+
+

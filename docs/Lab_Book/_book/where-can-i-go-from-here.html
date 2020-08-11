@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Where can I go from here? | Geog-364: Introduction to R</title>
+  <meta name="description" content="These are the lab scripts for each of your labs this semester." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Where can I go from here? | Geog-364: Introduction to R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="These are the lab scripts for each of your labs this semester." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Where can I go from here? | Geog-364: Introduction to R" />
+  
+  <meta name="twitter:description" content="These are the lab scripts for each of your labs this semester." />
+  
+
+<meta name="author" content="Helen Greatrex" />
+
+
+<meta name="date" content="2020-08-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="r-basics.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">GEOGRAPHY 364 2020</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#why-is-this-class-in-r"><i class="fa fa-check"></i><b>1.1</b> Why is this class in R?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-are-r-and-r-studio"><i class="fa fa-check"></i><b>1.2</b> What are R and R-studio?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html"><i class="fa fa-check"></i><b>2</b> Running R and R-studio</a><ul>
+<li class="chapter" data-level="2.1" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#what-are-your-options"><i class="fa fa-check"></i><b>2.1</b> What are your options?</a></li>
+<li class="chapter" data-level="2.2" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#click-if-you-already-have-rr-studio"><i class="fa fa-check"></i><b>2.2</b> Click if you already have R/R-studio</a></li>
+<li class="chapter" data-level="2.3" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#installing-rr-studio"><i class="fa fa-check"></i><b>2.3</b> Installing R/R-studio</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#if-you-are-on-a-windows-machine"><i class="fa fa-check"></i><b>2.3.1</b> If you are on a Windows machine</a></li>
+<li class="chapter" data-level="2.3.2" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#if-you-are-on-a-mac"><i class="fa fa-check"></i><b>2.3.2</b> If you are on a Mac</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#accessing-r-studio-online"><i class="fa fa-check"></i><b>2.4</b> Accessing R-studio online</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#using-penn-states-tlt-server"><i class="fa fa-check"></i><b>2.4.1</b> Using Penn State’s TLT server</a></li>
+<li class="chapter" data-level="2.4.2" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#accessing-the-r-studio-cloud"><i class="fa fa-check"></i><b>2.4.2</b> Accessing the R-studio cloud</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#using-penn-state-computers"><i class="fa fa-check"></i><b>2.5</b> Using Penn State computers</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>3</b> R basics</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-basics.html"><a href="r-basics.html#getting-started"><i class="fa fa-check"></i><b>3.1</b> Getting started</a></li>
+<li class="chapter" data-level="3.2" data-path="r-basics.html"><a href="r-basics.html#basic-arithmatic"><i class="fa fa-check"></i><b>3.2</b> Basic arithmatic</a></li>
+<li class="chapter" data-level="3.3" data-path="r-basics.html"><a href="r-basics.html#comments"><i class="fa fa-check"></i><b>3.3</b> Comments</a></li>
+<li class="chapter" data-level="3.4" data-path="r-basics.html"><a href="r-basics.html#comparing-things"><i class="fa fa-check"></i><b>3.4</b> Comparing things</a></li>
+<li class="chapter" data-level="3.5" data-path="r-basics.html"><a href="r-basics.html#variables-and-assignment"><i class="fa fa-check"></i><b>3.5</b> Variables and assignment</a></li>
+<li class="chapter" data-level="3.6" data-path="r-basics.html"><a href="r-basics.html#functions"><i class="fa fa-check"></i><b>3.6</b> Functions</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="r-basics.html"><a href="r-basics.html#command-help"><i class="fa fa-check"></i><b>3.6.1</b> Command help</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="r-basics.html"><a href="r-basics.html#creating-an-rmd-script"><i class="fa fa-check"></i><b>3.7</b> Creating an Rmd-script</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="where-can-i-go-from-here.html"><a href="where-can-i-go-from-here.html"><i class="fa fa-check"></i><b>4</b> Where can I go from here?</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Geog-364: Introduction to R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="where-can-i-go-from-here" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Where can I go from here?</h1>
+<p>If you want to practice the basics,then there are several places you can take free introductory tutorials - all of which I recommend. These include:</p>
+<ul>
+<li>Data Camp: First chapter is free - <a href="https://www.datacamp.com/courses/free-introduction-to-r" class="uri">https://www.datacamp.com/courses/free-introduction-to-r</a></li>
+<li>FREE linkedin learning for R (Penn State log-in required): <a href="https://www.linkedin.com/learning/learning-r-2/r-for-data-science?u=76811570" class="uri">https://www.linkedin.com/learning/learning-r-2/r-for-data-science?u=76811570</a></li>
+<li>FREE (basic account) code academy - <a href="https://www.codecademy.com/courses/learn-r/lessons/introduction-to-r/" class="uri">https://www.codecademy.com/courses/learn-r/lessons/introduction-to-r/</a></li>
+</ul>
+<p><strong>If you’re completely lost - it’s OK! This is pretty normal at this stage. Talk to the instructors and we can point you in the direction of resources to make you feel more comfortable using R.</strong></p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-basics.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

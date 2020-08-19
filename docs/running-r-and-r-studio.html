@@ -24,7 +24,7 @@
 <meta name="author" content="Helen Greatrex" />
 
 
-<meta name="date" content="2020-08-10" />
+<meta name="date" content="2020-08-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -137,10 +137,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#why-is-this-class-in-r"><i class="fa fa-check"></i><b>1.1</b> Why is this class in R?</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-are-r-and-r-studio"><i class="fa fa-check"></i><b>1.2</b> What are R and R-studio?</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#what-are-r-markdown-r-shiny"><i class="fa fa-check"></i><b>1.3</b> What are R-Markdown &amp; R-Shiny?</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html"><i class="fa fa-check"></i><b>2</b> Running R and R-studio</a><ul>
 <li class="chapter" data-level="2.1" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#what-are-your-options"><i class="fa fa-check"></i><b>2.1</b> What are your options?</a></li>
-<li class="chapter" data-level="2.2" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#click-if-you-already-have-rr-studio"><i class="fa fa-check"></i><b>2.2</b> Click if you already have R/R-studio</a></li>
+<li class="chapter" data-level="2.2" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#i-already-have-rr-studio"><i class="fa fa-check"></i><b>2.2</b> I already have R/R-studio</a></li>
 <li class="chapter" data-level="2.3" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#installing-rr-studio"><i class="fa fa-check"></i><b>2.3</b> Installing R/R-studio</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#if-you-are-on-a-windows-machine"><i class="fa fa-check"></i><b>2.3.1</b> If you are on a Windows machine</a></li>
 <li class="chapter" data-level="2.3.2" data-path="running-r-and-r-studio.html"><a href="running-r-and-r-studio.html#if-you-are-on-a-mac"><i class="fa fa-check"></i><b>2.3.2</b> If you are on a Mac</a></li>
@@ -162,7 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="r-basics.html"><a href="r-basics.html#creating-an-rmd-script"><i class="fa fa-check"></i><b>3.7</b> Creating an Rmd-script</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="where-can-i-go-from-here.html"><a href="where-can-i-go-from-here.html"><i class="fa fa-check"></i><b>4</b> Where can I go from here?</a></li>
+<li class="chapter" data-level="4" data-path="online-courses-and-resources.html"><a href="online-courses-and-resources.html"><i class="fa fa-check"></i><b>4</b> Online courses and resources</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -187,7 +188,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 2</span> Running R and R-studio</h1>
 <div id="what-are-your-options" class="section level2">
 <h2><span class="header-section-number">2.1</span> What are your options?</h2>
-<p>Here you have a few options and we will go through them in detail below. It’s important you find something that works for you. If you are having issues being able to access a computer to do this, please talk to Dr Greatrex and we can problem solve together.</p>
+<p><strong>If you are having issues being able to access a computer, please talk to Dr Greatrex and we can problem-solve together.</strong></p>
+<p>Here you have a few options and important you find something that works for you.</p>
 <ol style="list-style-type: decimal">
 <li><p>You can install R and R-Studio on your own computer. This is <em>free</em> , BUT in the new COVID world, it can be harder for me to help you if there is a problem. Nevertheless, we are happy to help you through any issues you have with R on your own computer and it means that you can use it offline.</p></li>
 <li><p>Using R-studio on the Penn State Teaching and Learning Technology (TLT) online server. This is also free, but last year has all sorts of issues and bugs. We can definitely work through things with this, but user beware.</p></li>
@@ -195,10 +197,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>On Penn State computers, BUT this is not a “COVID-proof option”</p></li>
 </ol>
 </div>
-<div id="click-if-you-already-have-rr-studio" class="section level2">
-<h2><span class="header-section-number">2.2</span> Click if you already have R/R-studio</h2>
-<p>It’s great you have them installed! Many of the packages that we are using rely on the most up-to-date version of R and R-studio, so please could yuo upgrade? (If you know this will lead to issues on another project, talk to Dr Greatrex before you do anything).</p>
+<div id="i-already-have-rr-studio" class="section level2">
+<h2><span class="header-section-number">2.2</span> I already have R/R-studio</h2>
+<p>It’s great you have them installed! Many of the packages that we are using rely on the most up-to-date version of R and R-studio, so please could you update your these programmes.</p>
 <p>To update them, you can use these instructions: <a href="https://uvastatlab.github.io/phdplus/installR.html#updateR" class="uri">https://uvastatlab.github.io/phdplus/installR.html#updateR</a></p>
+<p>(If you know this will lead to issues on another project, talk to Dr Greatrex before you do anything).</p>
 </div>
 <div id="installing-rr-studio" class="section level2">
 <h2><span class="header-section-number">2.3</span> Installing R/R-studio</h2>

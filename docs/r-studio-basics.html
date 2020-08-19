@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Geog-364: Introduction to R</title>
+  <title>Chapter 3 R-studio basics | Geog-364: Introduction to R</title>
   <meta name="description" content="Lab 1 support guide" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Geog-364: Introduction to R" />
+  <meta property="og:title" content="Chapter 3 R-studio basics | Geog-364: Introduction to R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Geog-364: Introduction to R" />
+  <meta name="twitter:title" content="Chapter 3 R-studio basics | Geog-364: Introduction to R" />
   
   <meta name="twitter:description" content="Lab 1 support guide" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="installing-r-and-r-studio.html"/>
+<link rel="prev" href="installing-r-and-r-studio.html"/>
+<link rel="next" href="r-coding-basics.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -181,61 +181,84 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Geog-364: Introduction to R</h1>
-<p class="author"><em>Helen Greatrex</em></p>
-<p class="date"><em>2020-08-19</em></p>
-</div>
-<div id="introduction" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
-<div id="why-is-this-class-in-r" class="section level2">
-<h2><span class="header-section-number">1.1</span> Why is this class in R?</h2>
-<p>There are many different types of software one can use to analyze spatial data. We’re going to focus on the R programming language because:</p>
-<ol style="list-style-type: lower-alpha">
-<li>It’s free and open source.</li>
-<li>It allows you to do traditional statistics, machine learning and data analysis.</li>
-<li>It’s a good introduction to programming, which isgreat for your resume.</li>
-<li>There are some very cool visualisation tools including
-<ul>
-<li><a href="https://rmarkdown.rstudio.com/">RMarkdown</a>, <a href="https://bookdown.org/yihui/blogdown/">Blogdown</a> and <a href="https://bookdown.org/">Bookdown</a>, where you can integrate R analysis into your papers, blogs and websites. For example, this lab book is written in Bookdown.</li>
-<li><a href="https://shiny.rstudio.com/">RShiny</a> for very cool interactive dashboards</li>
-<li><a href="https://rstudio.github.io/leaflet/">Leaflet</a> and <a href="https://rpubs.com/nickbearman/r-google-map-making">RGoogleMaps</a> where you can use beautiful map making tools</li>
-</ul></li>
-</ol>
-<p>You will hopefully be exposed to all of these things throughout the course of the semester.</p>
-</div>
-<div id="what-are-r-and-r-studio" class="section level2">
-<h2><span class="header-section-number">1.2</span> What are R and R-studio?</h2>
-<p><strong>R</strong> is a programming language commonly used by statisticians and scientists across the world. It can be used to analyse data, to visualise results and to develop new software. It is commonly used in spatial analyisis because it is powerful and free, plus it allows you to combine spatial analysis with more traditional statistics.</p>
-<p>When I say R is a programming language, I mean that it is a collection of commands that you can type into the computer in order to analyse and visualise your data. Think of it literally like a language like Spanish or Hindi, so learning it means learning vocabulary and grammar to communicate with your computer. It also means it will get easier with experience and practice..</p>
-<p>When you install R on your computer, you are essentially teaching the computer what those the language means along with some very basic Notepad-like software where you could enter the commands.</p>
-<div class="figure"><span id="fig:Rscreenshot"></span>
-<img src="images/Fig_1_1RScreenshot.png" alt="The basic R screen" width="686" />
+<div id="r-studio-basics" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> R-studio basics</h1>
+<div id="open-r-studio" class="section level2">
+<h2><span class="header-section-number">3.1</span> Open R-studio</h2>
+<div class="figure"><span id="fig:rrstudio"></span>
+<img src="images/Fig_1_3RRstudio.png" alt="Icons of the R program and R-studio" width="716" />
 <p class="caption">
-Figure 1.1: The basic R screen
+Figure 3.1: Icons of the R program and R-studio
 </p>
 </div>
-<p>More recently, <strong>R-studio</strong> has been designed as a piece of software to make it easier to programme in R. It’s what Microsoft Word is compared to notepad - lots more functionality and things to click. For example, you can easily see help files, run code, see your output and link to all the website/dashboard builders.</p>
-<p>In this course, we are going to use R-Studio as the main software, but you don’t <em>need</em> it if one day you only have access to R.</p>
-<div class="figure"><span id="fig:Rstudio"></span>
-<img src="images/Fig_1_2BasicRstudio.png" alt="The basic R-studio screen. Here is the R-Studio website where you can explore some of its features: https://rstudio.com/products/rstudio/features/" width="1279" />
-<p class="caption">
-Figure 1.2: The basic R-studio screen. Here is the R-Studio website where you can explore some of its features: <a href="https://rstudio.com/products/rstudio/features/" class="uri">https://rstudio.com/products/rstudio/features/</a>
-</p>
-</div>
-</div>
-<div id="what-are-r-markdown-r-shiny" class="section level2">
-<h2><span class="header-section-number">1.3</span> What are R-Markdown &amp; R-Shiny?</h2>
-<p>In recent years, people have developed new software in R to allow you to include your analysis in some pretty sophisticated outputs.</p>
-<p><strong>RMarkdown</strong> is an document written in R, where you can combine code, results, equations and text (and photos/video etc). Essentially R-Markdown is a way to tell a story along with your data analysis, without having to copy and paste screen-shots of diagrams. This will be how you write up your lab reports.</p>
-<p>R-Markdown also goes beyond just interactive documents:</p>
+<p><strong>Open R-studio</strong> (NOT R!). You should be greeted by three panels:</p>
 <ul>
-<li><strong>RBookdown</strong> is a book written in RMarkdown. It is how I wrote this help document</li>
-<li><strong>RBlogdown</strong> is a blog written in RMarkdown</li>
-<li>You can also make entire interactive websites in R-Markdown</li>
+<li>The interactive R console (entire left)</li>
+<li>Environment/History (tabbed in upper right)</li>
+<li>Files/Plots/Packages/Help/Viewer (tabbed in lower right)</li>
 </ul>
-<p>You can see examples and more details about R-markdown here: <a href="https://rmarkdown.rstudio.com/gallery.html" class="uri">https://rmarkdown.rstudio.com/gallery.html</a></p>
-<p><strong>RShiny</strong> allows you to make interactive applications and tools in R. Here are some examples: <a href="https://shiny.rstudio.com/gallery/" class="uri">https://shiny.rstudio.com/gallery/</a></p>
+<p>If you click on the View/Panes/Pane Layout menu item, you can move these around. I tend to like the console to be top left and scripts to be top right, with the plots and environment on the bottom - but this is totally personal choice.</p>
+<div class="figure"><span id="fig:basicStudio"></span>
+<img src="images/Fig_1_4Rstudio.png" alt="The basic R-studio screen when you log on" width="741" />
+<p class="caption">
+Figure 3.2: The basic R-studio screen when you log on
+</p>
+</div>
+<p><strong>If you have used R before, you might see that there are variables and plots etc already loaded</strong>. It is always good to clear these before you start a new analysis. To do this, click the little broom symbol in your environment tab.</p>
+</div>
+<div id="change-a-few-settings" class="section level2">
+<h2><span class="header-section-number">3.2</span> Change a few settings</h2>
+<p>R-studio wants to be helpful and will try to re-load exactly where you were in a project when you log back in. This can get really confusing, so we are going to turn this off.</p>
+<p>Click on the R-studio menu button on the top left of the screen, then click Preferences. This might look a little different on a PC, but the options should still be there.</p>
+<ul>
+<li>UNCLICK “Restore most recently opened project at startup”</li>
+<li>UNCLICK “Restore .RData into workspace at startup”</li>
+<li>Set “Save workspace to .RData on” exit to Never</li>
+</ul>
+<div class="figure"><span id="fig:Options"></span>
+<img src="images/Fig_1_5Options.png" alt="Change these 3 options, then press Apply and OK" width="580" />
+<p class="caption">
+Figure 3.3: Change these 3 options, then press Apply and OK
+</p>
+</div>
+</div>
+<div id="create-an-r-project" class="section level2">
+<h2><span class="header-section-number">3.3</span> Create an R-project</h2>
+<p>We are going to use R-projects to store our lab data in. An R project is a place to store all your commands, data and output in the same place. R will know that it is all linked.</p>
+<p>This is useful because say you have Lab-2 open, but want to re-open Lab-1 to check some code, clicking the “Lab 1 project file” will load a whole new version of R with everything you did for Lab 1.</p>
+<p>It is <strong><em>really</em></strong> important that you stay organised in this course, for example making sure you know where you put your data and your labs. You will return to them in your final project, so it pays to be organised now.</p>
+<p>To encourage this, choose a place that makes sense on your computer, create a folder called GEOG364.You can either do this outside R studio in your file explorer, or inside the “Files tab” in R studio.</p>
+<p>Now we will create our first project (also see the pic):</p>
+<ul>
+<li>open R-Studio and click <code>New Project</code>,</li>
+<li>then click “new directory”</li>
+<li>then “new project”.</li>
+<li>Name your project Lab 1, then browse to your newly created GEOG364 folder and press open.</li>
+<li>Press OK and your project is created.</li>
+</ul>
+<div class="figure"><span id="fig:project"></span>
+<img src="images/Fig_1_6Project.png" alt="Instructions to create an R project" width="1453" />
+<p class="caption">
+Figure 3.4: Instructions to create an R project
+</p>
+</div>
+<p>Your output should look something like this:</p>
+<div class="figure"><span id="fig:projectout"></span>
+<img src="images/Fig_1_7FinalOutput.png" alt="Your screen after running the project" width="1168" />
+<p class="caption">
+Figure 3.5: Your screen after running the project
+</p>
+</div>
+</div>
+<div id="lab-challenge-1" class="section level2">
+<h2><span class="header-section-number">3.4</span> Lab challenge 1</h2>
+<p>Now you have opened your project, take a screenshot of your R-studio page. It should look like Figure <a href="r-studio-basics.html#fig:projectout">3.5</a>.</p>
+<ul>
+<li>To take a screenshot on a mac, press Command-3. The sreenshot will appear on your desktop</li>
+<li>To take a screenshot on a PC, press Alt + PrtScn</li>
+</ul>
+<p>Rename the screenshot to your “username_Lab1_Fig1”(for example for me it will be hlg5155_Lab1_Fig1), then place it in your lab 1 folder.</p>
+<p>You will need this later!</p>
 </div>
 </div>
             </section>
@@ -243,8 +266,8 @@ Figure 1.2: The basic R-studio screen. Here is the R-Studio website where you ca
           </div>
         </div>
       </div>
-
-<a href="installing-r-and-r-studio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="installing-r-and-r-studio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-coding-basics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

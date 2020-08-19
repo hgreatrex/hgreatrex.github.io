@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Geog-364: Introduction to R</title>
+  <title>Chapter 5 Creating an R-Markdown document/script | Geog-364: Introduction to R</title>
   <meta name="description" content="Lab 1 support guide" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Geog-364: Introduction to R" />
+  <meta property="og:title" content="Chapter 5 Creating an R-Markdown document/script | Geog-364: Introduction to R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Geog-364: Introduction to R" />
+  <meta name="twitter:title" content="Chapter 5 Creating an R-Markdown document/script | Geog-364: Introduction to R" />
   
   <meta name="twitter:description" content="Lab 1 support guide" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="installing-r-and-r-studio.html"/>
+<link rel="prev" href="r-coding-basics.html"/>
+<link rel="next" href="online-courses-and-resources.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -159,7 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.5" data-path="r-coding-basics.html"><a href="r-coding-basics.html#packages"><i class="fa fa-check"></i><b>4.5</b> Packages</a></li>
 <li class="chapter" data-level="4.6" data-path="r-coding-basics.html"><a href="r-coding-basics.html#coding-hint"><i class="fa fa-check"></i><b>4.6</b> Coding hint</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="create-an-r-markdown-document.html"><a href="create-an-r-markdown-document.html"><i class="fa fa-check"></i><b>5</b> Create an R-Markdown document</a></li>
+<li class="chapter" data-level="5" data-path="creating-an-r-markdown-documentscript.html"><a href="creating-an-r-markdown-documentscript.html"><i class="fa fa-check"></i><b>5</b> Creating an R-Markdown document/script</a></li>
 <li class="chapter" data-level="6" data-path="online-courses-and-resources.html"><a href="online-courses-and-resources.html"><i class="fa fa-check"></i><b>6</b> Online courses and resources</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -181,61 +181,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Geog-364: Introduction to R</h1>
-<p class="author"><em>Helen Greatrex</em></p>
-<p class="date"><em>2020-08-19</em></p>
-</div>
-<div id="introduction" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
-<div id="why-is-this-class-in-r" class="section level2">
-<h2><span class="header-section-number">1.1</span> Why is this class in R?</h2>
-<p>There are many different types of software one can use to analyze spatial data. We’re going to focus on the R programming language because:</p>
-<ol style="list-style-type: lower-alpha">
-<li>It’s free and open source.</li>
-<li>It allows you to do traditional statistics, machine learning and data analysis.</li>
-<li>It’s a good introduction to programming, which isgreat for your resume.</li>
-<li>There are some very cool visualisation tools including
+<div id="creating-an-r-markdown-documentscript" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Creating an R-Markdown document/script</h1>
+<p>OK! So far, we have been typing commands into the console, but once you close R, these will all be lost. So we will now move onto writing code commands that you can save and submit.</p>
+<p>There are several types of document that you can create and save in R-Studio.</p>
 <ul>
-<li><a href="https://rmarkdown.rstudio.com/">RMarkdown</a>, <a href="https://bookdown.org/yihui/blogdown/">Blogdown</a> and <a href="https://bookdown.org/">Bookdown</a>, where you can integrate R analysis into your papers, blogs and websites. For example, this lab book is written in Bookdown.</li>
-<li><a href="https://shiny.rstudio.com/">RShiny</a> for very cool interactive dashboards</li>
-<li><a href="https://rstudio.github.io/leaflet/">Leaflet</a> and <a href="https://rpubs.com/nickbearman/r-google-map-making">RGoogleMaps</a> where you can use beautiful map making tools</li>
-</ul></li>
-</ol>
-<p>You will hopefully be exposed to all of these things throughout the course of the semester.</p>
-</div>
-<div id="what-are-r-and-r-studio" class="section level2">
-<h2><span class="header-section-number">1.2</span> What are R and R-studio?</h2>
-<p><strong>R</strong> is a programming language commonly used by statisticians and scientists across the world. It can be used to analyse data, to visualise results and to develop new software. It is commonly used in spatial analyisis because it is powerful and free, plus it allows you to combine spatial analysis with more traditional statistics.</p>
-<p>When I say R is a programming language, I mean that it is a collection of commands that you can type into the computer in order to analyse and visualise your data. Think of it literally like a language like Spanish or Hindi, so learning it means learning vocabulary and grammar to communicate with your computer. It also means it will get easier with experience and practice..</p>
-<p>When you install R on your computer, you are essentially teaching the computer what those the language means along with some very basic Notepad-like software where you could enter the commands.</p>
-<div class="figure"><span id="fig:Rscreenshot"></span>
-<img src="images/Fig_1_1RScreenshot.png" alt="The basic R screen" width="686" />
-<p class="caption">
-Figure 1.1: The basic R screen
-</p>
-</div>
-<p>More recently, <strong>R-studio</strong> has been designed as a piece of software to make it easier to programme in R. It’s what Microsoft Word is compared to notepad - lots more functionality and things to click. For example, you can easily see help files, run code, see your output and link to all the website/dashboard builders.</p>
-<p>In this course, we are going to use R-Studio as the main software, but you don’t <em>need</em> it if one day you only have access to R.</p>
-<div class="figure"><span id="fig:Rstudio"></span>
-<img src="images/Fig_1_2BasicRstudio.png" alt="The basic R-studio screen. Here is the R-Studio website where you can explore some of its features: https://rstudio.com/products/rstudio/features/" width="1279" />
-<p class="caption">
-Figure 1.2: The basic R-studio screen. Here is the R-Studio website where you can explore some of its features: <a href="https://rstudio.com/products/rstudio/features/" class="uri">https://rstudio.com/products/rstudio/features/</a>
-</p>
-</div>
-</div>
-<div id="what-are-r-markdown-r-shiny" class="section level2">
-<h2><span class="header-section-number">1.3</span> What are R-Markdown &amp; R-Shiny?</h2>
-<p>In recent years, people have developed new software in R to allow you to include your analysis in some pretty sophisticated outputs.</p>
-<p><strong>RMarkdown</strong> is an document written in R, where you can combine code, results, equations and text (and photos/video etc). Essentially R-Markdown is a way to tell a story along with your data analysis, without having to copy and paste screen-shots of diagrams. This will be how you write up your lab reports.</p>
-<p>R-Markdown also goes beyond just interactive documents:</p>
-<ul>
-<li><strong>RBookdown</strong> is a book written in RMarkdown. It is how I wrote this help document</li>
-<li><strong>RBlogdown</strong> is a blog written in RMarkdown</li>
-<li>You can also make entire interactive websites in R-Markdown</li>
+<li><p>A basic script (the filetype is .r). This is simply just a a notepad where you can write code commands (a script is show in (<a href="index.html#fig:Rscreenshot">1.1</a>))</p></li>
+<li><p>An .Rmd file (an R-Markdown document) - (<a href="creating-an-r-markdown-documentscript.html#fig:rmd">5.1</a>). This is a document you can use to write a report with normal text/pictures, but ALSO include R output. So essentially it will let you make interactive documents which include text, code, plots and other output. These instructions themselves are the output of a markdown document. This is covered in Lab 1, but there is a video that describes more here: <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a></p></li>
 </ul>
-<p>You can see examples and more details about R-markdown here: <a href="https://rmarkdown.rstudio.com/gallery.html" class="uri">https://rmarkdown.rstudio.com/gallery.html</a></p>
-<p><strong>RShiny</strong> allows you to make interactive applications and tools in R. Here are some examples: <a href="https://shiny.rstudio.com/gallery/" class="uri">https://shiny.rstudio.com/gallery/</a></p>
+<div class="figure"><span id="fig:rmd"></span>
+<img src="images/Fig_1_7Rmd.png" alt="On the left shows the .Rmd code, on the right is the output" width="749" />
+<p class="caption">
+Figure 5.1: On the left shows the .Rmd code, on the right is the output
+</p>
 </div>
 </div>
             </section>
@@ -243,8 +201,8 @@ Figure 1.2: The basic R-studio screen. Here is the R-Studio website where you ca
           </div>
         </div>
       </div>
-
-<a href="installing-r-and-r-studio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r-coding-basics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="online-courses-and-resources.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

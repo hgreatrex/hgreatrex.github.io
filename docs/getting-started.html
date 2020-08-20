@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Online courses and resources | Geog-364: Introduction to R</title>
+  <title>Chapter 3 Getting started | Geog-364: Introduction to R</title>
   <meta name="description" content="Lab 1 support guide" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Online courses and resources | Geog-364: Introduction to R" />
+  <meta property="og:title" content="Chapter 3 Getting started | Geog-364: Introduction to R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Online courses and resources | Geog-364: Introduction to R" />
+  <meta name="twitter:title" content="Chapter 3 Getting started | Geog-364: Introduction to R" />
   
   <meta name="twitter:description" content="Lab 1 support guide" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="create-a-r-markdown-document.html"/>
-
+<link rel="prev" href="installing-r-and-r-studio.html"/>
+<link rel="next" href="r-coding-basics.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -181,24 +181,98 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="online-courses-and-resources" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> Online courses and resources</h1>
-<p>If you want to practice the basics,then there are several places you can take free introductory tutorials - all of which I recommend. These include:</p>
+<div id="getting-started" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Getting started</h1>
+<div id="open-r-studio" class="section level2">
+<h2><span class="header-section-number">3.1</span> Open R-studio</h2>
+<div class="figure"><span id="fig:rrstudio"></span>
+<img src="images/Fig_1_3RRstudio.png" alt="Icons of the R program and R-studio" width="716" />
+<p class="caption">
+Figure 3.1: Icons of the R program and R-studio
+</p>
+</div>
+<p><strong>Open R-studio</strong> (NOT R!). You should be greeted by three panels:</p>
 <ul>
-<li>Data Camp: First chapter is free - <a href="https://www.datacamp.com/courses/free-introduction-to-r" class="uri">https://www.datacamp.com/courses/free-introduction-to-r</a></li>
-<li>FREE linkedin learning for R (Penn State log-in required): <a href="https://www.linkedin.com/learning/learning-r-2/r-for-data-science?u=76811570" class="uri">https://www.linkedin.com/learning/learning-r-2/r-for-data-science?u=76811570</a></li>
-<li>FREE (basic account) code academy - <a href="https://www.codecademy.com/courses/learn-r/lessons/introduction-to-r/" class="uri">https://www.codecademy.com/courses/learn-r/lessons/introduction-to-r/</a></li>
+<li>The interactive R console (entire left)</li>
+<li>Environment/History (tabbed in upper right)</li>
+<li>Files/Plots/Packages/Help/Viewer (tabbed in lower right)</li>
 </ul>
-<p><strong>If you’re completely lost - it’s OK! This is pretty normal at this stage. Talk to the instructors and we can point you in the direction of resources to make you feel more comfortable using R.</strong></p>
-
+<p>If you click on the View/Panes/Pane Layout menu item, you can move these around. I tend to like the console to be top left and scripts to be top right, with the plots and environment on the bottom - but this is totally personal choice.</p>
+<div class="figure"><span id="fig:basicStudio"></span>
+<img src="images/Fig_1_4Rstudio.png" alt="The basic R-studio screen when you log on" width="741" />
+<p class="caption">
+Figure 3.2: The basic R-studio screen when you log on
+</p>
+</div>
+<p><strong>If you have used R before, you might see that there are variables and plots etc already loaded</strong>. It is always good to clear these before you start a new analysis. To do this, click the little broom symbol in your environment tab.</p>
+</div>
+<div id="change-a-few-settings" class="section level2">
+<h2><span class="header-section-number">3.2</span> Change a few settings</h2>
+<p>R-studio wants to be helpful and will try to re-load exactly where you were in a project when you log back in. This can get really confusing, so we are going to turn this off.</p>
+<p>Click on the R-studio menu button on the top left of the screen, then click Preferences. This might look a little different on a PC, but the options should still be there.</p>
+<ul>
+<li>UNCLICK “Restore most recently opened project at startup”</li>
+<li>UNCLICK “Restore .RData into workspace at startup”</li>
+<li>Set “Save workspace to .RData on” exit to Never</li>
+</ul>
+<div class="figure"><span id="fig:Options"></span>
+<img src="images/Fig_1_5Options.png" alt="Change these 3 options, then press Apply and OK" width="580" />
+<p class="caption">
+Figure 3.3: Change these 3 options, then press Apply and OK
+</p>
+</div>
+</div>
+<div id="create-an-r-project" class="section level2">
+<h2><span class="header-section-number">3.3</span> Create an R-project</h2>
+<p>We are going to use R-projects to store our lab data in. An R project is a place to store all your commands, data and output in the same place. R will know that it is all linked.</p>
+<p>This is useful because say you have Lab-2 open, but want to re-open Lab-1 to check some code, clicking the “Lab 1 project file” will load a whole new version of R with everything you did for Lab 1.</p>
+<p>It is <strong><em>really</em></strong> important that you stay organised in this course, for example making sure you know where you put your data and your labs. You will return to them in your final project, so it pays to be organised now.</p>
+<p>To encourage this, choose a place that makes sense on your computer, create a folder called GEOG364.You can either do this outside R studio in your file explorer, or inside the “Files tab” in R studio.</p>
+<p>Now we will create our first project (also see the pic):</p>
+<ul>
+<li>open R-Studio and click <code>New Project</code>,</li>
+<li>then click “new directory”</li>
+<li>then “new project”.</li>
+<li>Name your project Lab 1, then browse to your newly created GEOG364 folder and press open.</li>
+<li>Press OK and your project is created.</li>
+</ul>
+<div class="figure"><span id="fig:project"></span>
+<img src="images/Fig_1_6Project.png" alt="Instructions to create an R project" width="1453" />
+<p class="caption">
+Figure 3.4: Instructions to create an R project
+</p>
+</div>
+<p>Your output should look something like this:</p>
+<div class="figure"><span id="fig:projectout"></span>
+<img src="images/Fig_1_7FinalOutput.png" alt="Your screen after running the project" width="1168" />
+<p class="caption">
+Figure 3.5: Your screen after running the project
+</p>
+</div>
+<p>Equally, R should now be “looking” inside your Lab 1 folder, making it easier to find your data and output your results. Try typing this into the console (INCLUDING THE PARANTHESES/BRACKETS) and see if it prints out the location of Lab 1.</p>
+<pre><code>## [1] &quot;/Users/hlg5155/Dropbox/Work/09 Teaching/PSU.GEOG_364/2020 Final/Labs/Lab_Book&quot;</code></pre>
+<div id="if-youre-having-issues-at-this-point-or-havent-managed-to-get-to-this-step-stop-ask-dr-greatrex-saumnya-or-harman-for-help." class="section level4">
+<h4><span class="header-section-number">3.3.0.1</span> If you’re having issues at this point or haven’t managed to get to this step, STOP! Ask Dr Greatrex, Saumnya or Harman for help.</h4>
+</div>
+</div>
+<div id="lab-challenge-1" class="section level2">
+<h2><span class="header-section-number">3.4</span> Lab challenge 1</h2>
+<p>Now you have opened your project, take a screenshot of your R-studio page. It should look like Figure <a href="getting-started.html#fig:projectout">3.5</a>.</p>
+<ul>
+<li>To take a screenshot on a mac, press Command-3. The sreenshot will appear on your desktop</li>
+<li>To take a screenshot on a PC, press Alt + PrtScn</li>
+</ul>
+<p>Rename the screenshot to your “username_Lab1_Fig1”(for example for me it will be hlg5155_Lab1_Fig1), then place it in your lab 1 folder.</p>
+<p>You will need this later!</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="create-a-r-markdown-document.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="installing-r-and-r-studio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-coding-basics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

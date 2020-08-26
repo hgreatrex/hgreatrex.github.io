@@ -217,7 +217,8 @@ Figure 8.1: Remember to add a blank line BEFORE AND AFTER your headings
 <ul>
 <li><p>First, lets find the file. It should be easy as you should have put it in your Lab 1 folder. R doesn’t automatically know which folder to look in, so that file.choose() command can help us find it.</p></li>
 <li><p>IN THE CONSOLE, type file.choose() (including the empty parentheses). A window will pop up. Find your screenshot then press OK. You will see in the console the file address has been written down.</p></li>
-<li><p>Now, lets back to your script. Create a new code chunk and inside type the following, but replace FILEADDRESS with the full address that just appeared on your console (INCLUDING THE QUOTES). When you click run, the chunk should load your screenshot. As described in Lab challenge 1, we are checking the version of R, that you have created the project and stored it in the right place.</p></li>
+<li><p>Now, lets back to your script. Create a new code chunk and inside type the following, but replace FILEADDRESS with the full address that just appeared on your console (INCLUDING THE QUOTES).</p></li>
+<li><p>Now click run and the chunk should load your screenshot inside your R-script. As described in Lab challenge 1, we are checking the version of R, that you have created the project and stored it in the right place.</p></li>
 </ul></li>
 </ol>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="lab-challenge-3.html#cb44-1"></a><span class="co"># Load the knitr library</span></span>
@@ -230,9 +231,15 @@ Figure 8.1: Remember to add a blank line BEFORE AND AFTER your headings
 Figure 8.2: How your code should look but with your own picture and address
 </p>
 </div>
+<p><em>Pictures are a little weird in R, which is why we’re taking our time with this lab. If your picture does not show up in the final nb.html:</em></p>
+<ul>
+<li><p><em>Did you run the code chunk in the R-script so that it showed up just below the code chunk? (not in the plots tab) If not, run the code chunk then save again</em></p></li>
+<li><p><em>You can “knit” the file by clicking knit (near the save button), which will create a html rather than a nb.html. This should include the picture. You are 100% fine to submit the html instead of the nb.html</em></p></li>
+<li><p><em>If it STILL doesn’t work, click in the text oart (outside the code chunk), create a new line and try the command <code>![](FILEADDRESS)</code>, where FILEADDRESS is the output of file.choose() in the console</em></p></li>
+</ul>
 <ol start="4" style="list-style-type: decimal">
 <li><strong>CLICK RUN-ALL, then save your file.</strong>
-Go to your Lab 1 folder and click on the html.nb file. This should now be a professional html file of your work. Go to Canvas, complete the Canvas course and submit.</li>
+Go to your Lab 1 folder and click on the nb.html file. This should now be a professional html file of your work. If you have issues, try pressing the knit button and look at the html file (either are fine to submit) Go to Canvas, complete the Canvas course and submit.</li>
 </ol>
 <p>Congratulations on making it through a long document. The first time in a new programming language is always tough, so nice work for making it this far.</p>
 </div>

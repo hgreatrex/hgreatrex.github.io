@@ -24,7 +24,7 @@
 <meta name="author" content="Helen Greatrex" />
 
 
-<meta name="date" content="2020-08-26" />
+<meta name="date" content="2020-08-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -164,6 +164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.1" data-path="create-a-r-markdown-document.html"><a href="create-a-r-markdown-document.html#what-is-markdown"><i class="fa fa-check"></i><b>7.1</b> What is markdown?</a></li>
 <li class="chapter" data-level="7.2" data-path="create-a-r-markdown-document.html"><a href="create-a-r-markdown-document.html#creating-a-notebook-document"><i class="fa fa-check"></i><b>7.2</b> Creating a notebook document</a></li>
 <li class="chapter" data-level="7.3" data-path="create-a-r-markdown-document.html"><a href="create-a-r-markdown-document.html#text-formatting-in-the-white-area"><i class="fa fa-check"></i><b>7.3</b> Text formatting (in the white area)</a></li>
+<li class="chapter" data-level="7.4" data-path="create-a-r-markdown-document.html"><a href="create-a-r-markdown-document.html#friendly-text"><i class="fa fa-check"></i><b>7.4</b> “Friendly text”</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="lab-challenge-3.html"><a href="lab-challenge-3.html"><i class="fa fa-check"></i><b>8</b> Lab Challenge 3</a></li>
 <li class="chapter" data-level="9" data-path="online-courses-and-resources.html"><a href="online-courses-and-resources.html"><i class="fa fa-check"></i><b>9</b> Online courses and resources</a></li>
@@ -209,9 +210,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Figure 7.1: You should see TWO new files appear in your lab 1 folder
 </p>
 </div>
-<p>If you click on the little right triangle arrow at the top-left of the code chunk, you can run the plot command, and a picture will appear, running the code. Note, it no longer runs in the console.</p>
+<p>If you click on the little right triangle arrow at the top-right of the code chunk, you can run the plot command, and a picture will appear, running the code. Note, it no longer runs in the console. You can still copy things into the console, by clicking on the line you want to run and pressing Ctrl-Enter / command-Enter.</p>
+<p>Let’s try this. On line 11, delete <code>plot(cars)</code> and type <code>1+1</code>. Now press the green arrow and the answer should appear directly under your code chunk.</p>
+<p>Now click at the end of the script, around line 20 and press the green insert button (top right in the script menu icons). Insert a new R code chunk. Inside, type <code>1+2</code> and run it. So you can see that you can have text/pictures/videos etc, and code chunks interspersed throughout it.</p>
 <p>Finally, click on the script then press the save button. Save it as GEOG364_Lab1_PSU.ID e.g. GEOG364_Lab1_hlg5155</p>
-<p>You will see two files appear in your files tab, and your Lab_1 folder. If you click on the LabScript1_abc9999.nb.html file then it will open in your file browser. You have made your first R-html output - congrats!</p>
+<p>You will see two files appear in your files tab, and your Lab_1 folder. Click on the LabScript1_abc9999.nb.html file then it will open in your file browser - you should see your code output and your formatted text. You have made your first R-html output - congrats!</p>
 <p><strong>IMPORTANTLY - If you don’t “run” each code chunk by clicking the arrow, or clicking the run-all button in the top right, then that code won’t run in your final html output that we grade. If that is the case we can’t see if the code works and cannot award you the marks! SO - get in the habit of pressing “run-all” before you submit your final html file</strong></p>
 <div class="figure"><span id="fig:rmdtwo"></span>
 <img src="images/Fig_1_9Rmd.png" alt="You should see TWO new files appear in your lab 1 folder" width="1673" />
@@ -242,6 +245,18 @@ Figure 7.4: Bringing up the formatting cheatsheet
 </p>
 </div>
 <p><strong>THERE IS ALSO A SPELL-CHECKER NEXT TO THE SAVE BUTTON - REMEMBER TO USE IT!</strong></p>
+</div>
+<div id="friendly-text" class="section level2">
+<h2><span class="header-section-number">7.4</span> “Friendly text”</h2>
+<p>Much of what you see on your screen when you open a notebook document is simply a friendly introduction to RStudio.</p>
+<p>So your notebook file is essentially a Word document with the ability to add in “mini R-consoles”, AKA your code chunks. Imagine every time you opened a new word document, it included some “friendly text” (<em>“hi, this is a word document, this is how you do bold text, this is how you save”</em>). This is great the first time you ever use Word, but kind of a pain after that.</p>
+<p>RStudio actually does this. Every time you open a notebook file, you actually <em>do</em> get this friendly text, explaining how to use a notebook file. Read it, make sure you understand what it is telling you, then delete all of it. So delete from line 6 to the end. The stuff left over is your YAML code which tells R how to create the final html file. DON’T TOUCH THAT.</p>
+<div class="figure"><span id="fig:friendly"></span>
+<img src="images/Fig_1_16Friendlytext.png" alt="You should see TWO new files appear in your lab 1 folder" width="910" />
+<p class="caption">
+Figure 7.5: You should see TWO new files appear in your lab 1 folder
+</p>
+</div>
 </div>
 </div>
             </section>

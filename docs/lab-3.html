@@ -220,9 +220,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4" data-path="lab-3.html"><a href="lab-3.html#lab-3-challenge-1"><i class="fa fa-check"></i><b>3.4</b> Lab-3 Challenge 1</a></li>
 <li class="chapter" data-level="3.5" data-path="lab-3.html"><a href="lab-3.html#mean-centre-and-standard-ellipse"><i class="fa fa-check"></i><b>3.5</b> Mean Centre and Standard Ellipse</a></li>
 <li class="chapter" data-level="3.6" data-path="lab-3.html"><a href="lab-3.html#lab-3-challenge-2"><i class="fa fa-check"></i><b>3.6</b> Lab-3 Challenge 2</a></li>
-<li class="chapter" data-level="3.7" data-path="lab-3.html"><a href="lab-3.html#density-analysis"><i class="fa fa-check"></i><b>3.7</b> Density analysis</a><ul>
-<li class="chapter" data-level="3.7.1" data-path="lab-3.html"><a href="lab-3.html#global-intensity"><i class="fa fa-check"></i><b>3.7.1</b> Global intensity</a></li>
-</ul></li>
+<li class="chapter" data-level="3.7" data-path="lab-3.html"><a href="lab-3.html#global-density-analysis"><i class="fa fa-check"></i><b>3.7</b> Global Density analysis</a></li>
 <li class="chapter" data-level="3.8" data-path="lab-3.html"><a href="lab-3.html#lab-3-challenge-3"><i class="fa fa-check"></i><b>3.8</b> Lab-3 Challenge 3</a></li>
 <li class="chapter" data-level="3.9" data-path="lab-3.html"><a href="lab-3.html#local-intensity---quadrat-analysis"><i class="fa fa-check"></i><b>3.9</b> Local intensity - quadrat analysis</a></li>
 <li class="chapter" data-level="3.10" data-path="lab-3.html"><a href="lab-3.html#lab-3-challenge-4"><i class="fa fa-check"></i><b>3.10</b> Lab-3 Challenge 4</a></li>
@@ -415,8 +413,8 @@ Figure 3.5: The longleaf help file
 </ol>
 <p>This corresponds with questions 3 and 4 in the Canvas Lab 3 quiz.</p>
 </div>
-<div id="density-analysis" class="section level2">
-<h2><span class="header-section-number">3.7</span> Density analysis</h2>
+<div id="global-density-analysis" class="section level2">
+<h2><span class="header-section-number">3.7</span> Global Density analysis</h2>
 <p>Let’s move beyond summary statistics. In the rest of this Lab, we will study the variation of the observations’ <em>density</em> across a study area, essentially giving us clues about the non-uniformity of space</p>
 <p>For example, the distribution of trees might vary across a landscape from North to South due to climate conditions, or show a more complex spatial pattern based on underlying soil characteristics. These underlying factors could easily result in some areas having dense clusters of trees and other areas causing clearings.</p>
 <p>This phenomenon is called <strong>First order</strong> spatial variation. AKA the underlying geography is causing the patterns we see (rather than a each individual point influencing the other points around it)</p>
@@ -426,8 +424,6 @@ Figure 3.5: The longleaf help file
 Figure 3.6: plot from
 </p>
 </div>
-<div id="global-intensity" class="section level3">
-<h3><span class="header-section-number">3.7.1</span> Global intensity</h3>
 <p>The first way to look at this is to examine the overall density of points over the entire field, known as the global intensity. This is simply the average number of points per grid-cell. We say it’s “global” because we only calculate one number for the entire study area.</p>
 <p>Mathematically, the overall intensity of a point process can be calculated via the following equation, where n is the number of points within our region and A is the area of the region.</p>
 <p><span class="math display">\[\lambda=\frac{n}{A}\]</span></p>
@@ -454,7 +450,6 @@ Figure 3.6: plot from
 <li>It also summarizes our marks. We can see that the thinnest tree trunk has a diameter 2cm and the largest, 75.9cm.<br />
 Finally it tells us the shape and area of our boundary box containing all our points is 200x200m. Note, this bounding box doesn’t <em>have</em> to be rectangular.</li>
 </ul>
-</div>
 </div>
 <div id="lab-3-challenge-3" class="section level2">
 <h2><span class="header-section-number">3.8</span> Lab-3 Challenge 3</h2>

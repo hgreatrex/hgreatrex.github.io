@@ -260,15 +260,84 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="test-1" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> TEST 1</h1>
-<p>Placeholder</p>
 <div id="set-up-the-data" class="section level2">
 <h2><span class="header-section-number">4.1</span> Set up the data</h2>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="test-1.html#cb90-1"></a><span class="kw">library</span>(spatstat)</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="test-1.html#cb91-1"></a>lanternfly &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;./tmp1.csv&quot;</span>)</span>
+<span id="cb91-2"><a href="test-1.html#cb91-2"></a>beetle &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;./tmp2.csv&quot;</span>)</span>
+<span id="cb91-3"><a href="test-1.html#cb91-3"></a>   </span>
+<span id="cb91-4"><a href="test-1.html#cb91-4"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb91-5"><a href="test-1.html#cb91-5"></a><span class="kw">plot</span>(lanternfly,<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">main=</span><span class="st">&quot;Lanternfly sightings&quot;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">5</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">5</span>))</span>
+<span id="cb91-6"><a href="test-1.html#cb91-6"></a><span class="kw">plot</span>(beetle,<span class="dt">pch=</span><span class="dv">20</span>,<span class="dt">main=</span><span class="st">&quot;Beetle sightings&quot;</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">5</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">5</span>))</span></code></pre></div>
+<p><img src="GEOG364Labs_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
 </div>
 <div id="lanternfly-analysis" class="section level2">
 <h2><span class="header-section-number">4.2</span> Lanternfly analysis</h2>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="test-1.html#cb92-1"></a>lanternfly.ppp &lt;-<span class="st"> </span><span class="kw">as.ppp</span>(lanternfly,<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">5</span>,<span class="dv">0</span>,<span class="dv">5</span>))</span>
+<span id="cb92-2"><a href="test-1.html#cb92-2"></a></span>
+<span id="cb92-3"><a href="test-1.html#cb92-3"></a><span class="co"># Count the number of points</span></span>
+<span id="cb92-4"><a href="test-1.html#cb92-4"></a>Q.counts &lt;-<span class="st"> </span><span class="kw">quadratcount</span>(lanternfly.ppp,<span class="dt">nx=</span><span class="dv">5</span>,<span class="dt">ny=</span><span class="dv">5</span>)  </span>
+<span id="cb92-5"><a href="test-1.html#cb92-5"></a></span>
+<span id="cb92-6"><a href="test-1.html#cb92-6"></a><span class="co"># we use the as vector command to convert the data from a spatial ppp object back to a normal number</span></span>
+<span id="cb92-7"><a href="test-1.html#cb92-7"></a>Q.variance &lt;-<span class="st"> </span><span class="kw">var</span>(<span class="kw">as.vector</span>(Q.counts))</span>
+<span id="cb92-8"><a href="test-1.html#cb92-8"></a>Q.mean &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">as.vector</span>(Q.counts))</span>
+<span id="cb92-9"><a href="test-1.html#cb92-9"></a>Q.VMR &lt;-<span class="st"> </span>Q.variance <span class="op">/</span><span class="st"> </span>Q.mean</span>
+<span id="cb92-10"><a href="test-1.html#cb92-10"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;VMR: &quot;</span> ,Q.VMR))</span></code></pre></div>
+<pre><code>## [1] &quot;VMR:  0.986111111111111&quot;</code></pre>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="test-1.html#cb94-1"></a><span class="kw">plot</span>(lanternfly.ppp,           <span class="co"># I&#39;m plotting the longleaf data</span></span>
+<span id="cb94-2"><a href="test-1.html#cb94-2"></a>     <span class="dt">use.marks =</span> F,      <span class="co"># I didn&#39;t want it to plot the different circle sizes so i turned off marks</span></span>
+<span id="cb94-3"><a href="test-1.html#cb94-3"></a>     <span class="dt">cex =</span> <span class="dv">1</span>, <span class="dt">pch =</span> <span class="dv">4</span>, <span class="co"># point size and shape</span></span>
+<span id="cb94-4"><a href="test-1.html#cb94-4"></a>     <span class="dt">main=</span><span class="st">&quot;Grid 1&quot;</span>) <span class="co"># plot title</span></span>
+<span id="cb94-5"><a href="test-1.html#cb94-5"></a><span class="kw">plot</span>(Q.counts, <span class="dt">add =</span> <span class="ot">TRUE</span>, <span class="dt">cex =</span> <span class="dv">2</span>)  <span class="co"># Now I add Q on top.</span></span></code></pre></div>
+<p><img src="GEOG364Labs_files/figure-html/unnamed-chunk-66-1.png" width="672" /></p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="test-1.html#cb95-1"></a><span class="kw">plot</span>(<span class="kw">intensity</span>(Q.counts, <span class="dt">image=</span><span class="ot">TRUE</span>), <span class="dt">main=</span><span class="st">&quot;Point intensity of lanternfly distribution&quot;</span>, <span class="dt">las=</span><span class="dv">1</span>)  <span class="co"># Plot intensity raster</span></span>
+<span id="cb95-2"><a href="test-1.html#cb95-2"></a><span class="kw">plot</span>(lanternfly.ppp, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">cex=</span><span class="fl">0.6</span>,  <span class="dt">add=</span><span class="ot">TRUE</span>)                     <span class="co"># Add points</span></span></code></pre></div>
+<p><img src="GEOG364Labs_files/figure-html/unnamed-chunk-66-2.png" width="672" /></p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="test-1.html#cb96-1"></a>Q.test.fly &lt;-<span class="st"> </span><span class="kw">quadrat.test</span>(lanternfly.ppp, <span class="dt">nx =</span> <span class="dv">5</span>, <span class="dt">ny =</span> <span class="dv">5</span>)  <span class="co"># Calculate the quadrat counts.</span></span></code></pre></div>
+<pre><code>## Warning: Some expected counts are small; chi^2 approximation may be inaccurate</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="test-1.html#cb98-1"></a>Q.test.fly</span></code></pre></div>
+<pre><code>## 
+## 	Chi-squared test of CSR using quadrat counts
+## 
+## data:  lanternfly.ppp
+## X2 = 23.667, df = 24, p-value = 0.9616
+## alternative hypothesis: two.sided
+## 
+## Quadrats: 5 by 5 grid of tiles</code></pre>
 </div>
 <div id="beetle-analysis" class="section level2">
 <h2><span class="header-section-number">4.3</span> Beetle analysis</h2>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="test-1.html#cb100-1"></a>beetle.ppp &lt;-<span class="st"> </span><span class="kw">as.ppp</span>(beetle,<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">5</span>,<span class="dv">0</span>,<span class="dv">5</span>))</span>
+<span id="cb100-2"><a href="test-1.html#cb100-2"></a></span>
+<span id="cb100-3"><a href="test-1.html#cb100-3"></a><span class="co"># Count the number of points</span></span>
+<span id="cb100-4"><a href="test-1.html#cb100-4"></a>Q.counts &lt;-<span class="st"> </span><span class="kw">quadratcount</span>(beetle.ppp,<span class="dt">nx=</span><span class="dv">5</span>,<span class="dt">ny=</span><span class="dv">5</span>)  </span>
+<span id="cb100-5"><a href="test-1.html#cb100-5"></a></span>
+<span id="cb100-6"><a href="test-1.html#cb100-6"></a><span class="co"># we use the as vector command to convert the data from a spatial ppp object back to a normal number</span></span>
+<span id="cb100-7"><a href="test-1.html#cb100-7"></a>Q.variance &lt;-<span class="st"> </span><span class="kw">var</span>(<span class="kw">as.vector</span>(Q.counts))</span>
+<span id="cb100-8"><a href="test-1.html#cb100-8"></a>Q.mean &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">as.vector</span>(Q.counts))</span>
+<span id="cb100-9"><a href="test-1.html#cb100-9"></a>Q.VMR &lt;-<span class="st"> </span>Q.variance <span class="op">/</span><span class="st"> </span>Q.mean</span>
+<span id="cb100-10"><a href="test-1.html#cb100-10"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;VMR: &quot;</span>, Q.VMR))</span></code></pre></div>
+<pre><code>## [1] &quot;VMR:  0.986111111111111&quot;</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="test-1.html#cb102-1"></a><span class="kw">plot</span>(beetle.ppp,           <span class="co"># I&#39;m plotting the longleaf data</span></span>
+<span id="cb102-2"><a href="test-1.html#cb102-2"></a>     <span class="dt">use.marks =</span> F,      <span class="co"># I didn&#39;t want it to plot the different circle sizes so i turned off marks</span></span>
+<span id="cb102-3"><a href="test-1.html#cb102-3"></a>     <span class="dt">cex =</span> <span class="dv">1</span>, <span class="dt">pch =</span> <span class="dv">4</span>, <span class="co"># point size and shape</span></span>
+<span id="cb102-4"><a href="test-1.html#cb102-4"></a>     <span class="dt">main=</span><span class="st">&quot;Beetle distribution&quot;</span>) <span class="co"># plot title</span></span>
+<span id="cb102-5"><a href="test-1.html#cb102-5"></a><span class="kw">plot</span>(Q.counts, <span class="dt">add =</span> <span class="ot">TRUE</span>, <span class="dt">cex =</span> <span class="dv">2</span>)  <span class="co"># Now I add Q on top.</span></span></code></pre></div>
+<p><img src="GEOG364Labs_files/figure-html/unnamed-chunk-69-1.png" width="672" /></p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="test-1.html#cb103-1"></a><span class="kw">plot</span>(<span class="kw">intensity</span>(Q.counts, <span class="dt">image=</span><span class="ot">TRUE</span>), <span class="dt">main=</span><span class="st">&quot;Point intensity of beetle distribution&quot;</span>, <span class="dt">las=</span><span class="dv">1</span>)  <span class="co"># Plot intensity raster</span></span>
+<span id="cb103-2"><a href="test-1.html#cb103-2"></a><span class="kw">plot</span>(beetle.ppp, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">cex=</span><span class="fl">0.6</span>,  <span class="dt">add=</span><span class="ot">TRUE</span>)                     <span class="co"># Add points</span></span></code></pre></div>
+<p><img src="GEOG364Labs_files/figure-html/unnamed-chunk-69-2.png" width="672" /></p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="test-1.html#cb104-1"></a>Q.test.beetle &lt;-<span class="st"> </span><span class="kw">quadrat.test</span>(beetle.ppp, <span class="dt">nx =</span> <span class="dv">5</span>, <span class="dt">ny =</span> <span class="dv">5</span>)  <span class="co"># Calculate the quadrat counts.</span></span></code></pre></div>
+<pre><code>## Warning: Some expected counts are small; chi^2 approximation may be inaccurate</code></pre>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="test-1.html#cb106-1"></a>Q.test.beetle</span></code></pre></div>
+<pre><code>## 
+## 	Chi-squared test of CSR using quadrat counts
+## 
+## data:  beetle.ppp
+## X2 = 23.667, df = 24, p-value = 0.9616
+## alternative hypothesis: two.sided
+## 
+## Quadrats: 5 by 5 grid of tiles</code></pre>
 
 </div>
 </div>

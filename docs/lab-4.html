@@ -51,6 +51,16 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.0.3/leaflet-providers-plugin.js"></script>
 
 
 <style type="text/css">
@@ -245,7 +255,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.7" data-path="lab-4.html"><a href="lab-4.html#challenge-6-nearest-neighbour"><i class="fa fa-check"></i><b>5.7</b> Challenge 6 Nearest neighbour</a></li>
 <li class="chapter" data-level="5.8" data-path="lab-4.html"><a href="lab-4.html#challenge-7-l-analysis"><i class="fa fa-check"></i><b>5.8</b> Challenge 7 L Analysis</a></li>
 <li class="chapter" data-level="5.9" data-path="lab-4.html"><a href="lab-4.html#challenge-8-show-me-something-new"><i class="fa fa-check"></i><b>5.9</b> Challenge 8 Show me something new</a></li>
-<li class="chapter" data-level="5.10" data-path="lab-3.html"><a href="lab-3.html#lab-3-submission-check"><i class="fa fa-check"></i><b>5.10</b> Lab-3 submission check</a></li>
+<li class="chapter" data-level="5.10" data-path="lab-4.html"><a href="lab-4.html#lab-4-submission-check"><i class="fa fa-check"></i><b>5.10</b> Lab-4 submission check</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -297,13 +307,13 @@ If you wish to know more about the fossil data, you can see and explore it here:
 <li><code>elevatr</code></li>
 </ul>
 <p>Now add a new code chunk in your script. Inside add the following code and run it.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="lab-4.html#cb1-1"></a> <span class="kw">library</span>(maptools)</span>
-<span id="cb1-2"><a href="lab-4.html#cb1-2"></a> <span class="kw">library</span>(spatstat)</span>
-<span id="cb1-3"><a href="lab-4.html#cb1-3"></a> <span class="kw">library</span>(sp)</span>
-<span id="cb1-4"><a href="lab-4.html#cb1-4"></a> <span class="kw">library</span>(raster)</span>
-<span id="cb1-5"><a href="lab-4.html#cb1-5"></a> <span class="kw">library</span>(USAboundaries)</span>
-<span id="cb1-6"><a href="lab-4.html#cb1-6"></a> <span class="kw">library</span>(sf)</span>
-<span id="cb1-7"><a href="lab-4.html#cb1-7"></a> <span class="kw">library</span>(elevatr)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="lab-4.html#cb108-1"></a> <span class="kw">library</span>(maptools)</span>
+<span id="cb108-2"><a href="lab-4.html#cb108-2"></a> <span class="kw">library</span>(spatstat)</span>
+<span id="cb108-3"><a href="lab-4.html#cb108-3"></a> <span class="kw">library</span>(sp)</span>
+<span id="cb108-4"><a href="lab-4.html#cb108-4"></a> <span class="kw">library</span>(raster)</span>
+<span id="cb108-5"><a href="lab-4.html#cb108-5"></a> <span class="kw">library</span>(USAboundaries)</span>
+<span id="cb108-6"><a href="lab-4.html#cb108-6"></a> <span class="kw">library</span>(sf)</span>
+<span id="cb108-7"><a href="lab-4.html#cb108-7"></a> <span class="kw">library</span>(elevatr)</span></code></pre></div>
 <p>The reason we are adding this just after typing it into your console is that these library commands need to be run every time you open R. So we put them in a code chunk right at the top of your Note Book file.</p>
 <p>Now click the Preview Button and make sure everything looks correct. IF THERE ARE PROBLEMS, TALK TO AN INSTRUCTOR</p>
 <p><em>Don’t continue until you can make and view your html or nb.html file. If it doesn’t work, ask for help before moving on</em></p>
@@ -330,35 +340,35 @@ If you wish to know more about the fossil data, you can see and explore it here:
 <div id="a.-read-in-and-explore-the-point-data" class="section level3">
 <h3><span class="header-section-number">5.3.1</span> A. Read in and explore the point data</h3>
 <p>I have provided the code to read in your data. Create a new code chunk and copy the code below into your R-script. RReplace the “WRITE YOUR COMMENTS HERE..” with your description of what is happening in the code</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="lab-4.html#cb2-1"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb2-2"><a href="lab-4.html#cb2-2"></a><span class="co">#  WRITE YOUR COMMENTS HERE TO DESCRIBE WHAT IS HAPPENING</span></span>
-<span id="cb2-3"><a href="lab-4.html#cb2-3"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb2-4"><a href="lab-4.html#cb2-4"></a> filelocation &lt;-<span class="st"> &quot;https://raw.githubusercontent.com/hgreatrex/GEOG364_Labs/master/Lab_4/PA_fossils.csv&quot;</span></span>
-<span id="cb2-5"><a href="lab-4.html#cb2-5"></a> <span class="kw">download.file</span>(filelocation, <span class="dt">destfile =</span> <span class="st">&quot;PA_fossils.csv&quot;</span> , <span class="dt">verbose=</span><span class="ot">TRUE</span>)</span>
-<span id="cb2-6"><a href="lab-4.html#cb2-6"></a> mydata &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;PA_fossils.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="lab-4.html#cb109-1"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb109-2"><a href="lab-4.html#cb109-2"></a><span class="co">#  WRITE YOUR COMMENTS HERE TO DESCRIBE WHAT IS HAPPENING</span></span>
+<span id="cb109-3"><a href="lab-4.html#cb109-3"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb109-4"><a href="lab-4.html#cb109-4"></a> filelocation &lt;-<span class="st"> &quot;https://raw.githubusercontent.com/hgreatrex/GEOG364_Labs/master/Lab_4/PA_fossils.csv&quot;</span></span>
+<span id="cb109-5"><a href="lab-4.html#cb109-5"></a> <span class="kw">download.file</span>(filelocation, <span class="dt">destfile =</span> <span class="st">&quot;PA_fossils.csv&quot;</span> , <span class="dt">verbose=</span><span class="ot">TRUE</span>)</span>
+<span id="cb109-6"><a href="lab-4.html#cb109-6"></a> mydata &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;PA_fossils.csv&quot;</span>)</span></code></pre></div>
 <p>Create a new code chunk and use the dim, names and summary commands to work out how many rows and columns the data has. Use the table command on the period column (or your own method) to see how many fossils were found in the Mississippian time-period.</p>
 </div>
 <div id="b.-read-in-the-other-data-and-set-projections" class="section level3">
 <h3><span class="header-section-number">5.3.2</span> B. Read in the other data and set projections</h3>
 <p>I have provided the code to read in your data. Create a new code chunk and copy the code below into your R-script.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="lab-4.html#cb3-1"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb3-2"><a href="lab-4.html#cb3-2"></a><span class="co">#  WRITE YOUR COMMENTS HERE TO DESCRIBE WHAT IS HAPPENING</span></span>
-<span id="cb3-3"><a href="lab-4.html#cb3-3"></a><span class="co">#  us_states is from the USAboundaries package</span></span>
-<span id="cb3-4"><a href="lab-4.html#cb3-4"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb3-5"><a href="lab-4.html#cb3-5"></a> state.border &lt;-<span class="st"> </span><span class="kw">us_states</span>(<span class="dt">states =</span> <span class="st">&quot;pennsylvania&quot;</span>)</span>
-<span id="cb3-6"><a href="lab-4.html#cb3-6"></a> state.border &lt;-<span class="st"> </span><span class="kw">st_transform</span>(state.border,<span class="dv">6346</span>)</span>
-<span id="cb3-7"><a href="lab-4.html#cb3-7"></a></span>
-<span id="cb3-8"><a href="lab-4.html#cb3-8"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb3-9"><a href="lab-4.html#cb3-9"></a><span class="co">#  WRITE YOUR COMMENTS HERE TO DESCRIBE WHAT IS HAPPENING</span></span>
-<span id="cb3-10"><a href="lab-4.html#cb3-10"></a><span class="co">#  get_elev_raster is from the elevatr package</span></span>
-<span id="cb3-11"><a href="lab-4.html#cb3-11"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb3-12"><a href="lab-4.html#cb3-12"></a> elevation &lt;-<span class="st"> </span><span class="kw">get_elev_raster</span>(state.border, <span class="dt">z =</span> <span class="dv">5</span>,<span class="dt">clip=</span><span class="st">&quot;locations&quot;</span>)</span>
-<span id="cb3-13"><a href="lab-4.html#cb3-13"></a></span>
-<span id="cb3-14"><a href="lab-4.html#cb3-14"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb3-15"><a href="lab-4.html#cb3-15"></a><span class="co">#  WRITE YOUR COMMENTS HERE TO DESCRIBE WHAT IS HAPPENING</span></span>
-<span id="cb3-16"><a href="lab-4.html#cb3-16"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb3-17"><a href="lab-4.html#cb3-17"></a> mydata_sf &lt;-<span class="st"> </span><span class="kw">st_as_sf</span>(mydata, <span class="dt">coords =</span> <span class="kw">c</span>(<span class="st">&quot;Long&quot;</span>, <span class="st">&quot;Lat&quot;</span>),<span class="dt">crs=</span><span class="dv">4326</span>)</span>
-<span id="cb3-18"><a href="lab-4.html#cb3-18"></a> mydata_sf &lt;-<span class="st"> </span><span class="kw">st_transform</span>(mydata_sf,<span class="dv">6346</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="lab-4.html#cb110-1"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb110-2"><a href="lab-4.html#cb110-2"></a><span class="co">#  WRITE YOUR COMMENTS HERE TO DESCRIBE WHAT IS HAPPENING</span></span>
+<span id="cb110-3"><a href="lab-4.html#cb110-3"></a><span class="co">#  us_states is from the USAboundaries package</span></span>
+<span id="cb110-4"><a href="lab-4.html#cb110-4"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb110-5"><a href="lab-4.html#cb110-5"></a> state.border &lt;-<span class="st"> </span><span class="kw">us_states</span>(<span class="dt">states =</span> <span class="st">&quot;pennsylvania&quot;</span>)</span>
+<span id="cb110-6"><a href="lab-4.html#cb110-6"></a> state.border &lt;-<span class="st"> </span><span class="kw">st_transform</span>(state.border,<span class="dv">6346</span>)</span>
+<span id="cb110-7"><a href="lab-4.html#cb110-7"></a></span>
+<span id="cb110-8"><a href="lab-4.html#cb110-8"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb110-9"><a href="lab-4.html#cb110-9"></a><span class="co">#  WRITE YOUR COMMENTS HERE TO DESCRIBE WHAT IS HAPPENING</span></span>
+<span id="cb110-10"><a href="lab-4.html#cb110-10"></a><span class="co">#  get_elev_raster is from the elevatr package</span></span>
+<span id="cb110-11"><a href="lab-4.html#cb110-11"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb110-12"><a href="lab-4.html#cb110-12"></a> elevation &lt;-<span class="st"> </span><span class="kw">get_elev_raster</span>(state.border, <span class="dt">z =</span> <span class="dv">5</span>,<span class="dt">clip=</span><span class="st">&quot;locations&quot;</span>)</span>
+<span id="cb110-13"><a href="lab-4.html#cb110-13"></a></span>
+<span id="cb110-14"><a href="lab-4.html#cb110-14"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb110-15"><a href="lab-4.html#cb110-15"></a><span class="co">#  WRITE YOUR COMMENTS HERE TO DESCRIBE WHAT IS HAPPENING</span></span>
+<span id="cb110-16"><a href="lab-4.html#cb110-16"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb110-17"><a href="lab-4.html#cb110-17"></a> mydata_sf &lt;-<span class="st"> </span><span class="kw">st_as_sf</span>(mydata, <span class="dt">coords =</span> <span class="kw">c</span>(<span class="st">&quot;Long&quot;</span>, <span class="st">&quot;Lat&quot;</span>),<span class="dt">crs=</span><span class="dv">4326</span>)</span>
+<span id="cb110-18"><a href="lab-4.html#cb110-18"></a> mydata_sf &lt;-<span class="st"> </span><span class="kw">st_transform</span>(mydata_sf,<span class="dv">6346</span>)</span></code></pre></div>
 <p>As before, your job is to describe what is happening in each section of the code. Replace the “WRITE YOUR COMMENTS HERE..” with your description of each section of code. Remember if you are not sure what a command does:</p>
 <ul>
 <li>you can google it</li>
@@ -378,24 +388,23 @@ By examining the help file we see that the ppp command requires 4 types of infor
 - x coordinates of each event and y coordinates of each event (or a “sp” data format)
 - window size (i.e., region size),
 - any marks (i.e., values/data for each event).</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="lab-4.html#cb4-1"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb4-2"><a href="lab-4.html#cb4-2"></a><span class="co"># Create the boundary for the ppp data (the state border), then create the ppp file</span></span>
-<span id="cb4-3"><a href="lab-4.html#cb4-3"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb4-4"><a href="lab-4.html#cb4-4"></a> <span class="co"># This just converts stateowin to the correct file format. </span></span>
-<span id="cb4-5"><a href="lab-4.html#cb4-5"></a> stateowin &lt;-<span class="st"> </span><span class="kw">as</span>(<span class="kw">as_Spatial</span>(state.border), <span class="st">&quot;owin&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline =
-## &quot;NO&quot;): Discarded datum Unknown based on GRS80 ellipsoid in
-## CRS definition</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="lab-4.html#cb6-1"></a> <span class="co"># This reads the data into a ppp format, then sets the window</span></span>
-<span id="cb6-2"><a href="lab-4.html#cb6-2"></a> my.ppp &lt;-<span class="st"> </span><span class="kw">as.ppp</span>(mydata_sf)</span></code></pre></div>
-<pre><code>## Warning in as.ppp.sf(mydata_sf): only first attribute column
-## is used for marks</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="lab-4.html#cb8-1"></a> <span class="kw">Window</span>(my.ppp) &lt;-<span class="st"> </span>stateowin</span>
-<span id="cb8-2"><a href="lab-4.html#cb8-2"></a></span>
-<span id="cb8-3"><a href="lab-4.html#cb8-3"></a> <span class="co">#and then we plot</span></span>
-<span id="cb8-4"><a href="lab-4.html#cb8-4"></a> <span class="kw">plot</span>(elevation)</span>
-<span id="cb8-5"><a href="lab-4.html#cb8-5"></a> <span class="kw">plot</span>(my.ppp,<span class="dt">use.marks =</span> F,<span class="dt">cex =</span> <span class="dv">1</span>, <span class="dt">pch =</span> <span class="dv">4</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</span></code></pre></div>
-<p><img src="GEOG364Labs_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="lab-4.html#cb111-1"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb111-2"><a href="lab-4.html#cb111-2"></a><span class="co"># Create the boundary for the ppp data (the state border), then create the ppp file</span></span>
+<span id="cb111-3"><a href="lab-4.html#cb111-3"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb111-4"><a href="lab-4.html#cb111-4"></a> <span class="co"># This just converts stateowin to the correct file format. </span></span>
+<span id="cb111-5"><a href="lab-4.html#cb111-5"></a> stateowin &lt;-<span class="st"> </span><span class="kw">as</span>(<span class="kw">as_Spatial</span>(state.border), <span class="st">&quot;owin&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;):
+## Discarded datum Unknown based on GRS80 ellipsoid in CRS definition</code></pre>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="lab-4.html#cb113-1"></a> <span class="co"># This reads the data into a ppp format, then sets the window</span></span>
+<span id="cb113-2"><a href="lab-4.html#cb113-2"></a> my.ppp &lt;-<span class="st"> </span><span class="kw">as.ppp</span>(mydata_sf)</span></code></pre></div>
+<pre><code>## Warning in as.ppp.sf(mydata_sf): only first attribute column is used for
+## marks</code></pre>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="lab-4.html#cb115-1"></a> <span class="kw">Window</span>(my.ppp) &lt;-<span class="st"> </span>stateowin</span>
+<span id="cb115-2"><a href="lab-4.html#cb115-2"></a></span>
+<span id="cb115-3"><a href="lab-4.html#cb115-3"></a> <span class="co">#and then we plot</span></span>
+<span id="cb115-4"><a href="lab-4.html#cb115-4"></a> <span class="kw">plot</span>(elevation)</span>
+<span id="cb115-5"><a href="lab-4.html#cb115-5"></a> <span class="kw">plot</span>(my.ppp,<span class="dt">use.marks =</span> F,<span class="dt">cex =</span> <span class="dv">1</span>, <span class="dt">pch =</span> <span class="dv">4</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<p><img src="GEOG364Labs_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
 <p>Copy the code above into a new code chunk and make sure it runs. You might get errors about <em>Discarded datum Unknown based on GRS80 ellipsoid in CRS definition</em>, or <em>only first attribute column is used for marks</em>. Ignore them.</p>
 <p>Look at the output of the plot, which shows the points plotted over elevation data. Below the code chunk, write your assessment of the spatial structure of the fossils. In your opinion are they clustered/random or uniform?</p>
 </div>
@@ -413,29 +422,29 @@ By examining the help file we see that the ppp command requires 4 types of infor
 <div id="challenge-5-elevation-links" class="section level2">
 <h2><span class="header-section-number">5.6</span> Challenge 5, elevation links</h2>
 <p>Create a new heading called Elevation and below this, copy across the two code chunks below.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="lab-4.html#cb9-1"></a><span class="co"># Set up 3 plots in a column</span></span>
-<span id="cb9-2"><a href="lab-4.html#cb9-2"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb9-3"><a href="lab-4.html#cb9-3"></a></span>
-<span id="cb9-4"><a href="lab-4.html#cb9-4"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb9-5"><a href="lab-4.html#cb9-5"></a><span class="co"># First plot the density</span></span>
-<span id="cb9-6"><a href="lab-4.html#cb9-6"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb9-7"><a href="lab-4.html#cb9-7"></a> <span class="kw">plot</span>(<span class="kw">density</span>(my.ppp),<span class="dt">main=</span><span class="ot">NULL</span>)</span>
-<span id="cb9-8"><a href="lab-4.html#cb9-8"></a> <span class="kw">plot</span>(my.ppp,<span class="dt">cex =</span> <span class="fl">.5</span>, <span class="dt">pch =</span> <span class="dv">4</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</span>
-<span id="cb9-9"><a href="lab-4.html#cb9-9"></a>  </span>
-<span id="cb9-10"><a href="lab-4.html#cb9-10"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb9-11"><a href="lab-4.html#cb9-11"></a><span class="co"># Then plot the elevation</span></span>
-<span id="cb9-12"><a href="lab-4.html#cb9-12"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb9-13"><a href="lab-4.html#cb9-13"></a> <span class="kw">plot</span>(elevation)</span></code></pre></div>
-<p><img src="GEOG364Labs_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="lab-4.html#cb10-1"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb10-2"><a href="lab-4.html#cb10-2"></a><span class="co"># and see if elevation is linked to the point density</span></span>
-<span id="cb10-3"><a href="lab-4.html#cb10-3"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb10-4"><a href="lab-4.html#cb10-4"></a><span class="co"># convert the elevation to a ppp image</span></span>
-<span id="cb10-5"><a href="lab-4.html#cb10-5"></a> elev.img &lt;-<span class="st"> </span><span class="kw">as.im.RasterLayer</span>(elevation)</span>
-<span id="cb10-6"><a href="lab-4.html#cb10-6"></a> <span class="co">#and look at the relationship with the points</span></span>
-<span id="cb10-7"><a href="lab-4.html#cb10-7"></a> <span class="kw">plot</span>(<span class="kw">rhohat</span>(<span class="kw">unmark</span>(my.ppp), elev.img))</span></code></pre></div>
-<p><img src="GEOG364Labs_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="lab-4.html#cb11-1"></a> <span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="lab-4.html#cb116-1"></a><span class="co"># Set up 3 plots in a column</span></span>
+<span id="cb116-2"><a href="lab-4.html#cb116-2"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb116-3"><a href="lab-4.html#cb116-3"></a></span>
+<span id="cb116-4"><a href="lab-4.html#cb116-4"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb116-5"><a href="lab-4.html#cb116-5"></a><span class="co"># First plot the density</span></span>
+<span id="cb116-6"><a href="lab-4.html#cb116-6"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb116-7"><a href="lab-4.html#cb116-7"></a> <span class="kw">plot</span>(<span class="kw">density</span>(my.ppp),<span class="dt">main=</span><span class="ot">NULL</span>)</span>
+<span id="cb116-8"><a href="lab-4.html#cb116-8"></a> <span class="kw">plot</span>(my.ppp,<span class="dt">cex =</span> <span class="fl">.5</span>, <span class="dt">pch =</span> <span class="dv">4</span>,<span class="dt">add=</span><span class="ot">TRUE</span>)</span>
+<span id="cb116-9"><a href="lab-4.html#cb116-9"></a>  </span>
+<span id="cb116-10"><a href="lab-4.html#cb116-10"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb116-11"><a href="lab-4.html#cb116-11"></a><span class="co"># Then plot the elevation</span></span>
+<span id="cb116-12"><a href="lab-4.html#cb116-12"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb116-13"><a href="lab-4.html#cb116-13"></a> <span class="kw">plot</span>(elevation)</span></code></pre></div>
+<p><img src="GEOG364Labs_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="lab-4.html#cb117-1"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb117-2"><a href="lab-4.html#cb117-2"></a><span class="co"># and see if elevation is linked to the point density</span></span>
+<span id="cb117-3"><a href="lab-4.html#cb117-3"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb117-4"><a href="lab-4.html#cb117-4"></a><span class="co"># convert the elevation to a ppp image</span></span>
+<span id="cb117-5"><a href="lab-4.html#cb117-5"></a> elev.img &lt;-<span class="st"> </span><span class="kw">as.im.RasterLayer</span>(elevation)</span>
+<span id="cb117-6"><a href="lab-4.html#cb117-6"></a> <span class="co">#and look at the relationship with the points</span></span>
+<span id="cb117-7"><a href="lab-4.html#cb117-7"></a> <span class="kw">plot</span>(<span class="kw">rhohat</span>(<span class="kw">unmark</span>(my.ppp), elev.img))</span></code></pre></div>
+<p><img src="GEOG364Labs_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="lab-4.html#cb118-1"></a> <span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code></pre></div>
 <p>From this output, write what appears to be the relationships between elevation and fossils. Do you think there might be a physical reason for this? When you look at the point data, do you see any other things you would like to compare the data to?</p>
 </div>
 <div id="challenge-6-nearest-neighbour" class="section level2">
@@ -448,18 +457,18 @@ By examining the help file we see that the ppp command requires 4 types of infor
 </ol>
 <p>We can now easily calculate the average nearest neighbor distance and the ratio. Note, the command for the ratio is named after the people who invented it, Clarke &amp; Evans. Type ?clarkevans into the help file for more details.</p>
 <p>Create a code chunk and add/run the following</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="lab-4.html#cb12-1"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb12-2"><a href="lab-4.html#cb12-2"></a><span class="co"># Mean nearest neighbour</span></span>
-<span id="cb12-3"><a href="lab-4.html#cb12-3"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb12-4"><a href="lab-4.html#cb12-4"></a> <span class="kw">print</span>(<span class="st">&quot;The mean nearest neighbour distance is:&quot;</span>)</span>
-<span id="cb12-5"><a href="lab-4.html#cb12-5"></a> <span class="kw">print</span>(<span class="kw">mean</span>(<span class="kw">round</span>(myNNDist,<span class="dv">3</span>)))</span>
-<span id="cb12-6"><a href="lab-4.html#cb12-6"></a></span>
-<span id="cb12-7"><a href="lab-4.html#cb12-7"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb12-8"><a href="lab-4.html#cb12-8"></a><span class="co"># R ratio</span></span>
-<span id="cb12-9"><a href="lab-4.html#cb12-9"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb12-10"><a href="lab-4.html#cb12-10"></a> R.Ratio &lt;-<span class="st"> </span><span class="kw">clarkevans</span>(my.ppp)</span>
-<span id="cb12-11"><a href="lab-4.html#cb12-11"></a> <span class="kw">print</span>(<span class="st">&quot;The R ratio is:&quot;</span>)</span>
-<span id="cb12-12"><a href="lab-4.html#cb12-12"></a> <span class="kw">print</span>(R.Ratio)</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="lab-4.html#cb119-1"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb119-2"><a href="lab-4.html#cb119-2"></a><span class="co"># Mean nearest neighbour</span></span>
+<span id="cb119-3"><a href="lab-4.html#cb119-3"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb119-4"><a href="lab-4.html#cb119-4"></a> <span class="kw">print</span>(<span class="st">&quot;The mean nearest neighbour distance is:&quot;</span>)</span>
+<span id="cb119-5"><a href="lab-4.html#cb119-5"></a> <span class="kw">print</span>(<span class="kw">mean</span>(<span class="kw">round</span>(myNNDist,<span class="dv">3</span>)))</span>
+<span id="cb119-6"><a href="lab-4.html#cb119-6"></a></span>
+<span id="cb119-7"><a href="lab-4.html#cb119-7"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb119-8"><a href="lab-4.html#cb119-8"></a><span class="co"># R ratio</span></span>
+<span id="cb119-9"><a href="lab-4.html#cb119-9"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb119-10"><a href="lab-4.html#cb119-10"></a> R.Ratio &lt;-<span class="st"> </span><span class="kw">clarkevans</span>(my.ppp)</span>
+<span id="cb119-11"><a href="lab-4.html#cb119-11"></a> <span class="kw">print</span>(<span class="st">&quot;The R ratio is:&quot;</span>)</span>
+<span id="cb119-12"><a href="lab-4.html#cb119-12"></a> <span class="kw">print</span>(R.Ratio)</span></code></pre></div>
 <p>The output of the R.Ratio likely gives you two values, naive and cdf. CDF is simply a mathematical way of taking into account edge effects. Below the code chunk output, write a sentence or two to describe why edge effects might be an issue in this case.</p>
 <p>Then write your interpretion of the output.</p>
 <ul>
@@ -471,31 +480,31 @@ By examining the help file we see that the ppp command requires 4 types of infor
 <div id="challenge-7-l-analysis" class="section level2">
 <h2><span class="header-section-number">5.8</span> Challenge 7 L Analysis</h2>
 <p>We will now conduct an L-Function analysis on the data. Make a new heading called L-function, Below, make a new code chunk and copy over this code and run it</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="lab-4.html#cb13-1"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb13-2"><a href="lab-4.html#cb13-2"></a><span class="co"># Calculate the L function and its uncertainty envelope</span></span>
-<span id="cb13-3"><a href="lab-4.html#cb13-3"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb13-4"><a href="lab-4.html#cb13-4"></a>L.DATA &lt;-<span class="st"> </span><span class="kw">Lest</span>(my.ppp)</span>
-<span id="cb13-5"><a href="lab-4.html#cb13-5"></a></span>
-<span id="cb13-6"><a href="lab-4.html#cb13-6"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb13-7"><a href="lab-4.html#cb13-7"></a><span class="co"># Rather than simply saying something is “clustered” or “uniform” </span></span>
-<span id="cb13-8"><a href="lab-4.html#cb13-8"></a><span class="co"># depending on how it subjectively looks to the</span></span>
-<span id="cb13-9"><a href="lab-4.html#cb13-9"></a><span class="co"># IRP line, we can instead use Monte Carlo simulation to assess our data </span></span>
-<span id="cb13-10"><a href="lab-4.html#cb13-10"></a><span class="co"># against many L patterns that were caused by an Independent Random Pattern. </span></span>
-<span id="cb13-11"><a href="lab-4.html#cb13-11"></a><span class="co"># Here we generate 500 CSRs and calculate the L function for each one</span></span>
-<span id="cb13-12"><a href="lab-4.html#cb13-12"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb13-13"><a href="lab-4.html#cb13-13"></a>  L_DATA_envelope &lt;-<span class="st"> </span><span class="kw">envelope</span>(my.ppp, Lest, <span class="dt">correction =</span> <span class="st">&quot;Ripley&quot;</span>, </span>
-<span id="cb13-14"><a href="lab-4.html#cb13-14"></a>                              <span class="dt">verbose =</span> F,</span>
-<span id="cb13-15"><a href="lab-4.html#cb13-15"></a>                              <span class="dt">nsim=</span><span class="dv">500</span>, <span class="dt">nrank=</span><span class="dv">1</span>, </span>
-<span id="cb13-16"><a href="lab-4.html#cb13-16"></a>                              <span class="dt">savepatterns =</span> <span class="ot">TRUE</span>, <span class="dt">savefuns =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb13-17"><a href="lab-4.html#cb13-17"></a>  </span>
-<span id="cb13-18"><a href="lab-4.html#cb13-18"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb13-19"><a href="lab-4.html#cb13-19"></a><span class="co"># Plot the raw L-function data for different edge effects.  Ignore any warnings</span></span>
-<span id="cb13-20"><a href="lab-4.html#cb13-20"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
-<span id="cb13-21"><a href="lab-4.html#cb13-21"></a>  <span class="kw">plot</span>(L.DATA, . <span class="op">-</span><span class="st"> </span>r <span class="op">~</span><span class="st"> </span>r,</span>
-<span id="cb13-22"><a href="lab-4.html#cb13-22"></a>       <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span><span class="op">-</span>(<span class="kw">max</span>(L.DATA<span class="op">$</span>iso<span class="op">-</span>L.DATA<span class="op">$</span>r)),<span class="kw">max</span>(L.DATA<span class="op">-</span>L.DATA<span class="op">$</span>r)))</span>
-<span id="cb13-23"><a href="lab-4.html#cb13-23"></a>  <span class="co"># Add the uncertainty envelope.</span></span>
-<span id="cb13-24"><a href="lab-4.html#cb13-24"></a>  <span class="kw">plot</span>(L_DATA_envelope, . <span class="op">-</span><span class="st"> </span>r <span class="op">~</span><span class="st"> </span>r,<span class="dt">add=</span><span class="ot">TRUE</span>)</span></code></pre></div>
-<p><img src="GEOG364Labs_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="lab-4.html#cb120-1"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb120-2"><a href="lab-4.html#cb120-2"></a><span class="co"># Calculate the L function and its uncertainty envelope</span></span>
+<span id="cb120-3"><a href="lab-4.html#cb120-3"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb120-4"><a href="lab-4.html#cb120-4"></a>L.DATA &lt;-<span class="st"> </span><span class="kw">Lest</span>(my.ppp)</span>
+<span id="cb120-5"><a href="lab-4.html#cb120-5"></a></span>
+<span id="cb120-6"><a href="lab-4.html#cb120-6"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb120-7"><a href="lab-4.html#cb120-7"></a><span class="co"># Rather than simply saying something is “clustered” or “uniform” </span></span>
+<span id="cb120-8"><a href="lab-4.html#cb120-8"></a><span class="co"># depending on how it subjectively looks to the</span></span>
+<span id="cb120-9"><a href="lab-4.html#cb120-9"></a><span class="co"># IRP line, we can instead use Monte Carlo simulation to assess our data </span></span>
+<span id="cb120-10"><a href="lab-4.html#cb120-10"></a><span class="co"># against many L patterns that were caused by an Independent Random Pattern. </span></span>
+<span id="cb120-11"><a href="lab-4.html#cb120-11"></a><span class="co"># Here we generate 500 CSRs and calculate the L function for each one</span></span>
+<span id="cb120-12"><a href="lab-4.html#cb120-12"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb120-13"><a href="lab-4.html#cb120-13"></a>  L_DATA_envelope &lt;-<span class="st"> </span><span class="kw">envelope</span>(my.ppp, Lest, <span class="dt">correction =</span> <span class="st">&quot;Ripley&quot;</span>, </span>
+<span id="cb120-14"><a href="lab-4.html#cb120-14"></a>                              <span class="dt">verbose =</span> F,</span>
+<span id="cb120-15"><a href="lab-4.html#cb120-15"></a>                              <span class="dt">nsim=</span><span class="dv">500</span>, <span class="dt">nrank=</span><span class="dv">1</span>, </span>
+<span id="cb120-16"><a href="lab-4.html#cb120-16"></a>                              <span class="dt">savepatterns =</span> <span class="ot">TRUE</span>, <span class="dt">savefuns =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb120-17"><a href="lab-4.html#cb120-17"></a>  </span>
+<span id="cb120-18"><a href="lab-4.html#cb120-18"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb120-19"><a href="lab-4.html#cb120-19"></a><span class="co"># Plot the raw L-function data for different edge effects.  Ignore any warnings</span></span>
+<span id="cb120-20"><a href="lab-4.html#cb120-20"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
+<span id="cb120-21"><a href="lab-4.html#cb120-21"></a>  <span class="kw">plot</span>(L.DATA, . <span class="op">-</span><span class="st"> </span>r <span class="op">~</span><span class="st"> </span>r,</span>
+<span id="cb120-22"><a href="lab-4.html#cb120-22"></a>       <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span><span class="op">-</span>(<span class="kw">max</span>(L.DATA<span class="op">$</span>iso<span class="op">-</span>L.DATA<span class="op">$</span>r)),<span class="kw">max</span>(L.DATA<span class="op">-</span>L.DATA<span class="op">$</span>r)))</span>
+<span id="cb120-23"><a href="lab-4.html#cb120-23"></a>  <span class="co"># Add the uncertainty envelope.</span></span>
+<span id="cb120-24"><a href="lab-4.html#cb120-24"></a>  <span class="kw">plot</span>(L_DATA_envelope, . <span class="op">-</span><span class="st"> </span>r <span class="op">~</span><span class="st"> </span>r,<span class="dt">add=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<p><img src="GEOG364Labs_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
 <p>Under the code chunk output, explain what is happening in the plot.</p>
 <ul>
 <li>What does the gray area represent?</li>
@@ -521,17 +530,17 @@ By examining the help file we see that the ppp command requires 4 types of infor
 <li><p>There are lots of ideas in the previous lab suggestions.</p></li>
 </ul>
 </div>
-<div id="lab-3-submission-check" class="section level2">
-<h2><span class="header-section-number">5.10</span> Lab-3 submission check</h2>
+<div id="lab-4-submission-check" class="section level2">
+<h2><span class="header-section-number">5.10</span> Lab-4 submission check</h2>
 <p><strong>HTML FILE SUBMISSION - 10 marks</strong></p>
 <p><strong>RMD CODE SUBMISSION - 10 marks</strong></p>
 <p><strong>WORKING CODE - 10 marks</strong>: Your code works and the output of each code chunk is included in the html file output (e.g. you pressed run-all before you finished)</p>
 <p><strong>EASY TO READ LAB SCRIPT - 10 marks</strong>: Your final html file is neat and easy to read. For example, your headings are working, you have included any relevant formatting, new paragraphs are on new lines etc.</p>
-<p><strong>CHALLENGE 1 - 5 marks</strong>: You thoughtfully explored and described the paleobiology data in Lab Challenge 1</p>
-<p><strong>CHALLENGE 2 &amp; 3-5 marks</strong>: You thoughtfully and correctly answered all the questions and read your data into Rstudio</p>
-<p><strong>CHALLENGE 4-15 marks</strong>: You correctly completed your quadrat analysis with all the required components of the quadrat analysis</p>
+<p><strong>CHALLENGE 1 - 10 marks</strong>: You thoughtfully explored and described the paleobiology data in Lab Challenge 1</p>
+<p><strong>CHALLENGE 2 &amp; 3-10 marks</strong>: You thoughtfully and correctly answered all the questions and read your data into Rstudio</p>
+<p><strong>CHALLENGE 4-20 marks</strong>: You correctly completed your quadrat analysis with all the required components of the quadrat analysis</p>
 <p><strong>CHALLENGE 5-10 marks</strong>: You correctly completed your elevation analysis with all the required components</p>
-<p><strong>CHALLENGE 6&amp;7 20 marks</strong>: You correctly completed your quadrat analysis with all the required components</p>
+<p><strong>CHALLENGE 6&amp;7 10 marks</strong>: You correctly completed your nearest neighbour/L analysis with all the required components</p>
 <p><strong>SOMETHING NEW - 5 marks</strong></p>
 <p>You made a minor change to an existing piece of code (2.5/5)
 OR
@@ -597,6 +606,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

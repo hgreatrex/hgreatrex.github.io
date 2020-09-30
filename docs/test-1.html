@@ -255,6 +255,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.7" data-path="lab-4.html"><a href="lab-4.html#challenge-6-nearest-neighbour"><i class="fa fa-check"></i><b>5.7</b> Challenge 6 Nearest neighbour</a></li>
 <li class="chapter" data-level="5.8" data-path="lab-4.html"><a href="lab-4.html#challenge-7-l-analysis"><i class="fa fa-check"></i><b>5.8</b> Challenge 7 L Analysis</a></li>
 <li class="chapter" data-level="5.9" data-path="lab-4.html"><a href="lab-4.html#challenge-8-show-me-something-new"><i class="fa fa-check"></i><b>5.9</b> Challenge 8 Show me something new</a></li>
+<li class="chapter" data-level="5.10" data-path="lab-4.html"><a href="lab-4.html#lab-4-submission-check"><i class="fa fa-check"></i><b>5.10</b> Lab-4 submission check</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -312,7 +313,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb95-2"><a href="test-1.html#cb95-2"></a><span class="kw">plot</span>(lanternfly.ppp, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">cex=</span><span class="fl">0.6</span>,  <span class="dt">add=</span><span class="ot">TRUE</span>)                     <span class="co"># Add points</span></span></code></pre></div>
 <p><img src="GEOG364Labs_files/figure-html/unnamed-chunk-66-2.png" width="672" /></p>
 <div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="test-1.html#cb96-1"></a>Q.test.fly &lt;-<span class="st"> </span><span class="kw">quadrat.test</span>(lanternfly.ppp, <span class="dt">nx =</span> <span class="dv">5</span>, <span class="dt">ny =</span> <span class="dv">5</span>)  <span class="co"># Calculate the quadrat counts.</span></span></code></pre></div>
-<pre><code>## Warning: Some expected counts are small; chi^2 approximation may be inaccurate</code></pre>
+<pre><code>## Warning: Some expected counts are small; chi^2 approximation may be
+## inaccurate</code></pre>
 <div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="test-1.html#cb98-1"></a>Q.test.fly</span></code></pre></div>
 <pre><code>## 
 ## 	Chi-squared test of CSR using quadrat counts
@@ -346,7 +348,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb103-2"><a href="test-1.html#cb103-2"></a><span class="kw">plot</span>(beetle.ppp, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">cex=</span><span class="fl">0.6</span>,  <span class="dt">add=</span><span class="ot">TRUE</span>)                     <span class="co"># Add points</span></span></code></pre></div>
 <p><img src="GEOG364Labs_files/figure-html/unnamed-chunk-69-2.png" width="672" /></p>
 <div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="test-1.html#cb104-1"></a>Q.test.beetle &lt;-<span class="st"> </span><span class="kw">quadrat.test</span>(beetle.ppp, <span class="dt">nx =</span> <span class="dv">5</span>, <span class="dt">ny =</span> <span class="dv">5</span>)  <span class="co"># Calculate the quadrat counts.</span></span></code></pre></div>
-<pre><code>## Warning: Some expected counts are small; chi^2 approximation may be inaccurate</code></pre>
+<pre><code>## Warning: Some expected counts are small; chi^2 approximation may be
+## inaccurate</code></pre>
 <div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="test-1.html#cb106-1"></a>Q.test.beetle</span></code></pre></div>
 <pre><code>## 
 ## 	Chi-squared test of CSR using quadrat counts

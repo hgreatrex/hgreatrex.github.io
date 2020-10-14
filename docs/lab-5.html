@@ -51,6 +51,16 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.0.3/leaflet-providers-plugin.js"></script>
 
 
 <style type="text/css">
@@ -347,13 +357,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>dismo</code></li>
 </ul>
 <p>Now add a new code chunk in your script. Inside add the following code and run it.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="lab-5.html#cb1-1"></a><span class="kw">library</span>(tmap)      <span class="co"># Used for plotting</span></span>
-<span id="cb1-2"><a href="lab-5.html#cb1-2"></a><span class="kw">library</span>(sp)        <span class="co"># Used for the spsample function</span></span>
-<span id="cb1-3"><a href="lab-5.html#cb1-3"></a><span class="kw">library</span>(maptools)  <span class="co"># Used for conversion from SPDF to ppp</span></span>
-<span id="cb1-4"><a href="lab-5.html#cb1-4"></a><span class="kw">library</span>(raster)    <span class="co"># Used to clip out thiessen polygons</span></span>
-<span id="cb1-5"><a href="lab-5.html#cb1-5"></a><span class="kw">library</span>(gstat)     <span class="co"># Use gstat&#39;s idw routine</span></span>
-<span id="cb1-6"><a href="lab-5.html#cb1-6"></a><span class="kw">library</span>(dismo)     <span class="co"># Method for thiessen polygons</span></span>
-<span id="cb1-7"><a href="lab-5.html#cb1-7"></a><span class="kw">library</span>(knitr)     <span class="co"># Used for the insert image function</span></span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="lab-5.html#cb121-1"></a><span class="kw">library</span>(tmap)      <span class="co"># Used for plotting</span></span>
+<span id="cb121-2"><a href="lab-5.html#cb121-2"></a><span class="kw">library</span>(sp)        <span class="co"># Used for the spsample function</span></span>
+<span id="cb121-3"><a href="lab-5.html#cb121-3"></a><span class="kw">library</span>(maptools)  <span class="co"># Used for conversion from SPDF to ppp</span></span>
+<span id="cb121-4"><a href="lab-5.html#cb121-4"></a><span class="kw">library</span>(raster)    <span class="co"># Used to clip out thiessen polygons</span></span>
+<span id="cb121-5"><a href="lab-5.html#cb121-5"></a><span class="kw">library</span>(gstat)     <span class="co"># Use gstat&#39;s idw routine</span></span>
+<span id="cb121-6"><a href="lab-5.html#cb121-6"></a><span class="kw">library</span>(dismo)     <span class="co"># Method for thiessen polygons</span></span>
+<span id="cb121-7"><a href="lab-5.html#cb121-7"></a><span class="kw">library</span>(knitr)     <span class="co"># Used for the insert image function</span></span></code></pre></div>
 <p>This needs to be at the top of your script because the library commands need to be run every time you open R. Now click the Preview or Knit Button and make sure everything looks correct.</p>
 <p><em>Don’t continue until you can make and view your html or nb.html file. If it doesn’t work, ask for help before moving on</em></p>
 </div>
@@ -365,7 +375,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">6.2.1</span> Download &amp; load the data</h3>
 <p>Create a new code chunk and use the <code>download.file</code> command to download the lab data from this location:</p>
 <ul>
-<li>“<a href="https://raw.githubusercontent.com/hgreatrex/GEOG364_Labs/master/Lab_5/Lab5California.RData" class="uri">https://raw.githubusercontent.com/hgreatrex/GEOG364_Labs/master/Lab_5/Lab5California.RData</a>”</li>
+<li>“<a href="https://github.com/hgreatrex/GEOG364_Labs/raw/master/Lab_5/Lab5California.rdata" class="uri">https://github.com/hgreatrex/GEOG364_Labs/raw/master/Lab_5/Lab5California.rdata</a>”</li>
 </ul>
 <p>See section 5.3.1 for an example from lab 4 on how to do this. Now in the code chunk, open the data in R using the <code>load</code> command e.g. <code>load(Lab5California.RData)</code></p>
 <p>This command will load two California data-sets into R:</p>
@@ -396,10 +406,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>In a new code chunk apply the <code>hist</code> command to create a histogram of January rainfall (e.g. apply <code>hist</code> to the Jan column of Precip.table). If you can’t remember how to select a column, see Lab 2, section 2.3.3.</p></li>
 <li><p>Copy the code below into R to make a series of boxplots.</p></li>
 </ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="lab-5.html#cb2-1"></a><span class="kw">boxplot</span>(Precip.table[,<span class="dv">4</span><span class="op">:</span><span class="dv">15</span>],</span>
-<span id="cb2-2"><a href="lab-5.html#cb2-2"></a>        <span class="dt">pch=</span><span class="dv">4</span>,<span class="dt">cex=</span>.<span class="dv">6</span>,</span>
-<span id="cb2-3"><a href="lab-5.html#cb2-3"></a>        <span class="dt">cex.axis=</span>.<span class="dv">8</span>,<span class="dt">las=</span><span class="dv">2</span>,</span>
-<span id="cb2-4"><a href="lab-5.html#cb2-4"></a>        <span class="dt">tcl=</span><span class="op">-</span>.<span class="dv">25</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="lab-5.html#cb122-1"></a><span class="kw">boxplot</span>(Precip.table[,<span class="dv">4</span><span class="op">:</span><span class="dv">15</span>],</span>
+<span id="cb122-2"><a href="lab-5.html#cb122-2"></a>        <span class="dt">pch=</span><span class="dv">4</span>,<span class="dt">cex=</span>.<span class="dv">6</span>,</span>
+<span id="cb122-3"><a href="lab-5.html#cb122-3"></a>        <span class="dt">cex.axis=</span>.<span class="dv">8</span>,<span class="dt">las=</span><span class="dv">2</span>,</span>
+<span id="cb122-4"><a href="lab-5.html#cb122-4"></a>        <span class="dt">tcl=</span><span class="op">-</span>.<span class="dv">25</span>)</span></code></pre></div>
 <p>Underneath the code, explain:</p>
 <ul>
 <li><p>What <code>pch</code>, <code>cex</code> and <code>las</code> are doing. Typing ?par into the console might help</p></li>
@@ -411,9 +421,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">6.2.3</span> Convert to spatial data</h3>
 <p>Remember to add a heading.. this is your last reminder! You now need to convert your table of data to a spatial “sp” format. <em>(If you wish to learn more about sp vs sf there is a data camp course)</em></p>
 <p>Copy the code chunk below into your code. Now replace the X-COORD and Y-COORD with the names of the columns that contain the x and y data in Precip.table. This is case sensitive and should be contained in quotes.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="lab-5.html#cb3-1"></a><span class="co">#Convert to sp </span></span>
-<span id="cb3-2"><a href="lab-5.html#cb3-2"></a>Precip.spdf &lt;-<span class="st"> </span>Precip.table</span>
-<span id="cb3-3"><a href="lab-5.html#cb3-3"></a><span class="kw">coordinates</span>(Precip.spdf) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;X-COORD&quot;</span>,<span class="st">&quot;Y-COORD&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="lab-5.html#cb123-1"></a><span class="co">#Convert to sp </span></span>
+<span id="cb123-2"><a href="lab-5.html#cb123-2"></a>Precip.spdf &lt;-<span class="st"> </span>Precip.table</span>
+<span id="cb123-3"><a href="lab-5.html#cb123-3"></a><span class="kw">coordinates</span>(Precip.spdf) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;X-COORD&quot;</span>,<span class="st">&quot;Y-COORD&quot;</span>)</span></code></pre></div>
 <p>Check it works by plotting the data e.g.</p>
 <div class="figure"><span id="fig:socali"></span>
 <img src="images/Fig_5_01Cali.png" alt="What your plot should look like" width="634" />
@@ -454,26 +464,26 @@ Figure 6.2: What your plot should look like
 <li>Copy this into your script (you may have to re-write the "s).</li>
 <li>Use the tutorial to help you write better comments to explain what is happening</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="lab-5.html#cb4-1"></a><span class="co"># WRITE COMMENT HERE. WHAT HAPPENS IF THIS IS SET TO &quot;plot&quot;?</span></span>
-<span id="cb4-2"><a href="lab-5.html#cb4-2"></a>current.mode &lt;-<span class="st"> </span><span class="kw">tmap_mode</span>(<span class="st">&quot;view&quot;</span>)</span>
-<span id="cb4-3"><a href="lab-5.html#cb4-3"></a></span>
-<span id="cb4-4"><a href="lab-5.html#cb4-4"></a><span class="co"># Choose the name of the column you want to plot</span></span>
-<span id="cb4-5"><a href="lab-5.html#cb4-5"></a>myColumn =<span class="st"> &quot;Aug&quot;</span></span>
-<span id="cb4-6"><a href="lab-5.html#cb4-6"></a></span>
-<span id="cb4-7"><a href="lab-5.html#cb4-7"></a><span class="co"># WRITE COMMENT HERE.  EXPLAIN WHAT THE CODE DOING</span></span>
-<span id="cb4-8"><a href="lab-5.html#cb4-8"></a><span class="kw">tm_basemap</span>(<span class="st">&quot;Stamen.Terrain&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb4-9"><a href="lab-5.html#cb4-9"></a><span class="st">  </span><span class="kw">tm_shape</span>(Precip.spdf) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb4-10"><a href="lab-5.html#cb4-10"></a><span class="st">  </span><span class="kw">tm_dots</span>(<span class="dt">col=</span>myColumn, </span>
-<span id="cb4-11"><a href="lab-5.html#cb4-11"></a>          <span class="dt">palette =</span> <span class="st">&quot;RdBu&quot;</span>,</span>
-<span id="cb4-12"><a href="lab-5.html#cb4-12"></a>          <span class="dt">title=</span><span class="kw">paste</span>(<span class="st">&quot;Total rain (mm):&quot;</span>,myColumn), </span>
-<span id="cb4-13"><a href="lab-5.html#cb4-13"></a>          <span class="dt">size=</span><span class="fl">0.1</span>,<span class="dt">style=</span><span class="st">&quot;cont&quot;</span>) </span>
-<span id="cb4-14"><a href="lab-5.html#cb4-14"></a></span>
-<span id="cb4-15"><a href="lab-5.html#cb4-15"></a><span class="co"># WRITE A COMMENT HERE TO EXPLAIN WHAT THE PASTE COMMAND IS DOING</span></span>
-<span id="cb4-16"><a href="lab-5.html#cb4-16"></a></span>
-<span id="cb4-17"><a href="lab-5.html#cb4-17"></a><span class="co"># This is based on leaflet, so you can change the interactive basemap with any from here: </span></span>
-<span id="cb4-18"><a href="lab-5.html#cb4-18"></a><span class="co"># http://leaflet-extras.github.io/leaflet-providers/preview/index.html </span></span>
-<span id="cb4-19"><a href="lab-5.html#cb4-19"></a><span class="co"># You can also run this command in the console to see all the colour palettes available to you:   </span></span>
-<span id="cb4-20"><a href="lab-5.html#cb4-20"></a><span class="co"># tmaptools::palette_explorer()</span></span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="lab-5.html#cb124-1"></a><span class="co"># WRITE COMMENT HERE. WHAT HAPPENS IF THIS IS SET TO &quot;plot&quot;?</span></span>
+<span id="cb124-2"><a href="lab-5.html#cb124-2"></a>current.mode &lt;-<span class="st"> </span><span class="kw">tmap_mode</span>(<span class="st">&quot;view&quot;</span>)</span>
+<span id="cb124-3"><a href="lab-5.html#cb124-3"></a></span>
+<span id="cb124-4"><a href="lab-5.html#cb124-4"></a><span class="co"># Choose the name of the column you want to plot</span></span>
+<span id="cb124-5"><a href="lab-5.html#cb124-5"></a>myColumn =<span class="st"> &quot;Aug&quot;</span></span>
+<span id="cb124-6"><a href="lab-5.html#cb124-6"></a></span>
+<span id="cb124-7"><a href="lab-5.html#cb124-7"></a><span class="co"># WRITE COMMENT HERE.  EXPLAIN WHAT THE CODE DOING</span></span>
+<span id="cb124-8"><a href="lab-5.html#cb124-8"></a><span class="kw">tm_basemap</span>(<span class="st">&quot;Stamen.Terrain&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb124-9"><a href="lab-5.html#cb124-9"></a><span class="st">  </span><span class="kw">tm_shape</span>(Precip.spdf) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb124-10"><a href="lab-5.html#cb124-10"></a><span class="st">  </span><span class="kw">tm_dots</span>(<span class="dt">col=</span>myColumn, </span>
+<span id="cb124-11"><a href="lab-5.html#cb124-11"></a>          <span class="dt">palette =</span> <span class="st">&quot;RdBu&quot;</span>,</span>
+<span id="cb124-12"><a href="lab-5.html#cb124-12"></a>          <span class="dt">title=</span><span class="kw">paste</span>(<span class="st">&quot;Total rain (mm):&quot;</span>,myColumn), </span>
+<span id="cb124-13"><a href="lab-5.html#cb124-13"></a>          <span class="dt">size=</span><span class="fl">0.1</span>,<span class="dt">style=</span><span class="st">&quot;cont&quot;</span>) </span>
+<span id="cb124-14"><a href="lab-5.html#cb124-14"></a></span>
+<span id="cb124-15"><a href="lab-5.html#cb124-15"></a><span class="co"># WRITE A COMMENT HERE TO EXPLAIN WHAT THE PASTE COMMAND IS DOING</span></span>
+<span id="cb124-16"><a href="lab-5.html#cb124-16"></a></span>
+<span id="cb124-17"><a href="lab-5.html#cb124-17"></a><span class="co"># This is based on leaflet, so you can change the interactive basemap with any from here: </span></span>
+<span id="cb124-18"><a href="lab-5.html#cb124-18"></a><span class="co"># http://leaflet-extras.github.io/leaflet-providers/preview/index.html </span></span>
+<span id="cb124-19"><a href="lab-5.html#cb124-19"></a><span class="co"># You can also run this command in the console to see all the colour palettes available to you:   </span></span>
+<span id="cb124-20"><a href="lab-5.html#cb124-20"></a><span class="co"># tmaptools::palette_explorer()</span></span></code></pre></div>
 </div>
 <div id="exploratory-analysis" class="section level3">
 <h3><span class="header-section-number">6.3.2</span> Exploratory analysis</h3>
@@ -507,15 +517,15 @@ Figure 6.2: What your plot should look like
 <p>Apply the <code>voronoi</code> command to Precip.spdf and save it as a variable called Precip.Thiessen.</p>
 <p>If you need a hand, look at the helpfile for the voronoi function (and scroll to the end for an example) or see here <a href="https://rspatial.org/raster/rosu/Chapter11.html" class="uri">https://rspatial.org/raster/rosu/Chapter11.html</a></p>
 <p>Copy/add the code below to your script. This plots the output of your voronoi analysis for individual columns of your data. AKA you can change “Annual” to be any column named in your Precip.Table. (try names(Precip.Table) in the console if you have forgotten them)</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="lab-5.html#cb5-1"></a><span class="kw">spplot</span>(Precip.Thiessen,<span class="st">&#39;Annual&#39;</span>,<span class="dt">col.regions=</span><span class="kw">rev</span>(<span class="kw">get_col_regions</span>()))</span>
-<span id="cb5-2"><a href="lab-5.html#cb5-2"></a></span>
-<span id="cb5-3"><a href="lab-5.html#cb5-3"></a><span class="co">#The spplot command is yet another way of plotting spatial data in R (there is a tutorial here: #http://www.nickeubank.com/wp-content/uploads/2015/10/RGIS3_MakingMaps_part1_mappingVectorData.html#spplot)</span></span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="lab-5.html#cb125-1"></a><span class="kw">spplot</span>(Precip.Thiessen,<span class="st">&#39;Annual&#39;</span>,<span class="dt">col.regions=</span><span class="kw">rev</span>(<span class="kw">get_col_regions</span>()))</span>
+<span id="cb125-2"><a href="lab-5.html#cb125-2"></a></span>
+<span id="cb125-3"><a href="lab-5.html#cb125-3"></a><span class="co">#The spplot command is yet another way of plotting spatial data in R (there is a tutorial here: #http://www.nickeubank.com/wp-content/uploads/2015/10/RGIS3_MakingMaps_part1_mappingVectorData.html#spplot)</span></span></code></pre></div>
 <p>Below the plot, explain what it is showing you. What do the colours represent and why are the polygons drawn that way. Why do the polygons look so strange towards the edge of the plot?</p>
 <p>It would be good to crop out California. We can use the raster package and the following code to do this. Run this code in your script.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="lab-5.html#cb6-1"></a><span class="co"># Add the state boundaries</span></span>
-<span id="cb6-2"><a href="lab-5.html#cb6-2"></a>CaliforniaNew           &lt;-<span class="st"> </span><span class="kw">aggregate</span>(California)</span>
-<span id="cb6-3"><a href="lab-5.html#cb6-3"></a>Precip.Thiessen.clipped &lt;-<span class="st"> </span><span class="kw">intersect</span>(Precip.Thiessen, CaliforniaNew)</span>
-<span id="cb6-4"><a href="lab-5.html#cb6-4"></a><span class="kw">spplot</span>(Precip.Thiessen.clipped, <span class="st">&#39;Annual&#39;</span>, <span class="dt">col.regions=</span><span class="kw">rev</span>(<span class="kw">get_col_regions</span>()))</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="lab-5.html#cb126-1"></a><span class="co"># Add the state boundaries</span></span>
+<span id="cb126-2"><a href="lab-5.html#cb126-2"></a>CaliforniaNew           &lt;-<span class="st"> </span><span class="kw">aggregate</span>(California)</span>
+<span id="cb126-3"><a href="lab-5.html#cb126-3"></a>Precip.Thiessen.clipped &lt;-<span class="st"> </span><span class="kw">intersect</span>(Precip.Thiessen, CaliforniaNew)</span>
+<span id="cb126-4"><a href="lab-5.html#cb126-4"></a><span class="kw">spplot</span>(Precip.Thiessen.clipped, <span class="st">&#39;Annual&#39;</span>, <span class="dt">col.regions=</span><span class="kw">rev</span>(<span class="kw">get_col_regions</span>()))</span></code></pre></div>
 <p>Below the code chunk, explain what are the limitations of Thiessen/proximity polygons, specifically for field data such as rainfall or elevation. What are the advantages and disadvantages of the final map?</p>
 </div>
 <div id="challenge-5-inverse-distance-weighting-info" class="section level2">
@@ -537,38 +547,38 @@ Figure 6.2: What your plot should look like
 <p>This code will run the inverse distance weighting code for the Annual rainfall California data, with a power of two. E.g. the weighting is proportional to</p>
 <p><span class="math display">\[\frac{1}{distance^{2}}\]</span>
 Copy the code below into R and make sure you can run it. It should give a plot of California. If there are errors about CRS, ignore them.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="lab-5.html#cb7-1"></a><span class="co"># Create an empty grid over California</span></span>
-<span id="cb7-2"><a href="lab-5.html#cb7-2"></a>grid            &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">spsample</span>(Precip.spdf, <span class="st">&quot;regular&quot;</span>, <span class="dt">n=</span><span class="dv">50000</span>))</span>
-<span id="cb7-3"><a href="lab-5.html#cb7-3"></a><span class="kw">names</span>(grid)     &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;X&quot;</span>, <span class="st">&quot;Y&quot;</span>)</span>
-<span id="cb7-4"><a href="lab-5.html#cb7-4"></a><span class="kw">coordinates</span>(grid)&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;X&quot;</span>, <span class="st">&quot;Y&quot;</span>)</span>
-<span id="cb7-5"><a href="lab-5.html#cb7-5"></a><span class="kw">gridded</span>(grid)   &lt;-<span class="st"> </span><span class="ot">TRUE</span>  <span class="co"># Create SpatialPixel object</span></span>
-<span id="cb7-6"><a href="lab-5.html#cb7-6"></a><span class="kw">fullgrid</span>(grid)  &lt;-<span class="st"> </span><span class="ot">TRUE</span>  <span class="co"># Create SpatialGrid object</span></span>
-<span id="cb7-7"><a href="lab-5.html#cb7-7"></a></span>
-<span id="cb7-8"><a href="lab-5.html#cb7-8"></a><span class="co"># Add the California projection information to the empty grid</span></span>
-<span id="cb7-9"><a href="lab-5.html#cb7-9"></a><span class="kw">proj4string</span>(grid) &lt;-<span class="st"> </span><span class="kw">proj4string</span>(California)</span>
-<span id="cb7-10"><a href="lab-5.html#cb7-10"></a></span>
-<span id="cb7-11"><a href="lab-5.html#cb7-11"></a><span class="co"># The IDW command calculates the inverse distance weighting</span></span>
-<span id="cb7-12"><a href="lab-5.html#cb7-12"></a>Precip.idw &lt;-<span class="st"> </span>gstat<span class="op">::</span><span class="kw">idw</span>(Annual <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,  <span class="co"># Choose the annual column, no trend</span></span>
-<span id="cb7-13"><a href="lab-5.html#cb7-13"></a>                         Precip.spdf, <span class="co"># For the precip sp data</span></span>
-<span id="cb7-14"><a href="lab-5.html#cb7-14"></a>                         <span class="dt">newdata=</span>grid,<span class="co"># interpolate onto the new grid </span></span>
-<span id="cb7-15"><a href="lab-5.html#cb7-15"></a>                         <span class="dt">idp=</span><span class="dv">2</span>)       <span class="co"># using a power of 2</span></span>
-<span id="cb7-16"><a href="lab-5.html#cb7-16"></a></span>
-<span id="cb7-17"><a href="lab-5.html#cb7-17"></a><span class="co"># Now convert to a raster object &amp; clip to California</span></span>
-<span id="cb7-18"><a href="lab-5.html#cb7-18"></a>Precip.idw.raster &lt;-<span class="st"> </span><span class="kw">raster</span>(Precip.idw)</span>
-<span id="cb7-19"><a href="lab-5.html#cb7-19"></a>Precip.idw.mask   &lt;-<span class="st"> </span><span class="kw">mask</span>(Precip.idw.raster, California)</span>
-<span id="cb7-20"><a href="lab-5.html#cb7-20"></a></span>
-<span id="cb7-21"><a href="lab-5.html#cb7-21"></a><span class="co"># And plot to a static plot</span></span>
-<span id="cb7-22"><a href="lab-5.html#cb7-22"></a>current.mode &lt;-<span class="st"> </span><span class="kw">tmap_mode</span>(<span class="st">&quot;plot&quot;</span>)</span>
-<span id="cb7-23"><a href="lab-5.html#cb7-23"></a></span>
-<span id="cb7-24"><a href="lab-5.html#cb7-24"></a><span class="co"># A more complex tmap</span></span>
-<span id="cb7-25"><a href="lab-5.html#cb7-25"></a><span class="kw">tm_shape</span>(Precip.idw.mask) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb7-26"><a href="lab-5.html#cb7-26"></a><span class="st">  </span><span class="kw">tm_raster</span>(<span class="dt">n=</span><span class="dv">10</span>,<span class="dt">palette =</span> <span class="st">&quot;RdBu&quot;</span>,</span>
-<span id="cb7-27"><a href="lab-5.html#cb7-27"></a>            <span class="dt">style=</span><span class="st">&quot;cont&quot;</span>,</span>
-<span id="cb7-28"><a href="lab-5.html#cb7-28"></a>            <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">0</span>,<span class="dt">to=</span><span class="dv">2400</span>,<span class="dt">length.out=</span><span class="dv">20</span>),</span>
-<span id="cb7-29"><a href="lab-5.html#cb7-29"></a>            <span class="dt">title=</span><span class="kw">paste</span>(<span class="st">&quot;Rain, Power:&quot;</span>,Power)) <span class="op">+</span></span>
-<span id="cb7-30"><a href="lab-5.html#cb7-30"></a><span class="st">  </span><span class="kw">tm_shape</span>(Precip.spdf) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb7-31"><a href="lab-5.html#cb7-31"></a><span class="st">  </span><span class="kw">tm_dots</span>(<span class="dt">size=</span><span class="fl">0.02</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb7-32"><a href="lab-5.html#cb7-32"></a><span class="st">  </span><span class="kw">tm_legend</span>(<span class="dt">legend.outside=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="lab-5.html#cb127-1"></a><span class="co"># Create an empty grid over California</span></span>
+<span id="cb127-2"><a href="lab-5.html#cb127-2"></a>grid            &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">spsample</span>(Precip.spdf, <span class="st">&quot;regular&quot;</span>, <span class="dt">n=</span><span class="dv">50000</span>))</span>
+<span id="cb127-3"><a href="lab-5.html#cb127-3"></a><span class="kw">names</span>(grid)     &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;X&quot;</span>, <span class="st">&quot;Y&quot;</span>)</span>
+<span id="cb127-4"><a href="lab-5.html#cb127-4"></a><span class="kw">coordinates</span>(grid)&lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;X&quot;</span>, <span class="st">&quot;Y&quot;</span>)</span>
+<span id="cb127-5"><a href="lab-5.html#cb127-5"></a><span class="kw">gridded</span>(grid)   &lt;-<span class="st"> </span><span class="ot">TRUE</span>  <span class="co"># Create SpatialPixel object</span></span>
+<span id="cb127-6"><a href="lab-5.html#cb127-6"></a><span class="kw">fullgrid</span>(grid)  &lt;-<span class="st"> </span><span class="ot">TRUE</span>  <span class="co"># Create SpatialGrid object</span></span>
+<span id="cb127-7"><a href="lab-5.html#cb127-7"></a></span>
+<span id="cb127-8"><a href="lab-5.html#cb127-8"></a><span class="co"># Add the California projection information to the empty grid</span></span>
+<span id="cb127-9"><a href="lab-5.html#cb127-9"></a><span class="kw">proj4string</span>(grid) &lt;-<span class="st"> </span><span class="kw">proj4string</span>(California)</span>
+<span id="cb127-10"><a href="lab-5.html#cb127-10"></a></span>
+<span id="cb127-11"><a href="lab-5.html#cb127-11"></a><span class="co"># The IDW command calculates the inverse distance weighting</span></span>
+<span id="cb127-12"><a href="lab-5.html#cb127-12"></a>Precip.idw &lt;-<span class="st"> </span>gstat<span class="op">::</span><span class="kw">idw</span>(Annual <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,  <span class="co"># Choose the annual column, no trend</span></span>
+<span id="cb127-13"><a href="lab-5.html#cb127-13"></a>                         Precip.spdf, <span class="co"># For the precip sp data</span></span>
+<span id="cb127-14"><a href="lab-5.html#cb127-14"></a>                         <span class="dt">newdata=</span>grid,<span class="co"># interpolate onto the new grid </span></span>
+<span id="cb127-15"><a href="lab-5.html#cb127-15"></a>                         <span class="dt">idp=</span><span class="dv">2</span>)       <span class="co"># using a power of 2</span></span>
+<span id="cb127-16"><a href="lab-5.html#cb127-16"></a></span>
+<span id="cb127-17"><a href="lab-5.html#cb127-17"></a><span class="co"># Now convert to a raster object &amp; clip to California</span></span>
+<span id="cb127-18"><a href="lab-5.html#cb127-18"></a>Precip.idw.raster &lt;-<span class="st"> </span><span class="kw">raster</span>(Precip.idw)</span>
+<span id="cb127-19"><a href="lab-5.html#cb127-19"></a>Precip.idw.mask   &lt;-<span class="st"> </span><span class="kw">mask</span>(Precip.idw.raster, California)</span>
+<span id="cb127-20"><a href="lab-5.html#cb127-20"></a></span>
+<span id="cb127-21"><a href="lab-5.html#cb127-21"></a><span class="co"># And plot to a static plot</span></span>
+<span id="cb127-22"><a href="lab-5.html#cb127-22"></a>current.mode &lt;-<span class="st"> </span><span class="kw">tmap_mode</span>(<span class="st">&quot;plot&quot;</span>)</span>
+<span id="cb127-23"><a href="lab-5.html#cb127-23"></a></span>
+<span id="cb127-24"><a href="lab-5.html#cb127-24"></a><span class="co"># A more complex tmap</span></span>
+<span id="cb127-25"><a href="lab-5.html#cb127-25"></a><span class="kw">tm_shape</span>(Precip.idw.mask) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb127-26"><a href="lab-5.html#cb127-26"></a><span class="st">  </span><span class="kw">tm_raster</span>(<span class="dt">n=</span><span class="dv">10</span>,<span class="dt">palette =</span> <span class="st">&quot;RdBu&quot;</span>,</span>
+<span id="cb127-27"><a href="lab-5.html#cb127-27"></a>            <span class="dt">style=</span><span class="st">&quot;cont&quot;</span>,</span>
+<span id="cb127-28"><a href="lab-5.html#cb127-28"></a>            <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">0</span>,<span class="dt">to=</span><span class="dv">2400</span>,<span class="dt">length.out=</span><span class="dv">20</span>),</span>
+<span id="cb127-29"><a href="lab-5.html#cb127-29"></a>            <span class="dt">title=</span><span class="kw">paste</span>(<span class="st">&quot;Rain, Power:&quot;</span>,Power)) <span class="op">+</span></span>
+<span id="cb127-30"><a href="lab-5.html#cb127-30"></a><span class="st">  </span><span class="kw">tm_shape</span>(Precip.spdf) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb127-31"><a href="lab-5.html#cb127-31"></a><span class="st">  </span><span class="kw">tm_dots</span>(<span class="dt">size=</span><span class="fl">0.02</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb127-32"><a href="lab-5.html#cb127-32"></a><span class="st">  </span><span class="kw">tm_legend</span>(<span class="dt">legend.outside=</span><span class="ot">TRUE</span>)</span></code></pre></div>
 <p>Below the code chunk, answer the following questions. Please include the questions in your text to make it easy for us to grade your answers.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>In the output above, for a power of 2, there appear to be “circles” or “bulls-eyes” around each many of the rain-gauges. Why is this?</p></li>
@@ -584,28 +594,28 @@ Finding the “best” power can be subjective. .</p>
 <p>A better approach to fine-tune the choice of the power parameter, we can perform a leave-one-out validation routine to measure the error in the interpolated values. Here, we remove one data point from the dataset and estimate its value using all other points and the IDW tecnique. Then we repeat this process for every point. The interpolated values are then compared with the actual values from the omitted point. This method is sometimes referred to as jackknifing or cross-validation.</p>
 <p>We can then create a scatterplot of the predicted vs. expected precipitation values from our dataset. The solid diagonal line represents the one-to-one slope (i.e. if the predicted values matched the true values exactly, then the points would fall on this line). The red dashed line is a linear fit to the points which is here to help guide our eyes along the pattern generated by these points. We can then calculate the RMSE, the Root Mean Squared Error, to see how far the residuals are from the line. The smaller the RMSE, the better the fit.</p>
 <p>The code below shows the plot and RMSE for the California data and a power of 2.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="lab-5.html#cb8-1"></a><span class="co"># Change the power here and don&#39;t touch the rest</span></span>
-<span id="cb8-2"><a href="lab-5.html#cb8-2"></a>power=<span class="dv">2</span></span>
-<span id="cb8-3"><a href="lab-5.html#cb8-3"></a></span>
-<span id="cb8-4"><a href="lab-5.html#cb8-4"></a><span class="co"># Leave-one-out validation routine</span></span>
-<span id="cb8-5"><a href="lab-5.html#cb8-5"></a>IDW.out &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">length =</span> <span class="kw">length</span>(Precip.spdf))</span>
-<span id="cb8-6"><a href="lab-5.html#cb8-6"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(Precip.spdf)) {</span>
-<span id="cb8-7"><a href="lab-5.html#cb8-7"></a>  IDW.out[i] &lt;-<span class="st"> </span><span class="kw">suppressWarnings</span>(</span>
-<span id="cb8-8"><a href="lab-5.html#cb8-8"></a>                        gstat<span class="op">::</span><span class="kw">idw</span>(Annual <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, </span>
-<span id="cb8-9"><a href="lab-5.html#cb8-9"></a>                                   Precip.spdf[<span class="op">-</span>i,], </span>
-<span id="cb8-10"><a href="lab-5.html#cb8-10"></a>                                   Precip.spdf[i,],</span>
-<span id="cb8-11"><a href="lab-5.html#cb8-11"></a>                                   <span class="dt">idp=</span>power,<span class="dt">debug.level=</span><span class="dv">0</span>)<span class="op">$</span>var1.pred)</span>
-<span id="cb8-12"><a href="lab-5.html#cb8-12"></a>}</span>
-<span id="cb8-13"><a href="lab-5.html#cb8-13"></a></span>
-<span id="cb8-14"><a href="lab-5.html#cb8-14"></a><span class="co"># Compute RMSE</span></span>
-<span id="cb8-15"><a href="lab-5.html#cb8-15"></a>RMSE &lt;-<span class="st"> </span><span class="kw">sqrt</span>( <span class="kw">sum</span>((IDW.out <span class="op">-</span><span class="st"> </span>Precip.spdf<span class="op">$</span>Annual)<span class="op">^</span><span class="dv">2</span>) <span class="op">/</span><span class="st"> </span><span class="kw">length</span>(Precip.spdf))</span>
-<span id="cb8-16"><a href="lab-5.html#cb8-16"></a></span>
-<span id="cb8-17"><a href="lab-5.html#cb8-17"></a><span class="co"># Plot the differences</span></span>
-<span id="cb8-18"><a href="lab-5.html#cb8-18"></a>  <span class="kw">plot</span>(IDW.out <span class="op">~</span><span class="st"> </span>Precip.spdf<span class="op">$</span>Annual, </span>
-<span id="cb8-19"><a href="lab-5.html#cb8-19"></a>       <span class="dt">asp=</span><span class="dv">1</span>, <span class="dt">xlab=</span><span class="st">&quot;Observed&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Predicted&quot;</span>, <span class="dt">pch=</span><span class="dv">16</span>,</span>
-<span id="cb8-20"><a href="lab-5.html#cb8-20"></a>       <span class="dt">col=</span><span class="kw">rgb</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.5</span>),<span class="dt">main=</span><span class="kw">paste</span>(<span class="st">&quot;RMSE:&quot;</span>,<span class="kw">round</span>(RMSE)))</span>
-<span id="cb8-21"><a href="lab-5.html#cb8-21"></a>  <span class="kw">abline</span>(<span class="kw">lm</span>(IDW.out <span class="op">~</span><span class="st"> </span>Precip.spdf<span class="op">$</span>Annual), <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lw=</span><span class="dv">2</span>,<span class="dt">lty=</span><span class="dv">2</span>)</span>
-<span id="cb8-22"><a href="lab-5.html#cb8-22"></a>  <span class="kw">abline</span>(<span class="dv">0</span>,<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="lab-5.html#cb128-1"></a><span class="co"># Change the power here and don&#39;t touch the rest</span></span>
+<span id="cb128-2"><a href="lab-5.html#cb128-2"></a>power=<span class="dv">2</span></span>
+<span id="cb128-3"><a href="lab-5.html#cb128-3"></a></span>
+<span id="cb128-4"><a href="lab-5.html#cb128-4"></a><span class="co"># Leave-one-out validation routine</span></span>
+<span id="cb128-5"><a href="lab-5.html#cb128-5"></a>IDW.out &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">length =</span> <span class="kw">length</span>(Precip.spdf))</span>
+<span id="cb128-6"><a href="lab-5.html#cb128-6"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(Precip.spdf)) {</span>
+<span id="cb128-7"><a href="lab-5.html#cb128-7"></a>  IDW.out[i] &lt;-<span class="st"> </span><span class="kw">suppressWarnings</span>(</span>
+<span id="cb128-8"><a href="lab-5.html#cb128-8"></a>                        gstat<span class="op">::</span><span class="kw">idw</span>(Annual <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, </span>
+<span id="cb128-9"><a href="lab-5.html#cb128-9"></a>                                   Precip.spdf[<span class="op">-</span>i,], </span>
+<span id="cb128-10"><a href="lab-5.html#cb128-10"></a>                                   Precip.spdf[i,],</span>
+<span id="cb128-11"><a href="lab-5.html#cb128-11"></a>                                   <span class="dt">idp=</span>power,<span class="dt">debug.level=</span><span class="dv">0</span>)<span class="op">$</span>var1.pred)</span>
+<span id="cb128-12"><a href="lab-5.html#cb128-12"></a>}</span>
+<span id="cb128-13"><a href="lab-5.html#cb128-13"></a></span>
+<span id="cb128-14"><a href="lab-5.html#cb128-14"></a><span class="co"># Compute RMSE</span></span>
+<span id="cb128-15"><a href="lab-5.html#cb128-15"></a>RMSE &lt;-<span class="st"> </span><span class="kw">sqrt</span>( <span class="kw">sum</span>((IDW.out <span class="op">-</span><span class="st"> </span>Precip.spdf<span class="op">$</span>Annual)<span class="op">^</span><span class="dv">2</span>) <span class="op">/</span><span class="st"> </span><span class="kw">length</span>(Precip.spdf))</span>
+<span id="cb128-16"><a href="lab-5.html#cb128-16"></a></span>
+<span id="cb128-17"><a href="lab-5.html#cb128-17"></a><span class="co"># Plot the differences</span></span>
+<span id="cb128-18"><a href="lab-5.html#cb128-18"></a>  <span class="kw">plot</span>(IDW.out <span class="op">~</span><span class="st"> </span>Precip.spdf<span class="op">$</span>Annual, </span>
+<span id="cb128-19"><a href="lab-5.html#cb128-19"></a>       <span class="dt">asp=</span><span class="dv">1</span>, <span class="dt">xlab=</span><span class="st">&quot;Observed&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Predicted&quot;</span>, <span class="dt">pch=</span><span class="dv">16</span>,</span>
+<span id="cb128-20"><a href="lab-5.html#cb128-20"></a>       <span class="dt">col=</span><span class="kw">rgb</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.5</span>),<span class="dt">main=</span><span class="kw">paste</span>(<span class="st">&quot;RMSE:&quot;</span>,<span class="kw">round</span>(RMSE)))</span>
+<span id="cb128-21"><a href="lab-5.html#cb128-21"></a>  <span class="kw">abline</span>(<span class="kw">lm</span>(IDW.out <span class="op">~</span><span class="st"> </span>Precip.spdf<span class="op">$</span>Annual), <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lw=</span><span class="dv">2</span>,<span class="dt">lty=</span><span class="dv">2</span>)</span>
+<span id="cb128-22"><a href="lab-5.html#cb128-22"></a>  <span class="kw">abline</span>(<span class="dv">0</span>,<span class="dv">1</span>)</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Edit the power and keep reruning the code chunk above until you think you have found the lowest RMSE and the “best” fit. Hint - the power does not need to be an integer. It could be 2.4. Below the code chunk confirm the final power that you chose.</li>
 </ol>

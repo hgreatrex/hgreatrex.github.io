@@ -24,7 +24,7 @@
 <meta name="author" content="Helen Greatrex" />
 
 
-<meta name="date" content="2020-09-30" />
+<meta name="date" content="2020-10-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="test-1.html"/>
-
+<link rel="next" href="lab-5.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -257,6 +257,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.9" data-path="lab-4.html"><a href="lab-4.html#challenge-8-show-me-something-new"><i class="fa fa-check"></i><b>5.9</b> Challenge 8 Show me something new</a></li>
 <li class="chapter" data-level="5.10" data-path="lab-4.html"><a href="lab-4.html#lab-4-submission-check"><i class="fa fa-check"></i><b>5.10</b> Lab-4 submission check</a></li>
 </ul></li>
+<li class="chapter" data-level="6" data-path="lab-5.html"><a href="lab-5.html"><i class="fa fa-check"></i><b>6</b> Lab 5</a><ul>
+<li class="chapter" data-level="6.1" data-path="lab-5.html"><a href="lab-5.html#lab-5-set-up"><i class="fa fa-check"></i><b>6.1</b> Lab 5 Set-Up</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="lab-5.html"><a href="lab-5.html#create-your-lab-5-project-file"><i class="fa fa-check"></i><b>6.1.1</b> Create your Lab 5 project file</a></li>
+<li class="chapter" data-level="6.1.2" data-path="lab-3.html"><a href="lab-3.html#create-your-notebook-file"><i class="fa fa-check"></i><b>6.1.2</b> Create your NoteBook file</a></li>
+<li class="chapter" data-level="6.1.3" data-path="lab-5.html"><a href="lab-5.html#style-guide"><i class="fa fa-check"></i><b>6.1.3</b> Style guide</a></li>
+<li class="chapter" data-level="6.1.4" data-path="lab-4.html"><a href="lab-4.html#download-and-run-packages"><i class="fa fa-check"></i><b>6.1.4</b> Download and run packages</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="lab-5.html"><a href="lab-5.html#challenge-1-explore-the-data"><i class="fa fa-check"></i><b>6.2</b> Challenge 1, Explore the data</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="lab-5.html"><a href="lab-5.html#download-load-the-data"><i class="fa fa-check"></i><b>6.2.1</b> Download &amp; load the data</a></li>
+<li class="chapter" data-level="6.2.2" data-path="test-1.html"><a href="test-1.html#set-up-the-data"><i class="fa fa-check"></i><b>6.2.2</b> Set up the data</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="lab-5.html"><a href="lab-5.html#challenge-2-convert-to-spatial"><i class="fa fa-check"></i><b>6.3</b> Challenge 2: Convert to spatial</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="lab-5.html"><a href="lab-5.html#add-a-projection"><i class="fa fa-check"></i><b>6.3.1</b> Add a projection</a></li>
+<li class="chapter" data-level="6.3.2" data-path="lab-5.html"><a href="lab-5.html#make-plots-in-tmap"><i class="fa fa-check"></i><b>6.3.2</b> Make plots in tmap</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="lab-5.html"><a href="lab-5.html#challenge-3-thiessen-polygons"><i class="fa fa-check"></i><b>6.4</b> Challenge 3: Thiessen polygons</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -393,12 +410,11 @@ By examining the help file we see that the ppp command requires 4 types of infor
 <span id="cb111-3"><a href="lab-4.html#cb111-3"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
 <span id="cb111-4"><a href="lab-4.html#cb111-4"></a> <span class="co"># This just converts stateowin to the correct file format. </span></span>
 <span id="cb111-5"><a href="lab-4.html#cb111-5"></a> stateowin &lt;-<span class="st"> </span><span class="kw">as</span>(<span class="kw">as_Spatial</span>(state.border), <span class="st">&quot;owin&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;):
-## Discarded datum Unknown based on GRS80 ellipsoid in CRS definition</code></pre>
+<pre><code>## Warning in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;): Discarded datum Unknown
+## based on GRS80 ellipsoid in CRS definition</code></pre>
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="lab-4.html#cb113-1"></a> <span class="co"># This reads the data into a ppp format, then sets the window</span></span>
 <span id="cb113-2"><a href="lab-4.html#cb113-2"></a> my.ppp &lt;-<span class="st"> </span><span class="kw">as.ppp</span>(mydata_sf)</span></code></pre></div>
-<pre><code>## Warning in as.ppp.sf(mydata_sf): only first attribute column is used for
-## marks</code></pre>
+<pre><code>## Warning in as.ppp.sf(mydata_sf): only first attribute column is used for marks</code></pre>
 <div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="lab-4.html#cb115-1"></a> <span class="kw">Window</span>(my.ppp) &lt;-<span class="st"> </span>stateowin</span>
 <span id="cb115-2"><a href="lab-4.html#cb115-2"></a></span>
 <span id="cb115-3"><a href="lab-4.html#cb115-3"></a> <span class="co">#and then we plot</span></span>
@@ -536,7 +552,7 @@ By examining the help file we see that the ppp command requires 4 types of infor
 <p><strong>RMD CODE SUBMISSION - 10 marks</strong></p>
 <p><strong>WORKING CODE - 10 marks</strong>: Your code works and the output of each code chunk is included in the html file output (e.g. you pressed run-all before you finished)</p>
 <p><strong>EASY TO READ LAB SCRIPT - 10 marks</strong>: Your final html file is neat and easy to read. For example, your headings are working, you have included any relevant formatting, new paragraphs are on new lines etc.</p>
-<p><strong>CHALLENGE 1 - 10 marks</strong>: You thoughtfully explored and described the paleobiology data in Lab Challenge 1</p>
+<p><strong>CHALLENGE 1 - 5 marks</strong>: You thoughtfully explored and described the paleobiology data in Lab Challenge 1</p>
 <p><strong>CHALLENGE 2 &amp; 3-10 marks</strong>: You thoughtfully and correctly answered all the questions and read your data into Rstudio</p>
 <p><strong>CHALLENGE 4-20 marks</strong>: You correctly completed your quadrat analysis with all the required components of the quadrat analysis</p>
 <p><strong>CHALLENGE 5-10 marks</strong>: You correctly completed your elevation analysis with all the required components</p>
@@ -545,8 +561,7 @@ By examining the help file we see that the ppp command requires 4 types of infor
 <p>You made a minor change to an existing piece of code (2.5/5)
 OR
 You demonstrated the use of a function or concept that was not specifically covered in the handout, lecture, or lab, OR completed 3/5 chapters of a data camp course (5/5)</p>
-<p>[100 marks total]
-<strong>THERE IS A CANVAS QUIZ WITH THIS LAB FOR THE OTHER 40 MARKS</strong></p>
+<p>[100 marks total]</p>
 
 </div>
 </div>
@@ -555,8 +570,8 @@ You demonstrated the use of a function or concept that was not specifically cove
           </div>
         </div>
       </div>
-<a href="test-1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="test-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lab-5.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

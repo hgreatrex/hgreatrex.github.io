@@ -427,14 +427,14 @@ Figure 6.1: What your plot should look like
 <h3><span class="header-section-number">6.2.4</span> Add a projection</h3>
 <p>Now <strong>check</strong> the projection of both <code>Precip.spdf</code> and the <code>California</code> boundary data. (see Lab 2, section 2.5.1 if you have forgotten).</p>
 <p>You should see that Precip.spdf currently doesn’t have a map projection.</p>
-<p>As the x and y columns are longitude and latitude data, use the <code>proj4string</code> command to assign the projection of Precip.spdf to be “+proj=longlat +datum=WGS84 +no_defs +ellps=GRS80”</p>
+<p><strong>As the x and y columns are longitude and latitude data, use the <code>proj4string</code> command to assign the projection of Precip.spdf to be “+proj=longlat +datum=WGS84 +no_defs +ellps=GRS80”. LOOK AT LAB 2 (section 2.5.5) FOR AN EXAMPLE OF HOW TO DO THIS</strong></p>
 <p>For both the California boundary data and the precip data, we now need to set the projection to be something where distance is a conserved property. You could choose the UTM projection over California, but let’s see a new one: the Albers Equal-Area Conic projection (<a href="https://en.wikipedia.org/wiki/Albers_projection" class="uri">https://en.wikipedia.org/wiki/Albers_projection</a>).</p>
 <p>The code for this is</p>
 <ul>
 <li>“+proj=aea +lat_1=34 +lat_2=40.5 +lat_0=0 +lon_0=-120 +x_0=0 +y_0=-4000000 +datum=NAD83 +units=km +ellps=GRS80”</li>
 </ul>
-<p>In a new code chunk, use the spTransform command twice to change the projection of each of Precip.spdf and the California data to the Albers projection.</p>
-<p>If you get warnings like: <em>“CRS object has comment, which is lost in output”</em> or <em>“NULL source CRS comment, falling back to PROJ string”</em>, ignore them - they’re a consequence of the recent R upgrade.</p>
+<p><strong>In a new code chunk, use the spTransform command twice to change the projection of each of Precip.spdf and the California data to the Albers projection. Again, Lab 2 section 2.5.2 might be useful here.</strong></p>
+<p>If you get warnings like: <em>“CRS object has comment, which is lost in output”</em> or <em>“NULL source CRS comment, falling back to PROJ string”</em>, or anything else that specifically doesn’t say error,ignore them - they’re a consequence of the recent R upgrade.</p>
 <p>Now if you now run the plot command and also add California, they should plot on top of each other. DON’T CONTINUE UNTIL YOU CAN REPRODUCE THIS.</p>
 <div class="figure"><span id="fig:socali2"></span>
 <img src="images/FIg_5_02_caliborder.png" alt="What your plot should look like" width="551" />

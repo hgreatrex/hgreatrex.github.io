@@ -24,7 +24,7 @@
 <meta name="author" content="Helen Greatrex" />
 
 
-<meta name="date" content="2020-10-14" />
+<meta name="date" content="2020-10-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -557,28 +557,31 @@ Copy the code below into R and make sure you can run it. It should give a plot o
 <span id="cb127-8"><a href="lab-5.html#cb127-8"></a><span class="co"># Add the California projection information to the empty grid</span></span>
 <span id="cb127-9"><a href="lab-5.html#cb127-9"></a><span class="kw">proj4string</span>(grid) &lt;-<span class="st"> </span><span class="kw">proj4string</span>(California)</span>
 <span id="cb127-10"><a href="lab-5.html#cb127-10"></a></span>
-<span id="cb127-11"><a href="lab-5.html#cb127-11"></a><span class="co"># The IDW command calculates the inverse distance weighting</span></span>
-<span id="cb127-12"><a href="lab-5.html#cb127-12"></a>Precip.idw &lt;-<span class="st"> </span>gstat<span class="op">::</span><span class="kw">idw</span>(Annual <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,  <span class="co"># Choose the annual column, no trend</span></span>
-<span id="cb127-13"><a href="lab-5.html#cb127-13"></a>                         Precip.spdf, <span class="co"># For the precip sp data</span></span>
-<span id="cb127-14"><a href="lab-5.html#cb127-14"></a>                         <span class="dt">newdata=</span>grid,<span class="co"># interpolate onto the new grid </span></span>
-<span id="cb127-15"><a href="lab-5.html#cb127-15"></a>                         <span class="dt">idp=</span><span class="dv">2</span>)       <span class="co"># using a power of 2</span></span>
-<span id="cb127-16"><a href="lab-5.html#cb127-16"></a></span>
-<span id="cb127-17"><a href="lab-5.html#cb127-17"></a><span class="co"># Now convert to a raster object &amp; clip to California</span></span>
-<span id="cb127-18"><a href="lab-5.html#cb127-18"></a>Precip.idw.raster &lt;-<span class="st"> </span><span class="kw">raster</span>(Precip.idw)</span>
-<span id="cb127-19"><a href="lab-5.html#cb127-19"></a>Precip.idw.mask   &lt;-<span class="st"> </span><span class="kw">mask</span>(Precip.idw.raster, California)</span>
-<span id="cb127-20"><a href="lab-5.html#cb127-20"></a></span>
-<span id="cb127-21"><a href="lab-5.html#cb127-21"></a><span class="co"># And plot to a static plot</span></span>
-<span id="cb127-22"><a href="lab-5.html#cb127-22"></a>current.mode &lt;-<span class="st"> </span><span class="kw">tmap_mode</span>(<span class="st">&quot;plot&quot;</span>)</span>
+<span id="cb127-11"><a href="lab-5.html#cb127-11"></a><span class="co"># What inverse distance weighting power would you like?</span></span>
+<span id="cb127-12"><a href="lab-5.html#cb127-12"></a>Power &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb127-13"><a href="lab-5.html#cb127-13"></a></span>
+<span id="cb127-14"><a href="lab-5.html#cb127-14"></a><span class="co"># The IDW command calculates the inverse distance weighting</span></span>
+<span id="cb127-15"><a href="lab-5.html#cb127-15"></a>Precip.idw &lt;-<span class="st"> </span>gstat<span class="op">::</span><span class="kw">idw</span>(Annual <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,  <span class="co"># Choose the annual column, no trend</span></span>
+<span id="cb127-16"><a href="lab-5.html#cb127-16"></a>                         Precip.spdf, <span class="co"># For the precip sp data</span></span>
+<span id="cb127-17"><a href="lab-5.html#cb127-17"></a>                         <span class="dt">newdata=</span>grid,<span class="co"># interpolate onto the new grid </span></span>
+<span id="cb127-18"><a href="lab-5.html#cb127-18"></a>                         <span class="dt">idp=</span>Power)       <span class="co"># Set the power to be the number stored in the Power variable</span></span>
+<span id="cb127-19"><a href="lab-5.html#cb127-19"></a></span>
+<span id="cb127-20"><a href="lab-5.html#cb127-20"></a><span class="co"># Now convert to a raster object &amp; clip to California</span></span>
+<span id="cb127-21"><a href="lab-5.html#cb127-21"></a>Precip.idw.raster &lt;-<span class="st"> </span><span class="kw">raster</span>(Precip.idw)</span>
+<span id="cb127-22"><a href="lab-5.html#cb127-22"></a>Precip.idw.mask   &lt;-<span class="st"> </span><span class="kw">mask</span>(Precip.idw.raster, California)</span>
 <span id="cb127-23"><a href="lab-5.html#cb127-23"></a></span>
-<span id="cb127-24"><a href="lab-5.html#cb127-24"></a><span class="co"># A more complex tmap</span></span>
-<span id="cb127-25"><a href="lab-5.html#cb127-25"></a><span class="kw">tm_shape</span>(Precip.idw.mask) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb127-26"><a href="lab-5.html#cb127-26"></a><span class="st">  </span><span class="kw">tm_raster</span>(<span class="dt">n=</span><span class="dv">10</span>,<span class="dt">palette =</span> <span class="st">&quot;RdBu&quot;</span>,</span>
-<span id="cb127-27"><a href="lab-5.html#cb127-27"></a>            <span class="dt">style=</span><span class="st">&quot;cont&quot;</span>,</span>
-<span id="cb127-28"><a href="lab-5.html#cb127-28"></a>            <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">0</span>,<span class="dt">to=</span><span class="dv">2400</span>,<span class="dt">length.out=</span><span class="dv">20</span>),</span>
-<span id="cb127-29"><a href="lab-5.html#cb127-29"></a>            <span class="dt">title=</span><span class="kw">paste</span>(<span class="st">&quot;Rain, Power:&quot;</span>,Power)) <span class="op">+</span></span>
-<span id="cb127-30"><a href="lab-5.html#cb127-30"></a><span class="st">  </span><span class="kw">tm_shape</span>(Precip.spdf) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb127-31"><a href="lab-5.html#cb127-31"></a><span class="st">  </span><span class="kw">tm_dots</span>(<span class="dt">size=</span><span class="fl">0.02</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb127-32"><a href="lab-5.html#cb127-32"></a><span class="st">  </span><span class="kw">tm_legend</span>(<span class="dt">legend.outside=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<span id="cb127-24"><a href="lab-5.html#cb127-24"></a><span class="co"># And plot to a static plot</span></span>
+<span id="cb127-25"><a href="lab-5.html#cb127-25"></a>current.mode &lt;-<span class="st"> </span><span class="kw">tmap_mode</span>(<span class="st">&quot;plot&quot;</span>)</span>
+<span id="cb127-26"><a href="lab-5.html#cb127-26"></a></span>
+<span id="cb127-27"><a href="lab-5.html#cb127-27"></a><span class="co"># A more complex tmap</span></span>
+<span id="cb127-28"><a href="lab-5.html#cb127-28"></a><span class="kw">tm_shape</span>(Precip.idw.mask) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb127-29"><a href="lab-5.html#cb127-29"></a><span class="st">  </span><span class="kw">tm_raster</span>(<span class="dt">n=</span><span class="dv">10</span>,<span class="dt">palette =</span> <span class="st">&quot;RdBu&quot;</span>,</span>
+<span id="cb127-30"><a href="lab-5.html#cb127-30"></a>            <span class="dt">style=</span><span class="st">&quot;cont&quot;</span>,</span>
+<span id="cb127-31"><a href="lab-5.html#cb127-31"></a>            <span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">0</span>,<span class="dt">to=</span><span class="dv">2400</span>,<span class="dt">length.out=</span><span class="dv">20</span>),</span>
+<span id="cb127-32"><a href="lab-5.html#cb127-32"></a>            <span class="dt">title=</span><span class="kw">paste</span>(<span class="st">&quot;Rain, Power:&quot;</span>,Power)) <span class="op">+</span></span>
+<span id="cb127-33"><a href="lab-5.html#cb127-33"></a><span class="st">  </span><span class="kw">tm_shape</span>(Precip.spdf) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb127-34"><a href="lab-5.html#cb127-34"></a><span class="st">  </span><span class="kw">tm_dots</span>(<span class="dt">size=</span><span class="fl">0.02</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb127-35"><a href="lab-5.html#cb127-35"></a><span class="st">  </span><span class="kw">tm_legend</span>(<span class="dt">legend.outside=</span><span class="ot">TRUE</span>)</span></code></pre></div>
 <p>Below the code chunk, answer the following questions. Please include the questions in your text to make it easy for us to grade your answers.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>In the output above, for a power of 2, there appear to be “circles” or “bulls-eyes” around each many of the rain-gauges. Why is this?</p></li>

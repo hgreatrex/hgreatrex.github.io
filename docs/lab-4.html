@@ -24,7 +24,7 @@
 <meta name="author" content="Helen Greatrex" />
 
 
-<meta name="date" content="2020-10-28" />
+<meta name="date" content="2020-10-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -447,12 +447,11 @@ By examining the help file we see that the ppp command requires 4 types of infor
 <span id="cb111-3"><a href="lab-4.html#cb111-3"></a><span class="co">#------------------------------------------------------------------------------------------------</span></span>
 <span id="cb111-4"><a href="lab-4.html#cb111-4"></a> <span class="co"># This just converts stateowin to the correct file format. </span></span>
 <span id="cb111-5"><a href="lab-4.html#cb111-5"></a> stateowin &lt;-<span class="st"> </span><span class="kw">as</span>(<span class="kw">as_Spatial</span>(state.border), <span class="st">&quot;owin&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;): Discarded
-## datum Unknown based on GRS80 ellipsoid in CRS definition</code></pre>
+<pre><code>## Warning in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;): Discarded datum
+## Unknown based on GRS80 ellipsoid in CRS definition</code></pre>
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="lab-4.html#cb113-1"></a> <span class="co"># This reads the data into a ppp format, then sets the window</span></span>
 <span id="cb113-2"><a href="lab-4.html#cb113-2"></a> my.ppp &lt;-<span class="st"> </span><span class="kw">as.ppp</span>(mydata_sf)</span></code></pre></div>
-<pre><code>## Warning in as.ppp.sf(mydata_sf): only first attribute column is used for
-## marks</code></pre>
+<pre><code>## Warning in as.ppp.sf(mydata_sf): only first attribute column is used for marks</code></pre>
 <div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="lab-4.html#cb115-1"></a> <span class="kw">Window</span>(my.ppp) &lt;-<span class="st"> </span>stateowin</span>
 <span id="cb115-2"><a href="lab-4.html#cb115-2"></a></span>
 <span id="cb115-3"><a href="lab-4.html#cb115-3"></a> <span class="co">#and then we plot</span></span>

@@ -1,0 +1,547 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Geog-364: Introduction to R},
+  pdfauthor={Helen Greatrex},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+
+\title{Geog-364: Introduction to R}
+\author{Helen Greatrex}
+\date{2020-10-28}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{lab-1}{%
+\chapter{Lab 1}\label{lab-1}}
+
+Placeholder
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+\hypertarget{why-is-this-class-in-r}{%
+\subsection{Why is this class in R?}\label{why-is-this-class-in-r}}
+
+\hypertarget{what-are-r-and-r-studio}{%
+\subsection{What are R and R-studio?}\label{what-are-r-and-r-studio}}
+
+\hypertarget{what-are-r-markdown-r-shiny}{%
+\subsection{What are R-Markdown \& R-Shiny?}\label{what-are-r-markdown-r-shiny}}
+
+\hypertarget{installing-r-and-r-studio}{%
+\section{Installing R and R-studio}\label{installing-r-and-r-studio}}
+
+\hypertarget{i-have-rr-studio-installed-already}{%
+\subsection{I have R/R-studio installed already}\label{i-have-rr-studio-installed-already}}
+
+\hypertarget{installing-rr-studio-for-the-first-time}{%
+\subsection{Installing R/R-studio for the first time}\label{installing-rr-studio-for-the-first-time}}
+
+\hypertarget{getting-started}{%
+\section{Getting started}\label{getting-started}}
+
+\hypertarget{open-r-studio}{%
+\subsection{Open R-studio}\label{open-r-studio}}
+
+\hypertarget{change-a-few-settings}{%
+\subsection{Change a few settings}\label{change-a-few-settings}}
+
+\hypertarget{project}{%
+\subsection{Create an R-project}\label{project}}
+
+\hypertarget{if-youre-having-issues-at-this-point-or-havent-managed-to-get-to-this-step-stop-ask-dr-greatrex-saumya-or-harman-for-help.}{%
+\paragraph{If you're having issues at this point or haven't managed to get to this step, STOP! Ask Dr Greatrex, Saumya or Harman for help.}\label{if-youre-having-issues-at-this-point-or-havent-managed-to-get-to-this-step-stop-ask-dr-greatrex-saumya-or-harman-for-help.}}
+\addcontentsline{toc}{paragraph}{If you're having issues at this point or haven't managed to get to this step, STOP! Ask Dr Greatrex, Saumya or Harman for help.}
+
+\hypertarget{lab-challenge-1}{%
+\section{Lab challenge 1}\label{lab-challenge-1}}
+
+\hypertarget{r-coding-basics}{%
+\section{R coding basics}\label{r-coding-basics}}
+
+\hypertarget{basic-arithmatic}{%
+\subsection{Basic arithmatic}\label{basic-arithmatic}}
+
+\hypertarget{what-if-i-press-enter-too-soon}{%
+\paragraph{What if I press Enter too soon?}\label{what-if-i-press-enter-too-soon}}
+\addcontentsline{toc}{paragraph}{What if I press Enter too soon?}
+
+\hypertarget{comparing-things}{%
+\subsection{Comparing things}\label{comparing-things}}
+
+\hypertarget{variables-and-assignment}{%
+\subsection{Variables and assignment}\label{variables-and-assignment}}
+
+\hypertarget{combining-variables}{%
+\paragraph{Combining variables}\label{combining-variables}}
+\addcontentsline{toc}{paragraph}{Combining variables}
+
+\hypertarget{functions}{%
+\subsection{Functions}\label{functions}}
+
+\hypertarget{command-help}{%
+\subsubsection{Command help}\label{command-help}}
+
+\hypertarget{packages}{%
+\subsection{Packages}\label{packages}}
+
+\hypertarget{coding-help}{%
+\subsection{Coding help}\label{coding-help}}
+
+\hypertarget{lab-challenge-2}{%
+\section{Lab Challenge 2}\label{lab-challenge-2}}
+
+\hypertarget{create-a-r-markdown-document}{%
+\section{Create a R-Markdown document}\label{create-a-r-markdown-document}}
+
+\hypertarget{what-is-markdown}{%
+\subsection{What is markdown?}\label{what-is-markdown}}
+
+\hypertarget{creating-a-notebook-document}{%
+\subsection{Creating a notebook document}\label{creating-a-notebook-document}}
+
+\hypertarget{Format}{%
+\subsection{Text formatting (in the white area)}\label{Format}}
+
+\hypertarget{friend}{%
+\section{``Friendly text''}\label{friend}}
+
+\hypertarget{lab-challenge-3}{%
+\section{Lab Challenge 3}\label{lab-challenge-3}}
+
+\hypertarget{online-courses-and-resources}{%
+\section{Online courses and resources}\label{online-courses-and-resources}}
+
+\hypertarget{lab-2}{%
+\chapter{Lab 2}\label{lab-2}}
+
+Placeholder
+
+\hypertarget{Lab2learn}{%
+\section{Learning objectives}\label{Lab2learn}}
+
+\hypertarget{lab-set-up}{%
+\section{Lab set-up}\label{lab-set-up}}
+
+\hypertarget{create-a-lab-2-project}{%
+\subsection{Create a Lab 2 Project}\label{create-a-lab-2-project}}
+
+\hypertarget{markdown-adding-a-theme}{%
+\subsection{Markdown adding a theme}\label{markdown-adding-a-theme}}
+
+\hypertarget{installing-common-spatial-packages}{%
+\subsection{Installing common spatial packages}\label{installing-common-spatial-packages}}
+
+\hypertarget{download-data-for-this-lab}{%
+\subsection{Download data for this lab}\label{download-data-for-this-lab}}
+
+\hypertarget{data.frames-and-summary-statistics}{%
+\section{Data.frames and summary statistics}\label{data.frames-and-summary-statistics}}
+
+\hypertarget{reading-in-your-first-file}{%
+\subsection{Reading in your first file}\label{reading-in-your-first-file}}
+
+\hypertarget{summarising-data}{%
+\subsection{Summarising data}\label{summarising-data}}
+
+\hypertarget{selecting-columns-and-rows}{%
+\subsection{Selecting columns and rows}\label{selecting-columns-and-rows}}
+
+\hypertarget{basic-plot}{%
+\subsection{Basic plot}\label{basic-plot}}
+
+\hypertarget{converting-to-spatial-data}{%
+\section{Converting to spatial data}\label{converting-to-spatial-data}}
+
+\hypertarget{making-a-data.frame-spatial}{%
+\subsection{Making a data.frame ``spatial''}\label{making-a-data.frame-spatial}}
+
+\hypertarget{reading-in-vector-line-data-rnaturalearth}{%
+\subsection{Reading in vector line data (rnaturalearth)}\label{reading-in-vector-line-data-rnaturalearth}}
+
+\hypertarget{assigning-a-map-projection}{%
+\section{Assigning a map projection}\label{assigning-a-map-projection}}
+
+\hypertarget{checking-a-projection-in-the-sp-package}{%
+\subsection{\texorpdfstring{Checking a projection in the \textbf{sp} package}{Checking a projection in the sp package}}\label{checking-a-projection-in-the-sp-package}}
+
+\hypertarget{assignchanging-projections-in-the-sp-package}{%
+\subsection{Assign/changing projections in the sp package}\label{assignchanging-projections-in-the-sp-package}}
+
+\hypertarget{map-projections-in-the-sf-package}{%
+\subsection{\texorpdfstring{Map projections in the \textbf{sf} package}{Map projections in the sf package}}\label{map-projections-in-the-sf-package}}
+
+\hypertarget{interactive-leaflet-plots}{%
+\section{Interactive Leaflet plots}\label{interactive-leaflet-plots}}
+
+\hypertarget{describe-the-ghana-data}{%
+\section{Describe the Ghana data}\label{describe-the-ghana-data}}
+
+\hypertarget{show-me-something-new}{%
+\section{Show me something new}\label{show-me-something-new}}
+
+\hypertarget{lab-submission-check}{%
+\section{Lab submission check}\label{lab-submission-check}}
+
+\hypertarget{lab-3}{%
+\chapter{Lab 3}\label{lab-3}}
+
+Placeholder
+
+\hypertarget{Lab3learn}{%
+\section{Learning objectives}\label{Lab3learn}}
+
+\hypertarget{lab-3-set-up}{%
+\section{Lab 3 Set-Up}\label{lab-3-set-up}}
+
+\hypertarget{create-your-lab-3-project-file}{%
+\subsection{Create your Lab 3 project file}\label{create-your-lab-3-project-file}}
+
+\hypertarget{install-new-packages}{%
+\subsection{Install new packages}\label{install-new-packages}}
+
+\hypertarget{install-the-spatstat-package}{%
+\subsubsection{Install the spatstat package}\label{install-the-spatstat-package}}
+
+\hypertarget{install-the-car-package}{%
+\subsubsection{Install the car package}\label{install-the-car-package}}
+
+\hypertarget{create-your-notebook-file}{%
+\subsection{Create your NoteBook file}\label{create-your-notebook-file}}
+
+\hypertarget{initial-data-exploration}{%
+\section{Initial Data exploration}\label{initial-data-exploration}}
+
+\hypertarget{loading-the-data}{%
+\subsection{Loading the data}\label{loading-the-data}}
+
+\hypertarget{reading-more-information}{%
+\subsection{Reading more information}\label{reading-more-information}}
+
+\hypertarget{lab-3-challenge-1}{%
+\section{Lab-3 Challenge 1}\label{lab-3-challenge-1}}
+
+\hypertarget{mean-centre-and-standard-ellipse}{%
+\section{Mean Centre and Standard Ellipse}\label{mean-centre-and-standard-ellipse}}
+
+\hypertarget{lab-3-challenge-2}{%
+\section{Lab-3 Challenge 2}\label{lab-3-challenge-2}}
+
+\hypertarget{global-density-analysis}{%
+\section{Global Density analysis}\label{global-density-analysis}}
+
+\hypertarget{lab-3-challenge-3}{%
+\section{Lab-3 Challenge 3}\label{lab-3-challenge-3}}
+
+\hypertarget{local-intensity---quadrat-analysis}{%
+\section{Local intensity - quadrat analysis}\label{local-intensity---quadrat-analysis}}
+
+\hypertarget{lab-3-challenge-4}{%
+\section{Lab-3 Challenge 4}\label{lab-3-challenge-4}}
+
+\hypertarget{issues-with-quadrat-analysis}{%
+\section{Issues with quadrat analysis}\label{issues-with-quadrat-analysis}}
+
+\hypertarget{lab-3-challenge-5}{%
+\section{Lab-3 Challenge 5}\label{lab-3-challenge-5}}
+
+\hypertarget{kernel-density-estimation-kde}{%
+\section{Kernel Density Estimation (KDE)}\label{kernel-density-estimation-kde}}
+
+\hypertarget{lab-3-challenge-6}{%
+\section{Lab-3 Challenge 6}\label{lab-3-challenge-6}}
+
+\hypertarget{automatically-calculating-an-optimal-bandwidth}{%
+\section{Automatically calculating an ``optimal'' bandwidth}\label{automatically-calculating-an-optimal-bandwidth}}
+
+\hypertarget{lab-3-challenge-7}{%
+\section{Lab-3 Challenge 7}\label{lab-3-challenge-7}}
+
+\hypertarget{lab-3-show-me-something-new}{%
+\section{Lab-3 Show me something new}\label{lab-3-show-me-something-new}}
+
+\hypertarget{lab-3-submission-check}{%
+\section{Lab-3 submission check}\label{lab-3-submission-check}}
+
+\hypertarget{test-1}{%
+\chapter{TEST 1}\label{test-1}}
+
+Placeholder
+
+\hypertarget{set-up-the-data}{%
+\section{Set up the data}\label{set-up-the-data}}
+
+\hypertarget{lanternfly-analysis}{%
+\section{Lanternfly analysis}\label{lanternfly-analysis}}
+
+\hypertarget{beetle-analysis}{%
+\section{Beetle analysis}\label{beetle-analysis}}
+
+\hypertarget{lab-4}{%
+\chapter{Lab 4}\label{lab-4}}
+
+Placeholder
+
+\hypertarget{lab-4-set-up}{%
+\section{Lab 4 Set-Up}\label{lab-4-set-up}}
+
+\hypertarget{create-your-lab-4-project-file}{%
+\subsection{Create your Lab 4 project file}\label{create-your-lab-4-project-file}}
+
+\hypertarget{create-your-notebook-file}{%
+\subsection{Create your NoteBook file}\label{create-your-notebook-file}}
+
+\hypertarget{download-and-run-packages}{%
+\subsection{Download and run packages}\label{download-and-run-packages}}
+
+\hypertarget{challenge-1-exploratory-analysis}{%
+\section{Challenge 1, Exploratory analysis}\label{challenge-1-exploratory-analysis}}
+
+\hypertarget{challenge-2-set-up-the-data}{%
+\section{Challenge 2, set up the data}\label{challenge-2-set-up-the-data}}
+
+\hypertarget{a.-read-in-and-explore-the-point-data}{%
+\subsection{A. Read in and explore the point data}\label{a.-read-in-and-explore-the-point-data}}
+
+\hypertarget{b.-read-in-the-other-data-and-set-projections}{%
+\subsection{B. Read in the other data and set projections}\label{b.-read-in-the-other-data-and-set-projections}}
+
+\hypertarget{challenge-3-make-data-ppp}{%
+\section{Challenge 3, Make data ppp}\label{challenge-3-make-data-ppp}}
+
+\hypertarget{challenge-4-quadrat-analysis}{%
+\section{Challenge 4, quadrat analysis}\label{challenge-4-quadrat-analysis}}
+
+\hypertarget{challenge-5-elevation-links}{%
+\section{Challenge 5, elevation links}\label{challenge-5-elevation-links}}
+
+\hypertarget{challenge-6-nearest-neighbour}{%
+\section{Challenge 6 Nearest neighbour}\label{challenge-6-nearest-neighbour}}
+
+\hypertarget{challenge-7-l-analysis}{%
+\section{Challenge 7 L Analysis}\label{challenge-7-l-analysis}}
+
+\hypertarget{challenge-8-show-me-something-new}{%
+\section{Challenge 8 Show me something new}\label{challenge-8-show-me-something-new}}
+
+\hypertarget{lab-4-submission-check}{%
+\section{Lab-4 submission check}\label{lab-4-submission-check}}
+
+\hypertarget{lab-5}{%
+\chapter{Lab 5}\label{lab-5}}
+
+Placeholder
+
+\hypertarget{lab-5-set-up}{%
+\section{Lab 5 Set-Up}\label{lab-5-set-up}}
+
+\hypertarget{create-your-lab-5-project-file}{%
+\subsection{Create your Lab 5 project file}\label{create-your-lab-5-project-file}}
+
+\hypertarget{create-your-notebook-file}{%
+\subsection{Create your NoteBook file}\label{create-your-notebook-file}}
+
+\hypertarget{style-guide}{%
+\subsection{Style guide}\label{style-guide}}
+
+\hypertarget{download-and-run-packages}{%
+\subsection{Download and run packages}\label{download-and-run-packages}}
+
+\hypertarget{challenge-1-explore-the-data}{%
+\section{Challenge 1: Explore the data}\label{challenge-1-explore-the-data}}
+
+\hypertarget{download-load-the-data}{%
+\subsection{Download \& load the data}\label{download-load-the-data}}
+
+\hypertarget{initial-analysis}{%
+\subsection{Initial analysis}\label{initial-analysis}}
+
+\hypertarget{convert-to-spatial-data}{%
+\subsection{Convert to spatial data}\label{convert-to-spatial-data}}
+
+\hypertarget{add-a-projection}{%
+\subsection{Add a projection}\label{add-a-projection}}
+
+\hypertarget{challenge-2-exploratory-analysis}{%
+\section{Challenge 2: Exploratory analysis}\label{challenge-2-exploratory-analysis}}
+
+\hypertarget{make-plots-in-tmap}{%
+\subsection{Make plots in tmap}\label{make-plots-in-tmap}}
+
+\hypertarget{exploratory-analysis}{%
+\subsection{Exploratory analysis}\label{exploratory-analysis}}
+
+\hypertarget{challenge-3-thiessen-polygons-by-hand}{%
+\section{Challenge 3: Thiessen polygons by hand}\label{challenge-3-thiessen-polygons-by-hand}}
+
+\hypertarget{challenge-4-thiessen-polygons-in-r}{%
+\section{Challenge 4: Thiessen polygons in R}\label{challenge-4-thiessen-polygons-in-r}}
+
+\hypertarget{challenge-5-inverse-distance-weighting-info}{%
+\section{Challenge 5: Inverse Distance Weighting info}\label{challenge-5-inverse-distance-weighting-info}}
+
+\hypertarget{challenge-6-inverse-distance-weighting-code}{%
+\section{Challenge 6: Inverse Distance Weighting code}\label{challenge-6-inverse-distance-weighting-code}}
+
+\hypertarget{challenge-7-checking-accuracy}{%
+\section{Challenge 7: Checking accuracy}\label{challenge-7-checking-accuracy}}
+
+\hypertarget{challenge-8-your-own-idw}{%
+\section{Challenge 8: Your own IDW}\label{challenge-8-your-own-idw}}
+
+\hypertarget{challenge-9-show-me-something-new}{%
+\section{Challenge 9 Show me something new}\label{challenge-9-show-me-something-new}}
+
+\hypertarget{lab-5-submission-check}{%
+\section{Lab-5 submission check}\label{lab-5-submission-check}}
+
+\hypertarget{lab-6}{%
+\chapter{Lab 6}\label{lab-6}}
+
+Placeholder
+
+\hypertarget{lab-6-set-up}{%
+\section{Lab 6 Set-Up}\label{lab-6-set-up}}
+
+\hypertarget{create-your-lab-6-project-file}{%
+\subsection{Create your Lab 6 project file}\label{create-your-lab-6-project-file}}
+
+\hypertarget{create-your-notebook-file}{%
+\subsection{Create your NoteBook file}\label{create-your-notebook-file}}
+
+\hypertarget{style-guide}{%
+\subsection{Style guide}\label{style-guide}}
+
+\hypertarget{download-and-run-packages}{%
+\subsection{Download and run packages}\label{download-and-run-packages}}
+
+\hypertarget{tutorial-1-spatial-weights-join-counts}{%
+\section{Tutorial 1: Spatial weights \& Join Counts}\label{tutorial-1-spatial-weights-join-counts}}
+
+\hypertarget{making-the-grid}{%
+\subsection{Making the grid}\label{making-the-grid}}
+
+\hypertarget{creating-the-spatial-weights}{%
+\subsection{Creating the spatial weights}\label{creating-the-spatial-weights}}
+
+\hypertarget{conducting-a-join-counts-analysis}{%
+\subsection{Conducting a join-counts analysis}\label{conducting-a-join-counts-analysis}}
+
+\hypertarget{challenge-1-join-counts}{%
+\section{Challenge 1: Join Counts}\label{challenge-1-join-counts}}
+
+\hypertarget{challenge-1a}{%
+\subsection{Challenge 1a}\label{challenge-1a}}
+
+\hypertarget{challenge-1b}{%
+\subsection{Challenge 1b}\label{challenge-1b}}
+
+\hypertarget{tutorial-2-social-vulnerability-and-morans-i}{%
+\section{Tutorial 2: Social vulnerability and Moran's I}\label{tutorial-2-social-vulnerability-and-morans-i}}
+
+\hypertarget{download-the-data}{%
+\subsection{Download the data}\label{download-the-data}}
+
+\hypertarget{read-the-data-into-r}{%
+\subsection{Read the data into R}\label{read-the-data-into-r}}
+
+\hypertarget{change-the-projection}{%
+\subsection{Change the projection}\label{change-the-projection}}
+
+\hypertarget{explore-the-data}{%
+\subsection{Explore the data}\label{explore-the-data}}
+
+\hypertarget{creating-a-spatial-weights-matrix}{%
+\subsection{Creating a spatial weights matrix}\label{creating-a-spatial-weights-matrix}}
+
+\hypertarget{morans-i-scatterplot}{%
+\subsubsection{Moran's I scatterplot}\label{morans-i-scatterplot}}
+
+\hypertarget{challenge-2-your-own-spatial-analysis}{%
+\section{Challenge 2: Your own spatial analysis}\label{challenge-2-your-own-spatial-analysis}}
+
+\hypertarget{challenge-3-show-me-something-new}{%
+\section{Challenge 3 Show me something new}\label{challenge-3-show-me-something-new}}
+
+\hypertarget{lab-5-submission-check}{%
+\section{Lab-5 submission check}\label{lab-5-submission-check}}
+
+\end{document}
